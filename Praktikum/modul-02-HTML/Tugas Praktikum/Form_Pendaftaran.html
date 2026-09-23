@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Mahasiswa</title>
+</head>
+<body>
+    <div>
+    <h1>Form Pendaftaran Mahasiswa Baru</h1>
+    </div>
+
+    <form>
+    <div>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap">
+    </div>
+    <br>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="contoh@gmail.com">
+    </div>
+    <br>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password">
+    </div>
+    <br>
+    <div>
+        <label>Jenis Kelamin:</label>
+        <input type="radio" id="lk" name="jenis_kelamin" value="Laki-laki">
+        <label for="lk">Laki-laki</label>
+        <input type="radio" id="pr" name="jenis_kelamin" value="Perempuan">
+        <label for="pr">Perempuan</label>
+        <input type="radio" id="ln" name="jenis_kelamin" value="Lainnya">
+        <label for="ln">Lainnya</label>        
+    </div>
+    <br>
+    <div>
+        <label>Hobi:</label>
+        <input type="checkbox" id="hobi_1" name="hobi" value="Mengarang_Cerita">
+        <label for="hobi_1">Mengarang Cerita</label>
+        <input type="checkbox" id="hobi_2" name="hobi" value="Nonton_Anime">
+        <label for="hobi_2">Nonton Anime</label>
+        <input type="checkbox" id="hobi_3" name="hobi" value="Memancing">
+        <label for="hobi_3">Memancing</label>
+        <input type="checkbox" id="hobi_4" name="hobi" value="Gangguin Kak Ros">
+        <label for="hobi_4">Gangguin Kak Ros</label>
+    </div>
+    <br>
+    <div>
+        <label for="pendidikan">Pendidikan Terakhir: </label>
+        <select id="pendidikan" name="pendidikan">
+            <option value="S3">S3</option>
+            <option value="S2">S2</option>
+            <option value="S1">S1</option>
+            <option value="D4">D4</option>
+            <option value="D3">D3</option>
+            <option value="SMA/SMK">SMA/SMK</option>
+            <option value="SMP">SMP</option>
+            <option value="SD">SD</option>
+            <option value="PAUD">PAUD</option>
+            <option value="unschool">Unschool</option>
+            <option value="pengangguran">Pengangguran</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="saran">Kritik dan Saran boleh disampaikan:</label>
+        <div>
+        <textarea id="saran" name="saran" rows="4" cols="30"></textarea>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+    </form>
+    <div>
+        <p><a href="Data_Mahasiswa.html">Kembali</a></p>
+    </div>
+    
+</body>
+</html>
