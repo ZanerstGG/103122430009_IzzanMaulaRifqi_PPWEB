@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Pendaftaran - HoyoFan Tel-U Purwokerto</title>
+    </head>
+    <body>
+
+        <h1>Pendaftaran Member</h1>
+        <p>Isi biodata di bawah ini dengan lengkap.</p>
+
+        <hr>
+
+        <form>
+            <h3>Isi Data Diri</h3>
+            <table>
+                <tr>
+                    <td>NIK</td><td>:</td><td><input type="text" name="nik" maxlength="16"></td>
+                </tr>
+                <tr>
+                    <td>Nama Lengkap</td><td>:</td><td><input type="text" name="nama"></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir</td><td>:</td><td><input type="date" name="tanggal_lahir"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td><td>:</td><td><input type="radio" name="jenis_kelamin" value="laki-laki">Laki-Laki
+                        <input type="radio" name="jenis_kelamin" value="Perempuan">Perempuan</td>
+                </tr>
+                <tr>
+                    <td>Golongan Darah</td>
+                    <td>:</td>
+                    <td><select name="gol-darah">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="O">O</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Alamat</td><td>:</td><td><textarea name="alamat" rows="3" cols="30"></textarea></td>
+                </tr>
+                <tr>
+                    <td>RT / RW</td><td>:</td><td><input type="text" name="rt" size="3">/<input type="text" name="rt" size="3"></td>
+                </tr>
+                <tr>
+                    <td>Kelurahan / Desa</td><td>:</td><td><input type="text" name="kelurahan"></td>
+                </tr>
+                <tr>
+                    <td>Kecamatan</td><td>:</td><td><input type="text" name="kecamatan"></td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td>:</td>
+                    <td><select name="agama">
+							<option value="Islam">Islam</option>
+							<option value="Kristen">Kristen</option>
+							<option value="Katolik">Katolik</option>
+							<option value="Hindu">Hindu</option>
+							<option value="Buddha">Buddha</option>
+							<option value="Konghucu">Konghucu</option>
+						</select>
+					</td>
+                </tr>
+                <tr>
+                    <td>Status Perkawinan</td>
+					<td>:</td>
+					<td><select name="status">
+							<option value="Belum Kawin">Belum Kawin</option>
+							<option value="Kawin">Kawin</option>
+							<option value="Cerai Hidup">Cerai Hidup</option>
+							<option value="Cerai Mati">Cerai Mati</option>
+						</select>
+					</td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan</td><td>:</td><td><input type="text" name="pekerjaan"></td>
+                </tr>
+                <tr>
+                    <td>Kewarganegaraan</td><td>:</td><td><input type="text" name="kewarganegaraan"></td>
+                </tr>
+            </table>
+
+            <h3>Data Komunitas</h3>
+            
+            <table>
+                <tr>
+                    <td>Nickname Discord</td><td>:</td><td><input type="text" name="discord"></td>
+                </tr>
+                <tr>
+                    <td>UID Game</td><td>:</td><td><input type="text" name="uid"></td>
+                </tr>
+                <tr>
+                    <td>Game Favorit</td>
+                    <td>:</td>
+                    <td>
+						<input type="checkbox" name="game" value="Honkai Impact 3rd"> Honkai Impact 3rd <br>
+                        <input type="checkbox" name="game" value="Genshin Impact"> Genshin Impact <br>
+                        <input type="checkbox" name="game" value="Wuthering Waves"> Wuthering Waves <br>
+						<input type="checkbox" name="game" value="Honkai: Star Rail"> Honkai: Star Rail <br>
+						<input type="checkbox" name="game" value="Zenless Zone Zero"> Zenless Zone Zero <br>
+                        <input type="checkbox" name="game" value="Tears of Themis"> Tears of Themis <br>
+                        <input type="checkbox" name="game" value="Petit Planet"> Petit Planet <br>
+                        <input type="checkbox" name="game" value="Honkai Nexus Anima"> Honkai Nexus Anima <br>
+                        <input type="checkbox" name="game" value="Varsapura"> Varsapura <br>
+                        <input type="checkbox" name="game" value="Nodus Fall"> Nodus Fall <br>
+                        <input type="checkbox" name="game" value="ANANTA"> ANANTA <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alasan Bergabung</td><td>:</td><td><textarea name="alasan" rows="3" cols="30"></textarea></td>
+                </tr>
+            </table>
+
+            <br>
+            <input type="submit" value="Daftar">
+            <input type="reset" value="Reset">
+        </form>
+
+        <hr>
+		<h3>Menu Lainnya</h3>
+		<ul>
+			<li><a href="../menu.html">Kembali ke Menu Utama</a></li>
+			<li><a href="index.html">Beranda</a></li>
+			<li><a href="galeri.html">Galeri</a></li>
+			<li><a href="member.html">Member</a></li>
+		</ul>
+    </body>
+</html>
