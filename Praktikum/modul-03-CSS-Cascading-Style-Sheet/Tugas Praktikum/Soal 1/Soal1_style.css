@@ -1,0 +1,59 @@
+body {
+    background-color: #dceefd;
+    margin: 0;
+    padding: 0;
+}
+
+.profil-container {
+    width: 80%;
+    margin: 30px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-family: Arial;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.profil {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.profil h2 {
+    text-align: center;
+    color: #34495e;
+    font-family: Georgia;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.deskripsi {
+    text-align: justify;
+    font-family: Arial;
+    font-size: 16px;
+    color: #333;
+}
+
+.profil h3{
+    text-align: left;
+    color:#2c3e50;
+    font-family: Arial;
+}
+
+ul {
+    list-style-type: square;
+    background-color: #f2f2f2;
+    padding: 15px 15px 15px 35px;
+}
+
+ul li {
+    font-family: Arial;
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 5px;
+}
+
