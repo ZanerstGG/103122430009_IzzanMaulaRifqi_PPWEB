@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Kampus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <section id="beranda" class="max-w-6xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center">Toko Kampus</h1>
+        <p class="text-center mt-2">Perlengkapan kuliah untuk kebutuhan sehari-hari</p>
+        <nav class="flex justify-center gap-6 mt-6">
+            <a href="#beranda" class="text-blue-600 hover:text-blue-800">Beranda</a>
+            <a href="#produk" class="text-blue-600 hover:text-blue-800">Produk</a>
+            <a href="#kontak" class="text-blue-600 hover:text-blue-800">Kontak</a>
+        </nav>
+    </section>
+    <section id="produk" class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-6">Produk</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img
+                    src="assets/buku-catatan.jpg"
+                    alt="Buku Catatan"
+                    class="w-full">
+                <h3 class="font-bold text-lg mt-4">
+                    Buku Catatan</h3>
+                <p class="text-blue-600 font-semibold mt-2">
+                    Rp15.000</p>
+                <p class="text-gray-600 mt-2">
+                    Buku untuk mencatat materi kuliah.</p>
+                <a
+                    href="#detail-buku"
+                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-800">
+                    Lihat Detail</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img
+                    src="assets/pulpen.jpg"
+                    alt="Pulpen"
+                    class="w-full">
+                <h3 class="font-bold text-lg mt-4">
+                    Pulpen</h3>
+                <p class="text-blue-600 font-semibold mt-2">
+                    Rp5.000
+                </p>
+                <p class="text-gray-600 mt-2">
+                    Pulpen untuk menulis tugas dan catatan.</p>
+                <a
+                    href="#detail-pulpen"
+                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-800">
+                    Lihat Detail</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img
+                    src="assets/tumbler.jpg"
+                    alt="Tumbler"
+                    class="w-full">
+                <h3 class="font-bold text-lg mt-4">
+                    Tumbler</h3>
+                <p class="text-blue-600 font-semibold mt-2">
+                    Rp35.000
+                </p>
+                <p class="text-gray-600 mt-2">
+                    Botol minum untuk dibawa ke kampus.</p>
+                <a
+                    href="#detail-tumbler"
+                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-800">
+                    Lihat Detail</a>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img
+                    src="assets/tas.jpg"
+                    alt="Tas Kuliah"
+                    class="w-full">
+                <h3 class="font-bold text-lg mt-4">
+                    Tas Kuliah</h3>
+                <p class="text-blue-600 font-semibold mt-2">
+                    Rp120.000</p>
+                <p class="text-gray-600 mt-2">
+                    Tas untuk menyimpan buku dan alat tulis.</p>
+                <a
+                    href="#detail-tas"
+                    class="inline-block bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-800">
+                    Lihat Detail</a>
+            </div>
+        </div>
+    </section>
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-6">Detail Produk</h2>
+        <div id="detail-buku" class="bg-white p-5 rounded-lg shadow mb-4">
+            <h3 class="font-bold text-xl">Buku Catatan</h3>
+            <p class="text-gray-600 mt-2">
+                Buku catatan dengan ukuran A5 dan 80 lembar.
+                Cocok digunakan untuk mencatat materi perkuliahan.</p>
+        </div>
+        <div id="detail-pulpen" class="bg-white p-5 rounded-lg shadow mb-4">
+            <h3 class="font-bold text-xl">Pulpen</h3>
+            <p class="text-gray-600 mt-2">
+                Pulpen dengan tinta hitam dan ujung 0,5 mm.
+                Cocok untuk menulis tugas dan catatan kuliah.</p>
+        </div>
+        <div id="detail-tumbler" class="bg-white p-5 rounded-lg shadow mb-4">
+            <h3 class="font-bold text-xl">Tumbler</h3>
+            <p class="text-gray-600 mt-2">
+                Tumbler berkapasitas 600 ml yang mudah dibawa
+                untuk memenuhi kebutuhan minum selama berada di kampus.</p>
+        </div>
+        <div id="detail-tas" class="bg-white p-5 rounded-lg shadow">
+            <h3 class="font-bold text-xl">
+                Tas Kuliah
+            </h3>
+            <p class="text-gray-600 mt-2">
+                Tas kuliah dengan beberapa ruang penyimpanan
+                untuk buku, laptop, dan alat tulis.</p>
+        </div>
+    </section>
+    <section id="kontak" class="max-w-6xl mx-auto px-4 py-8">
+        <div class="bg-gray-200 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold">Kontak</h2>
+            <p class="mt-2">Toko Kampus
+            </p><p class="text-gray-600 mt-1">tokoprabowo@gmibran.com</p>
+        </div>
+    </section>
+</body>
+</html>

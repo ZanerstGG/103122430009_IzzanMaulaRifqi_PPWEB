@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Era 2020-an: Mabar Pas Pandemi & Menuju Dunia VR — LUDOSFERA</title>
+    <meta name="description" content="Cerita seru dekade 2020 hingga 2026: Game jadi penyelamat pas karantina, konsol PS5 tanpa loading, PC genggam Steam Deck, sampai kacamata virtual reality." />
+    <!-- Path relatif agar aman di VS Code / file lokal -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="../index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <a href="../stories.html" class="nav-link">Kumpulan Cerita</a>
+          <a href="../history.html" class="nav-link active">Garis Waktu</a>
+          <a href="../about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="../index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="../index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="../stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="../history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="../about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Pilihan Dekade Garis Waktu</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="../history/1980s.html"><span>Era 1980-an</span><span>8-Bit & Koin</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/1990s.html"><span>Era 1990-an</span><span>Poligon 3D & CD</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2000s.html"><span>Era 2000-an</span><span>Jejaring & Warnet</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2010s.html"><span>Era 2010-an</span><span>Layar Saku & Indie</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2020s.html"><span>Era 2020-an</span><span>VR & Masa Kini</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>SEJARAH GAME DARI MASA KE MASA • ERA 2020-AN</div>
+        <div>DIBIKIN PAKE HTML5 + CSS MURNI • TAHUN 2026</div>
+      </div>
+    </div>
+
+    <!-- Konten Artikel -->
+    <main class="editorial-essay-wrapper">
+      <div class="editorial-container prose-container">
+        <header class="essay-meta-header">
+          <span class="page-kicker">Garis Waktu • Dekade 2020 — 2026</span>
+          <h1 class="page-title">Era 2020-an: Mabar Pas Pandemi & Menuju Dunia Virtual Reality</h1>
+          <p class="page-intro">
+            Ketika pintu rumah harus dikunci rapat gara-gara karantina global, game jadi tempat nongkrong paling seru bareng teman. Ditambah konsol modern tanpa loading dan kacamata VR, batas dunia nyata dan game makin melebur.
+          </p>
+        </header>
+
+        <figure class="essay-lead-figure">
+          <img 
+            src="../images/future/spatial_future.jpg" 
+            alt="Instalasi teknologi visual masa depan dan kacamata virtual reality"
+            referrerpolicy="no-referrer"
+          />
+          <figcaption>
+            Foto 05 — Menatap era masa depan: Dari layar datar kaca konvensional menuju kacamata pintar yang bikin kita seolah melangkah langsung ke dalam dunia game.
+          </figcaption>
+        </figure>
+
+        <article class="essay-body-prose">
+          <p class="dropcap">
+            Awal tahun 2020 diawali sama peristiwa besar yang nggak bakal dilupain dunia: pandemi COVID-19 bikin semua orang harus isolasi diri di rumah. Di saat bioskop tutup, konser batal, dan sekolah diliburkan, video game mendadak jadi penyelamat utama kesehatan mental jutaan orang.
+          </p>
+
+          <p>
+            Siapa yang dulu pas karantina ikutan rajin nandur lobak di <em>Animal Crossing: New Horizons</em> di Nintendo Switch? Atau tuduh-tuduhan seru cari penyusup bareng temen di Discord pas main <em>Among Us</em>? Game bukan lagi sekadar pelarian; ia jadi tempat silaturahmi paling hangat pas dunia luar lagi sunyi.
+          </p>
+
+          <div class="essay-pullquote">
+            "Pas jalanan kota sepi dan pintu rumah ditutup rapat, kita nemuin bahwa nongkrong bareng temen ternyata bisa tetep seru di dalam ruang virtual."
+          </div>
+
+          <h2 class="essay-subheading">Konsol Generasi Baru: Loading Screen Resmi Punah</h2>
+          <p>
+            Akhir 2020 ditandai sama lahirnya PlayStation 5 dan Xbox Series X. Fitur yang paling bikin takjub bukan cuma grafisnya yang makin tajam, tapi teknologi SSD super kencang. Momen nunggu layar hitam muter-muter (*loading screen*) yang biasanya bikin bosen selama puluhan tahun akhirnya praktis lenyap. Pindah dari satu kota ke kota lain di game berlangsung dalam kedipan mata!
+          </p>
+          <p>
+            Selain itu, teknologi pencahayaan <em>Ray Tracing</em> bikin pantulan lampu neon di mobil atau bayangan matahari di air sungai keliatan persis kayak aslinya.
+          </p>
+
+          <h2 class="essay-subheading">Era PC Genggam: Dari Steam Deck Sampai Cloud Gaming</h2>
+          <p>
+            Tahun 2022, Valve ngerilis Steam Deck. Buat gamer PC, ini mimpi yang jadi kenyataan: game-game berat sekelas komputer pribadi sekarang bisa dimainin sambil rebahan di kasur atau pas lagi nongkrong di kafe. Belum lagi teknologi Cloud Gaming yang memungkinkan HP kentang main game kelas atas cuma modal koneksi internet lancar.
+          </p>
+
+          <h2 class="essay-subheading">2024–2026: Komputasi Spasial & Kacamata Virtual</h2>
+          <p>
+            Di tahun 2024 sampai 2026 ini, teknologi makin gila lagi. Kacamata pintar kayak Apple Vision Pro dan Meta Quest bikin kita bisa main game tanpa pegang stik tombol—cukup liat objeknya dan cubit jari di udara. Batas antara kamar kos kita sama dunia fantasi game kian hari kian tipis.
+          </p>
+
+          <details class="curator-dispatch" style="margin-top: 2rem;">
+            <summary>
+              <span>Fakta Menarik: Momen Bersejarah di Dekade 2020-an</span>
+              <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+            </summary>
+            <div class="dispatch-body">
+              <p>
+                Industri game di dekade ini udah resmi jadi industri hiburan paling laris di muka bumi, mengalahkan gabungan pendapatan tiket bioskop Hollywood dan penjualan album musik dunia.
+              </p>
+              <dl class="dispatch-meta-grid">
+                <div class="dispatch-meta-item">
+                  <dt>Teknologi Utama</dt>
+                  <dd>SSD 5,5 GB/detik, Ray Tracing, Sensor Mata</dd>
+                </div>
+                <div class="dispatch-meta-item">
+                  <dt>Cara Main Populer</dt>
+                  <dd>Cross-play (main bareng antar HP, PC, dan konsol)</dd>
+                </div>
+                <div class="dispatch-meta-item">
+                  <dt>Acara Virtual</dt>
+                  <dd>Nonton konser musik jutaan orang di dalam Fortnite</dd>
+                </div>
+              </dl>
+            </div>
+          </details>
+
+          <h2 class="essay-subheading">Game Paling Membekas di Dekade Ini</h2>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2020 — Animal Crossing & Among Us:</strong> Game yang nemenin kita ketawa dan nongkrong pas masa-masa karantina.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2022 — Elden Ring:</strong> Sensasi petualangan dunia terbuka luas yang bikin pemain tertantang tanpa dibantu petunjuk gampang.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2023 — Baldur's Gate 3:</strong> Cerita petualangan yang begitu hidup di mana setiap pilihan kita beneran ngubah takdir karakter.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2024–2026 — Game Spasial & VR:</strong> Pengalaman bermain langsung di ruang tiga dimensi tanpa monitor datar konvensional.
+            </li>
+          </ul>
+
+          <div class="essay-navigation-foot">
+            <a href="../history/2010s.html" class="editorial-link-arrow">
+              <span class="arrow" aria-hidden="true">←</span>
+              <span>Dekade Sebelumnya: 2010-an</span>
+            </a>
+            <a href="../history.html" class="editorial-link-arrow">
+              <span>Kembali ke Garis Waktu Lengkap</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html">Beranda</a></li>
+              <li><a href="../stories.html">Kumpulan Cerita</a></li>
+              <li><a href="../history.html">Garis Waktu</a></li>
+              <li><a href="../about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Semua Dekade</div>
+            <ul class="footer-nav-list">
+              <li><a href="../history/1980s.html">1980-an (Dingdong)</a></li>
+              <li><a href="../history/1990s.html">1990-an (PS1)</a></li>
+              <li><a href="../history/2000s.html">2000-an (Warnet)</a></li>
+              <li><a href="../history/2010s.html">2010-an (Smartphone)</a></li>
+              <li><a href="../history/2020s.html">2020-an (Masa Kini)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>SEJARAH GAME ERA 2020-AN • 2026</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

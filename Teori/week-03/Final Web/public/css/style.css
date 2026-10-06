@@ -1,0 +1,1526 @@
+/* ==========================================================================
+   GAME / CULTURE — Core Design System & Editorial Stylesheet
+   Blueprint: Final Edition • October 2026
+   Pure HTML5 + CSS Architecture (Zero JavaScript)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Web Fonts Import
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   Custom CSS Custom Properties (Theme Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette — Archival Dark Museum Aesthetic */
+  --color-bg: #09090b;
+  --color-surface: #121216;
+  --color-surface-raised: #18181f;
+  --color-surface-hover: #1f1f28;
+  
+  --color-border-hairline: rgba(255, 255, 255, 0.08);
+  --color-border-medium: rgba(255, 255, 255, 0.16);
+  --color-border-accent: rgba(227, 82, 56, 0.4);
+  
+  --color-text-primary: #f5f4f0;
+  --color-text-secondary: #a3a2aa;
+  --color-text-muted: #6e6d78;
+  --color-accent: #e35238;
+  --color-accent-subtle: rgba(227, 82, 56, 0.12);
+  --color-accent-amber: #d97706;
+
+  /* Typography Stacks */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Transitions */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-micro: 180ms;
+  --duration-medium: 320ms;
+
+  /* Spatial Scales */
+  --container-max: 1320px;
+  --container-prose: 720px;
+  --nav-height: 72px;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Reset & Base Rules
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Progress Indicator (Modern Scroll-Driven CSS Enhancement)
+   -------------------------------------------------------------------------- */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--color-border-hairline);
+  z-index: 100;
+  transform-origin: 0 50%;
+}
+
+.scroll-progress-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--color-accent);
+  transform-origin: 0 50%;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-fill {
+    animation: progress-grow linear;
+    animation-timeline: scroll();
+  }
+  @keyframes progress-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Layout Containers & Grids
+   -------------------------------------------------------------------------- */
+.editorial-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+
+.prose-container {
+  width: 100%;
+  max-width: var(--container-prose);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Global Navigation Bar (Strict 1-Row 3-Zone Contract)
+   -------------------------------------------------------------------------- */
+.global-header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  height: var(--nav-height);
+  background-color: rgba(9, 9, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border-hairline);
+  transition: border-color var(--duration-medium) var(--ease-editorial);
+}
+
+.global-header .editorial-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Zone 1: Brand Wordmark */
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--duration-micro) ease;
+}
+
+.nav-brand span.slash {
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.nav-brand:hover {
+  color: #ffffff;
+}
+
+/* Zone 2: Desktop Navigation Links (Unboxed Editorial Links) */
+.nav-center-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color var(--duration-micro) ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width var(--duration-medium) var(--ease-editorial);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-text-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Zone 3: Menu Trigger & Quick Action */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Pure CSS Fullscreen Menu Toggle (Checkbox Hack) */
+.menu-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.menu-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--color-border-hairline);
+  background-color: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  transition: all var(--duration-medium) var(--ease-editorial);
+  user-select: none;
+}
+
+.menu-trigger-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-border-medium);
+  color: #ffffff;
+}
+
+.menu-trigger-icon {
+  display: inline-block;
+  width: 14px;
+  height: 8px;
+  position: relative;
+}
+
+.menu-trigger-icon::before,
+.menu-trigger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: transform var(--duration-medium) var(--ease-editorial);
+}
+
+.menu-trigger-icon::before {
+  top: 0;
+}
+
+.menu-trigger-icon::after {
+  bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Fullscreen Navigation Overlay (Pure CSS Toggle via :checked and :target)
+   -------------------------------------------------------------------------- */
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(9, 9, 11, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  transition: opacity var(--duration-medium) var(--ease-editorial),
+              visibility var(--duration-medium) var(--ease-editorial);
+}
+
+/* Show when checkbox is checked or when URL matches #fullscreen-nav */
+#menu-toggle:checked ~ .fullscreen-overlay,
+.fullscreen-overlay:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: 1.5rem;
+}
+
+.overlay-close-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-hairline);
+  cursor: pointer;
+  transition: all var(--duration-micro) ease;
+}
+
+.overlay-close-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-medium);
+}
+
+.overlay-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 2rem 0;
+}
+
+.overlay-primary-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.overlay-link {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  transition: color var(--duration-micro) ease, transform var(--duration-medium) var(--ease-editorial);
+}
+
+.overlay-link .link-num {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.overlay-link:hover {
+  color: #ffffff;
+  transform: translateX(12px);
+}
+
+.overlay-link:hover .link-num {
+  color: var(--color-accent);
+}
+
+.overlay-curatorial-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--color-border-hairline);
+  padding-left: clamp(1.5rem, 4vw, 4rem);
+}
+
+.overlay-subhead {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.overlay-themes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.overlay-theme-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border-hairline);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-micro) ease, border-color var(--duration-micro) ease;
+}
+
+.overlay-theme-item a:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-medium);
+}
+
+.overlay-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-border-hairline);
+  padding-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Section 01 — Opening (Hero Asymmetric Composition)
+   -------------------------------------------------------------------------- */
+.section-opening {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  padding: clamp(3rem, 6vw, 6rem) 0 clamp(4rem, 8vw, 8rem);
+  position: relative;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.opening-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  width: 100%;
+}
+
+.opening-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.opening-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.opening-kicker::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+.opening-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.opening-title .title-accent {
+  color: var(--color-accent);
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.opening-tagline {
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 38rem;
+  border-left: 2px solid var(--color-border-hairline);
+  padding-left: 1.25rem;
+}
+
+.opening-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+.opening-meta-item strong {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.opening-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Editorial Button Styles */
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  padding: 0.875rem 1.75rem;
+  transition: all var(--duration-medium) var(--ease-editorial);
+}
+
+.btn-editorial-primary:hover {
+  background-color: #f05e45;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(227, 82, 56, 0.25);
+}
+
+.btn-editorial-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-hairline);
+  padding: 0.875rem 1.75rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: all var(--duration-medium) var(--ease-editorial);
+}
+
+.btn-editorial-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-border-medium);
+  transform: translateY(-2px);
+}
+
+/* Opening Visual Frame */
+.opening-visual-frame {
+  position: relative;
+}
+
+.image-card-editorial {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  aspect-ratio: 16 / 10;
+}
+
+.image-card-editorial img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-editorial), filter 600ms ease;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+.image-card-editorial:hover img {
+  transform: scale(1.03);
+  filter: contrast(1.1) brightness(1);
+}
+
+.visual-caption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Scroll Indicator Cue */
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.scroll-line-pulse {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  animation: scrollPulse 2s infinite ease-in-out;
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleX(0.2); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0.2); opacity: 0.4; }
+}
+
+/* --------------------------------------------------------------------------
+   Section Template & Hairline Section Separators
+   -------------------------------------------------------------------------- */
+.editorial-section {
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+  border-bottom: 1px solid var(--color-border-hairline);
+  position: relative;
+}
+
+.section-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.section-indicator .indicator-number {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Section 02 — Arcade (Asymmetric Layout: Large Type on Side, Image on Side)
+   -------------------------------------------------------------------------- */
+.arcade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.arcade-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.section-deck {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.section-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.editorial-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-top: 1rem;
+  transition: color var(--duration-micro) ease, gap var(--duration-medium) var(--ease-editorial);
+}
+
+.editorial-link-arrow span.arrow {
+  color: var(--color-accent);
+  transition: transform var(--duration-medium) var(--ease-editorial);
+}
+
+.editorial-link-arrow:hover {
+  color: var(--color-accent);
+}
+
+.editorial-link-arrow:hover span.arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Section 03 — Console (Image Dominant with Accompanying Typography)
+   -------------------------------------------------------------------------- */
+.console-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.console-lead-visual {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+}
+
+.console-lead-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms var(--ease-editorial);
+}
+
+.console-lead-visual:hover img {
+  transform: scale(1.02);
+}
+
+.console-editorial-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   Section 04 — Online (Experimental Typography as Primary Visual Object)
+   -------------------------------------------------------------------------- */
+.section-online {
+  background-color: #0c0c10;
+  overflow: hidden;
+}
+
+.online-kinetic-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.online-giant-banner {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 9.5rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.22);
+  white-space: nowrap;
+  user-select: none;
+  transition: -webkit-text-stroke-color var(--duration-medium) ease, color var(--duration-medium) ease;
+}
+
+.online-giant-banner:hover {
+  -webkit-text-stroke-color: var(--color-accent);
+  color: rgba(227, 82, 56, 0.08);
+}
+
+.online-grid-insights {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.online-quote-card {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  border-left: 3px solid var(--color-accent);
+}
+
+.online-quote-card blockquote {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.online-quote-cite {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Section 05 — Mobile (Three Visual Compositions in Horizontal Flow)
+   -------------------------------------------------------------------------- */
+.mobile-triptych-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.triptych-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  overflow: hidden;
+  transition: transform var(--duration-medium) var(--ease-editorial), border-color var(--duration-medium) ease;
+}
+
+.triptych-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-medium);
+}
+
+.triptych-img-wrap {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #1a1a24;
+}
+
+.triptych-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-editorial);
+}
+
+.triptych-card:hover .triptych-img-wrap img {
+  transform: scale(1.05);
+}
+
+.triptych-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.triptych-index {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.triptych-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.triptych-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Section 06 — Future (Minimal Closing Narrative)
+   -------------------------------------------------------------------------- */
+.future-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1.75rem;
+}
+
+.future-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.future-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.future-prose {
+  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  max-width: 44rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Native HTML Details / Summary (Pure CSS Expandable Dossier)
+   -------------------------------------------------------------------------- */
+.curator-dispatch {
+  margin-top: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border-hairline);
+  transition: border-color var(--duration-micro) ease;
+}
+
+.curator-dispatch[open] {
+  border-color: var(--color-border-medium);
+  background-color: var(--color-surface);
+}
+
+.curator-dispatch summary {
+  list-style: none;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: color var(--duration-micro) ease;
+}
+
+.curator-dispatch summary::-webkit-details-marker {
+  display: none;
+}
+
+.curator-dispatch summary:hover {
+  color: var(--color-text-primary);
+}
+
+.dispatch-toggle-symbol {
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--color-accent);
+  transition: transform var(--duration-medium) var(--ease-editorial);
+}
+
+.curator-dispatch[open] .dispatch-toggle-symbol {
+  transform: rotate(45deg);
+}
+
+.dispatch-body {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--color-border-hairline);
+  padding-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.dispatch-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--color-border-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+
+.dispatch-meta-item dt {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dispatch-meta-item dd {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Global Footer
+   -------------------------------------------------------------------------- */
+.global-footer {
+  background-color: #070709;
+  border-top: 1px solid var(--color-border-hairline);
+  padding: clamp(3.5rem, 6vw, 6rem) 0 2.5rem;
+  margin-top: auto;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.footer-brand-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.footer-brand-title span {
+  color: var(--color-accent);
+}
+
+.footer-tagline {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  max-width: 24rem;
+  line-height: 1.6;
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-list a {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  transition: color var(--duration-micro) ease;
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-text-primary);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Sub-Pages Specific Design Components (Stories, History, About, Detail)
+   -------------------------------------------------------------------------- */
+/* Page Hero Header */
+.page-hero {
+  padding: clamp(3.5rem, 6vw, 6rem) 0 3rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+  position: relative;
+}
+
+.page-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.page-intro {
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 48rem;
+}
+
+/* Story Index Cards */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.story-card-link {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  overflow: hidden;
+  transition: all var(--duration-medium) var(--ease-editorial);
+}
+
+.story-card-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-medium);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.story-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #16161f;
+}
+
+.story-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-editorial);
+}
+
+.story-card-link:hover .story-card-image img {
+  transform: scale(1.04);
+}
+
+.story-card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  flex-grow: 1;
+}
+
+.story-meta-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.story-excerpt {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   History Timeline (Pure CSS Filter Tabs & Milestones)
+   -------------------------------------------------------------------------- */
+.timeline-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.timeline-tab-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-micro) ease;
+}
+
+.timeline-tab-label:hover {
+  color: var(--color-text-primary);
+}
+
+.timeline-items-flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  padding-left: 2rem;
+  border-left: 1px solid var(--color-border-hairline);
+  margin-bottom: 6rem;
+}
+
+.timeline-milestone {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+}
+
+.timeline-milestone::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  transform: translate(-50%, 0);
+  width: 9px;
+  height: 9px;
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-bg);
+  border-radius: 50%;
+}
+
+.milestone-year {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.milestone-year span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: 0.25rem;
+}
+
+.milestone-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-hairline);
+  padding: 1.75rem;
+  transition: border-color var(--duration-medium) ease;
+}
+
+.milestone-card:hover {
+  border-color: var(--color-border-medium);
+}
+
+.milestone-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.milestone-body {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Long-Form Editorial Essay Styles (For Detail Pages)
+   -------------------------------------------------------------------------- */
+.editorial-essay-wrapper {
+  padding: clamp(3rem, 6vw, 5rem) 0 6rem;
+}
+
+.essay-meta-header {
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.essay-lead-figure {
+  margin: 2.5rem 0 3.5rem;
+  border: 1px solid var(--color-border-hairline);
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.essay-lead-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.essay-lead-figure figcaption {
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border-hairline);
+}
+
+.essay-body-prose p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #cfcee0;
+  margin-bottom: 1.75rem;
+}
+
+.essay-body-prose p.dropcap::first-letter {
+  font-family: var(--font-display);
+  font-size: 3.75rem;
+  line-height: 0.9;
+  float: left;
+  margin-top: 0.15rem;
+  margin-right: 0.75rem;
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+.essay-pullquote {
+  margin: 3rem 0;
+  padding: 2rem 2.5rem;
+  background-color: var(--color-surface);
+  border-left: 3px solid var(--color-accent);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  font-style: italic;
+}
+
+.essay-subheading {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: 0.75rem;
+}
+
+.essay-navigation-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-border-hairline);
+  padding-top: 2rem;
+  margin-top: 4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints (Desktop, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-center-links {
+    display: none;
+  }
+  
+  .opening-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .arcade-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .console-editorial-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .online-grid-insights {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-triptych-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mobile-triptych-grid .triptych-card:last-child {
+    grid-column: span 2;
+  }
+  
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .footer-brand-lockup {
+    grid-column: span 2;
+  }
+  
+  .overlay-body {
+    grid-template-columns: 1fr;
+  }
+  
+  .overlay-curatorial-col {
+    border-left: none;
+    border-top: 1px solid var(--color-border-hairline);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+  
+  .opening-title {
+    font-size: 2.5rem;
+  }
+  
+  .mobile-triptych-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-triptych-grid .triptych-card:last-child {
+    grid-column: span 1;
+  }
+  
+  .timeline-milestone {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-brand-lockup {
+    grid-column: span 1;
+  }
+  
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .overlay-link {
+    font-size: 2rem;
+  }
+}

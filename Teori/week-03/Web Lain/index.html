@@ -1,0 +1,2180 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edukasi &amp; Dekonstruksi Sindikat Judi Online</title>
+    <meta name="description" content="Website edukasi &amp; investigasi interaktif yang membedah manipulasi sistem, algoritma palsu, dan bahaya jeratan sindikat judi online." />
+    <meta property="og:title" content="BEDAH JUDOL - Gerakan Edukasi &amp; Dekonstruksi Sindikat Judi Online" />
+    <meta property="og:description" content="Website edukasi &amp; investigasi interaktif yang membedah manipulasi sistem, algoritma palsu, dan bahaya jeratan sindikat judi online." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Kompatibilitas Browser & Extension (Setter untuk window.fetch) -->
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch ? window.fetch.bind(window) : undefined;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e1) {
+          try {
+            var _f2 = window.fetch;
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f2; },
+              set: function(val) { _f2 = val; },
+              configurable: true,
+              enumerable: true
+            });
+          } catch (e2) {}
+        }
+      })();
+    </script>
+
+    <!-- Link stylesheet eksternal (menggunakan relative path agar aman saat dibuka langsung dari folder / VS Code) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Style internal: Menjamin tampilan CSS tetap 100% aktif dan berjalan sempurna saat file index.html diekstrak atau dibuka langsung di VS Code / browser -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+      :root {
+        --bg-deep: #09090e;
+        --bg-card: #13121d;
+        --bg-card-alt: #1a1827;
+        --bg-input: #1f1d30;
+        --gold-primary: #f59e0b;
+        --gold-light: #fbbf24;
+        --gold-glow: rgba(245, 158, 11, 0.35);
+        --purple-brand: #7c3aed;
+        --purple-glow: rgba(124, 58, 237, 0.4);
+        --cyan-accent: #06b6d4;
+        --danger-red: #ef4444;
+        --danger-glow: rgba(239, 68, 68, 0.4);
+        --text-main: #f3f4f6;
+        --text-muted: #9ca3af;
+        --text-dark: #6b7280;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --border-gold: rgba(245, 158, 11, 0.3);
+        --border-danger: rgba(239, 68, 68, 0.4);
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        --font-display: 'Syne', system-ui, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+        --radius-xl: 24px;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-family: var(--font-sans);
+        background-color: var(--bg-deep);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: radial-gradient(circle at 50% 0%, #1d1238 0%, #09090e 60%);
+        background-attachment: fixed;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; height: auto; display: block; }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+
+      .text-gold { color: var(--gold-light); }
+      .text-danger { color: var(--danger-red); }
+      .text-cyan { color: var(--cyan-accent); }
+      .text-muted { color: var(--text-muted); }
+      .font-mono { font-family: var(--font-mono); }
+      .font-display { font-family: var(--font-display); }
+
+      .toggle-hidden { display: none !important; }
+
+      /* DISCLAIMER AKADEMIK */
+      .academic-bar {
+        background: linear-gradient(90deg, #1e1b4b, #311042, #1e1b4b);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        color: #e0e7ff;
+      }
+
+      .academic-bar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .academic-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: rgba(99, 102, 241, 0.25);
+        border: 1px solid rgba(165, 180, 252, 0.3);
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #c7d2fe;
+      }
+
+      .academic-spec {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #a5b4fc;
+      }
+
+      /* MASTER X-RAY SWITCH BAR */
+      .master-control-bar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(13, 12, 22, 0.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 2px solid var(--purple-brand);
+        padding: 0.8rem 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+      }
+
+      .master-control-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .switch-label-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .switch-track {
+        width: 60px;
+        height: 32px;
+        background: #2a283e;
+        border-radius: 999px;
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .switch-handle {
+        width: 24px;
+        height: 24px;
+        background: #f3f4f6;
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      }
+
+      .switch-text {
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .mode-badge-off { color: var(--gold-light); display: inline; }
+      .mode-badge-on { color: var(--danger-red); display: none; }
+      .switch-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+      .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .nav-link {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        transition: color 0.2s;
+        padding: 0.3rem 0.6rem;
+        border-radius: var(--radius-sm);
+      }
+
+      .nav-link:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* CASINO HEADER */
+      .casino-header {
+        background: linear-gradient(180deg, #151324 0%, #0d0c17 100%);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 1rem 0;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+      }
+
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .brand-emblem {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, #f59e0b, #b45309);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 0 16px var(--gold-glow);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .brand-name {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+      }
+
+      .brand-tagline {
+        font-size: 0.7rem;
+        color: var(--gold-light);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .btn-casino {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: var(--radius-md);
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .btn-login {
+        background: #25223a;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .btn-login:hover { background: #312d4d; }
+
+      .btn-register {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: #000;
+        box-shadow: 0 0 15px var(--gold-glow);
+        font-weight: 800;
+      }
+
+      .btn-register:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+
+      /* LIVE TICKER */
+      .ticker-wrap {
+        background: #0b0a13;
+        border-bottom: 1px solid var(--border-subtle);
+        overflow: hidden;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .ticker-label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 5;
+        background: linear-gradient(90deg, #d97706, #b45309);
+        color: #000;
+        font-weight: 800;
+        font-size: 0.75rem;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        letter-spacing: 0.5px;
+        box-shadow: 4px 0 10px rgba(0,0,0,0.5);
+      }
+
+      .ticker-content {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 170px;
+        animation: marquee 35s linear infinite;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .ticker-item {
+        display: inline-block;
+        margin-right: 2.5rem;
+      }
+
+      .ticker-winner { color: var(--gold-light); font-weight: 700; }
+      .ticker-amount { color: #34d399; font-weight: 700; font-family: var(--font-mono); }
+
+      @keyframes marquee {
+        0% { transform: translate3d(0, 0, 0); }
+        100% { transform: translate3d(-50%, 0, 0); }
+      }
+
+      /* HERO SECTION */
+      .hero-section {
+        padding: 1.75rem 0;
+        position: relative;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .hero-main-card {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--border-gold);
+        background: linear-gradient(135deg, #1c1335 0%, #100b20 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 380px;
+        padding: 2.5rem;
+      }
+
+      .hero-bg-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.35;
+        filter: contrast(1.15) saturate(1.2);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, #09090e 10%, rgba(9, 9, 14, 0.7) 50%, rgba(9, 9, 14, 0.2) 100%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+      }
+
+      .hero-badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .hero-pill {
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero-pill-hot {
+        background: #dc2626;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
+        animation: pulse-red 2s infinite;
+      }
+
+      .hero-pill-gold {
+        background: rgba(245, 158, 11, 0.2);
+        color: var(--gold-light);
+        border: 1px solid var(--gold-primary);
+      }
+
+      @keyframes pulse-red {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.75; }
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: 2.3rem;
+        line-height: 1.15;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        color: #fff;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+        color: #e5e7eb;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .btn-hero-primary {
+        background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+        color: #000;
+        font-weight: 800;
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 0 20px var(--gold-glow);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.2s;
+      }
+
+      .btn-hero-primary:hover { transform: scale(1.02); }
+
+      .btn-hero-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        font-weight: 700;
+        padding: 0.8rem 1.4rem;
+        font-size: 0.95rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* JACKPOT SIDE CARD */
+      .hero-side-card {
+        background: linear-gradient(180deg, #171526 0%, #100f1c 100%);
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .jackpot-header {
+        text-align: center;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 1rem;
+      }
+
+      .jackpot-tag {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: var(--gold-light);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .jackpot-meter {
+        font-family: var(--font-mono);
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: #fef08a;
+        text-shadow: 0 0 15px rgba(254, 240, 138, 0.5);
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        background: #090812;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+      }
+
+      .quick-stats-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin: 1.25rem 0;
+      }
+
+      .quick-stat-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      }
+
+      .quick-stat-label { color: var(--text-muted); }
+      .quick-stat-val { font-weight: 700; color: #fff; }
+
+      .deposit-promo-box {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(245, 158, 11, 0.15));
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-md);
+        padding: 0.85rem;
+        text-align: center;
+      }
+
+      .deposit-promo-title { font-size: 0.85rem; font-weight: 800; color: var(--gold-light); }
+      .deposit-promo-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+      /* SIMULATOR SLOT SECTION */
+      .simulator-section { padding: 2.5rem 0; position: relative; }
+
+      .section-head {
+        text-align: center;
+        max-width: 750px;
+        margin: 0 auto 2rem;
+      }
+
+      .section-kicker {
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 0.4rem;
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: 1.9rem;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+        color: #fff;
+      }
+
+      .section-desc { font-size: 0.95rem; color: var(--text-muted); }
+
+      .slot-machine-wrapper {
+        background: linear-gradient(145deg, #1c1833, #0f0d1c);
+        border: 2px solid var(--gold-primary);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        box-shadow: 0 0 35px rgba(245, 158, 11, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.7);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .slot-header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 1.5rem;
+      }
+
+      .slot-title-badge {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--gold-light);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .slot-balance-pill {
+        background: #000;
+        border: 1px solid var(--border-gold);
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+        font-weight: 700;
+      }
+
+      .slot-reels-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        background: #08070e;
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        border: 3px solid #2a2645;
+        box-shadow: inset 0 0 20px #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .slot-reel {
+        background: linear-gradient(180deg, #191629 0%, #0d0c17 50%, #191629 100%);
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 10px 15px rgba(0,0,0,0.8), inset 0 -10px 15px rgba(0,0,0,0.8);
+      }
+
+      .reel-icon {
+        font-size: 3.5rem;
+        user-select: none;
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .reel-stage-1, .reel-stage-2, .reel-stage-3 { display: none; }
+      .reel-stage-idle { display: block; }
+
+      #slot-idle:checked ~ .slot-machine-wrapper .reel-stage-idle { display: block; }
+      #slot-idle:checked ~ .slot-machine-wrapper .reel-stage-1 { display: none; }
+      #slot-idle:checked ~ .slot-machine-wrapper .reel-stage-2 { display: none; }
+      #slot-idle:checked ~ .slot-machine-wrapper .reel-stage-3 { display: none; }
+
+      #slot-spin1:checked ~ .slot-machine-wrapper .reel-stage-idle { display: none; }
+      #slot-spin1:checked ~ .slot-machine-wrapper .reel-stage-1 { display: block; }
+      #slot-spin1:checked ~ .slot-machine-wrapper .reel-stage-2 { display: none; }
+      #slot-spin1:checked ~ .slot-machine-wrapper .reel-stage-3 { display: none; }
+
+      #slot-spin2:checked ~ .slot-machine-wrapper .reel-stage-idle { display: none; }
+      #slot-spin2:checked ~ .slot-machine-wrapper .reel-stage-1 { display: none; }
+      #slot-spin2:checked ~ .slot-machine-wrapper .reel-stage-2 { display: block; }
+      #slot-spin2:checked ~ .slot-machine-wrapper .reel-stage-3 { display: none; }
+
+      #slot-spin3:checked ~ .slot-machine-wrapper .reel-stage-idle { display: none; }
+      #slot-spin3:checked ~ .slot-machine-wrapper .reel-stage-1 { display: none; }
+      #slot-spin3:checked ~ .slot-machine-wrapper .reel-stage-2 { display: none; }
+      #slot-spin3:checked ~ .slot-machine-wrapper .reel-stage-3 { display: block; }
+
+      .slot-controls-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-slot-spin {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.4rem;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: #1f1b33;
+        color: #fff;
+        transition: all 0.2s ease;
+        user-select: none;
+      }
+
+      .btn-slot-spin:hover {
+        background: #2b2647;
+        border-color: var(--gold-light);
+        transform: translateY(-1px);
+      }
+
+      #slot-spin1:checked ~ .slot-machine-wrapper .btn-label-spin1,
+      #slot-spin2:checked ~ .slot-machine-wrapper .btn-label-spin2,
+      #slot-spin3:checked ~ .slot-machine-wrapper .btn-label-spin3,
+      #slot-idle:checked ~ .slot-machine-wrapper .btn-label-idle {
+        background: linear-gradient(135deg, var(--gold-primary), #d97706);
+        color: #000;
+        border-color: #fef08a;
+        box-shadow: 0 0 15px var(--gold-glow);
+      }
+
+      .simulation-feedback-box {
+        border-radius: var(--radius-lg);
+        padding: 1.25rem 1.5rem;
+        background: #12101f;
+        border: 1px solid var(--border-subtle);
+      }
+
+      .feedback-card {
+        display: none;
+        animation: fadeIn 0.4s ease;
+      }
+
+      #slot-idle:checked ~ .slot-machine-wrapper .card-idle { display: block; }
+      #slot-spin1:checked ~ .slot-machine-wrapper .card-spin1 { display: block; }
+      #slot-spin2:checked ~ .slot-machine-wrapper .card-spin2 { display: block; }
+      #slot-spin3:checked ~ .slot-machine-wrapper .card-spin3 { display: block; }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .feedback-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+      }
+
+      .badge-warning {
+        background: rgba(245, 158, 11, 0.2);
+        color: var(--gold-light);
+        border: 1px solid var(--gold-primary);
+      }
+
+      .badge-danger {
+        background: rgba(239, 68, 68, 0.2);
+        color: #f87171;
+        border: 1px solid var(--danger-red);
+      }
+
+      .badge-info {
+        background: rgba(6, 182, 212, 0.2);
+        color: var(--cyan-accent);
+        border: 1px solid var(--cyan-accent);
+      }
+
+      .feedback-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        color: #fff;
+      }
+
+      .feedback-desc {
+        font-size: 0.88rem;
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
+
+      .feedback-truth-box {
+        margin-top: 0.75rem;
+        padding: 0.85rem;
+        background: rgba(0, 0, 0, 0.4);
+        border-left: 3px solid var(--danger-red);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        font-size: 0.82rem;
+        color: #fca5a5;
+      }
+
+      /* GAME CARDS */
+      .games-section { padding: 2.5rem 0; }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .game-card {
+        background: #141221;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .game-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold-primary);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .game-thumb-wrapper {
+        position: relative;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        background: #090812;
+      }
+
+      .game-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .game-card:hover .game-thumb { transform: scale(1.05); }
+
+      .game-rtp-badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(4px);
+        border: 1px solid var(--gold-primary);
+        border-radius: 999px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--gold-light);
+        font-family: var(--font-mono);
+      }
+
+      .game-info {
+        padding: 1rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .game-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.25rem;
+      }
+
+      .game-provider {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+      }
+
+      .game-play-btn {
+        width: 100%;
+        padding: 0.5rem;
+        background: linear-gradient(135deg, #7c3aed, #5b21b6);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.8rem;
+        border-radius: var(--radius-sm);
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: filter 0.2s;
+      }
+
+      .game-play-btn:hover { filter: brightness(1.15); }
+
+      /* EDUCATIONAL TABS */
+      .educational-tabs-section {
+        padding: 3rem 0;
+        background: linear-gradient(180deg, rgba(14, 13, 23, 0.8) 0%, rgba(9, 9, 14, 0.95) 100%);
+        border-top: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .tabs-nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+
+      .tab-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: #141223;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+      }
+
+      .tab-label:hover {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.2);
+        background: #1a172e;
+      }
+
+      .tab-content-panel {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+
+      #tab-1:checked ~ .tabs-wrapper .panel-1 { display: block; }
+      #tab-2:checked ~ .tabs-wrapper .panel-2 { display: block; }
+      #tab-3:checked ~ .tabs-wrapper .panel-3 { display: block; }
+      #tab-4:checked ~ .tabs-wrapper .panel-4 { display: block; }
+      #tab-5:checked ~ .tabs-wrapper .panel-5 { display: block; }
+
+      #tab-1:checked ~ .tabs-wrapper .tab-label-1,
+      #tab-2:checked ~ .tabs-wrapper .tab-label-2,
+      #tab-3:checked ~ .tabs-wrapper .tab-label-3,
+      #tab-4:checked ~ .tabs-wrapper .tab-label-4,
+      #tab-5:checked ~ .tabs-wrapper .tab-label-5 {
+        background: #251e3e;
+        border-color: var(--purple-brand);
+        color: #fff;
+        box-shadow: 0 0 15px var(--purple-glow);
+      }
+
+      .edu-card {
+        background: #131120;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .edu-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .edu-img-wrap {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--border-subtle);
+        position: relative;
+      }
+
+      .edu-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.25rem;
+      }
+
+      .feature-item {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: #cbd5e1;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.85rem;
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--purple-brand);
+      }
+
+      .feature-item-danger { border-left-color: var(--danger-red); }
+      .feature-item-gold { border-left-color: var(--gold-primary); }
+
+      /* ACCORDION MITOS */
+      .accordion-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      details.faq-item {
+        background: #171526;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+
+      details.faq-item[open] { border-color: var(--purple-brand); }
+
+      summary.faq-question {
+        padding: 1rem 1.25rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+        list-style: none;
+      }
+
+      summary.faq-question::-webkit-details-marker { display: none; }
+
+      summary.faq-question::after {
+        content: '＋';
+        font-size: 1.1rem;
+        color: var(--gold-light);
+        font-weight: 800;
+        transition: transform 0.2s;
+      }
+
+      details.faq-item[open] summary.faq-question::after {
+        content: '－';
+        color: var(--danger-red);
+      }
+
+      .faq-answer {
+        padding: 0 1.25rem 1.25rem;
+        font-size: 0.88rem;
+        color: #cbd5e1;
+        line-height: 1.6;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 0.5rem;
+        padding-top: 0.85rem;
+      }
+
+      /* HOTLINE */
+      .hotline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .hotline-card {
+        background: #171427;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hotline-name {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin-bottom: 0.25rem;
+      }
+
+      .hotline-target {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .hotline-contact-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        background: rgba(6, 182, 212, 0.15);
+        border: 1px solid var(--cyan-accent);
+        color: var(--cyan-accent);
+        padding: 0.5rem;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        font-size: 0.8rem;
+        font-family: var(--font-mono);
+      }
+
+      /* MODALS */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+
+      #modal-bonus:checked ~ .modal-bonus-overlay,
+      #modal-cs:checked ~ .modal-cs-overlay,
+      #modal-manifesto:checked ~ .modal-manifesto-overlay {
+        display: flex;
+        animation: fadeIn 0.2s ease;
+      }
+
+      .modal-card {
+        background: #151324;
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-lg);
+        max-width: 560px;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+
+      .modal-close-btn {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        background: #25223a;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .modal-close-btn:hover { background: var(--danger-red); }
+
+      .modal-title {
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      .modal-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1.25rem;
+      }
+
+      /* MASTER X-RAY TRANSFORMATIONS */
+      #mode-bedah:checked ~ .master-control-bar {
+        background: rgba(45, 10, 18, 0.95);
+        border-bottom-color: var(--danger-red);
+        box-shadow: 0 4px 25px var(--danger-glow);
+      }
+
+      #mode-bedah:checked ~ .master-control-bar .switch-track {
+        background: var(--danger-red);
+        border-color: #fca5a5;
+      }
+
+      #mode-bedah:checked ~ .master-control-bar .switch-handle {
+        transform: translateX(28px);
+        background: #fff;
+      }
+
+      #mode-bedah:checked ~ .master-control-bar .mode-badge-off { display: none; }
+      #mode-bedah:checked ~ .master-control-bar .mode-badge-on { display: inline; }
+
+      .reality-stamp { display: none; }
+
+      #mode-bedah:checked ~ .site-content .reality-stamp {
+        display: block;
+        background: #7f1d1d;
+        color: #fecaca;
+        border: 1px solid #ef4444;
+        padding: 0.4rem 0.75rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.75rem;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-top: 0.5rem;
+        animation: stampIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes stampIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      #mode-bedah:checked ~ .site-content .jackpot-meter {
+        color: #f87171;
+        border-color: var(--danger-red);
+        text-shadow: 0 0 15px var(--danger-glow);
+      }
+
+      #mode-bedah:checked ~ .site-content .hero-main-card {
+        border-color: var(--danger-red);
+      }
+
+      #mode-bedah:checked ~ .site-content .game-rtp-badge {
+        background: #7f1d1d;
+        border-color: #ef4444;
+        color: #fee2e2;
+      }
+
+      /* FOOTER */
+      .site-footer {
+        background: #06050b;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 3rem 0 2rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-col-title {
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+      }
+
+      .footer-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .edu-grid-2 { grid-template-columns: 1fr; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .header-inner { flex-direction: column; align-items: flex-start; }
+        .header-actions { width: 100%; justify-content: flex-start; }
+        .slot-reels-container { gap: 0.5rem; padding: 1rem; }
+        .reel-icon { font-size: 2.5rem; }
+        .slot-reel { height: 120px; }
+        .hero-title { font-size: 1.75rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MASTER CHECKBOX TRIGGER: MODE X-RAY (BEDAH SISTEM) -->
+    <input type="checkbox" id="mode-bedah" class="toggle-hidden" />
+
+    <!-- MODAL POPUP CHECKBOXES (PURE CSS) -->
+    <input type="checkbox" id="modal-bonus" class="toggle-hidden" />
+    <input type="checkbox" id="modal-cs" class="toggle-hidden" />
+    <input type="checkbox" id="modal-manifesto" class="toggle-hidden" />
+
+    <!-- BARIS 1: PERINGATAN KAMPANYE NASIONAL -->
+    <aside class="academic-bar" style="background: linear-gradient(90deg, #3b0764, #701a75, #3b0764);">
+      <div class="container academic-bar-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+          <span class="academic-badge" style="background: rgba(239, 68, 68, 0.25); border-color: rgba(248, 113, 113, 0.4); color: #fecaca;">
+            🚨 KAMPANYE KESADARAN PUBLIK
+          </span>
+          <span>Edukasi &amp; Dekonstruksi Rekayasa Sistem Sindikat Judi Online</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span class="academic-spec">INVESTIGASI PSIKOLOGI, ALGORITMA &amp; HUKUM RI</span>
+          <label for="modal-manifesto" style="text-decoration: underline; cursor: pointer; color: #fef08a; font-weight: 700;">
+            [Manifesto Lawan Sindikat Judol]
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- BARIS 2: MASTER CONTROL BAR (TOGGLE KEDOK VS BEDAH SISTEM) -->
+    <header class="master-control-bar">
+      <div class="container master-control-container">
+        <label for="mode-bedah" class="switch-label-wrapper" title="Klik untuk mengaktifkan kacamata X-Ray membongkar manipulasi sistem">
+          <div class="switch-track">
+            <div class="switch-handle"></div>
+          </div>
+          <div>
+            <div class="switch-text">
+              <span class="mode-badge-off">🎭 MODE OFF MATI TAMPILAN: KEDOK JUDOL (Memikat Korban)</span>
+              <span class="mode-badge-on">⚠️ MODE ON AKTIF: BEDAH SISTEM (Bongkar Fakta &amp; Manipulasi Bandar)</span>
+            </div>
+            <div class="switch-desc">
+              Klik saklar untuk mengupas lapisan psikologis &amp; kode rekayasa di balik setiap elemen
+            </div>
+          </div>
+        </label>
+
+        <nav class="header-nav">
+          <a href="#simulator" class="nav-link">🎰 Lab Simulator</a>
+          <a href="#katalog-game" class="nav-link">🎮 Katalog Game</a>
+          <a href="#edukasi-sistem" class="nav-link">⚙️ Bedah Algoritma</a>
+          <a href="#bantuan" class="nav-link text-cyan">🆘 Pusat Bantuan</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WRAPPER UTAMA KONTEN SITUS -->
+    <div class="site-content">
+
+      <!-- HEADER SITUS JUDI ONLINE (KEDOK VISUAL) -->
+      <section class="casino-header">
+        <div class="container header-inner">
+          <div class="brand-logo">
+            <div class="brand-emblem">⚡</div>
+            <div>
+              <div class="brand-name">GACORMAX77</div>
+              <div class="brand-tagline">Situs Slot Online Terpercaya No. 1 Indonesia</div>
+              <div class="reality-stamp">
+                <strong>[DEKONSTRUKSI BRANDING]:</strong> Nama domain berganti setiap minggu karena rutin diblokir Komdigi. Menggunakan server luar negeri (Kamboja/Filipina) untuk menghindari yurisdiksi kepolisian RI.
+              </div>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <label for="modal-bonus" class="btn-casino btn-login" style="cursor: pointer;">
+              🔑 MASUK
+            </label>
+            <label for="modal-bonus" class="btn-casino btn-register" style="cursor: pointer;">
+              ⚡ DAFTAR &amp; KLAIM 100%
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- TICKER WITHDRAWAL PALSU (RUNNING TEXT FOMO) -->
+      <div class="ticker-wrap">
+        <div class="ticker-label">
+          <span>🔥 LIVE WD:</span>
+        </div>
+        <div class="ticker-content">
+          <span class="ticker-item"><span class="ticker-winner">User rk**9</span> baru saja WD <span class="ticker-amount">Rp 48.500.000</span> di Gates of Olympus</span>
+          <span class="ticker-item"><span class="ticker-winner">User an**2</span> baru saja WD <span class="ticker-amount">Rp 12.000.000</span> di Mahjong Ways</span>
+          <span class="ticker-item"><span class="ticker-winner">User di**8</span> baru saja WD <span class="ticker-amount">Rp 85.200.000</span> di Starlight Princess</span>
+          <span class="ticker-item"><span class="ticker-winner">User bu**1</span> baru saja WD <span class="ticker-amount">Rp 21.000.000</span> di Sweet Bonanza</span>
+          <span class="ticker-item"><span class="ticker-winner">User wa**7</span> baru saja WD <span class="ticker-amount">Rp 9.500.000</span> di Koi Gate</span>
+          <span class="ticker-item"><span class="ticker-winner">User rk**9</span> baru saja WD <span class="ticker-amount">Rp 48.500.000</span> di Gates of Olympus</span>
+        </div>
+      </div>
+      <div class="container">
+        <div class="reality-stamp">
+          <strong>[DEKONSTRUKSI LIVE WD TICKER]:</strong> Nama pengguna dan nominal penarikan di atas adalah deretan data fiktif (array loop). Trik ini sengaja dirancang untuk memicu sindrom <em>FOMO (Fear of Missing Out)</em> dan ilusi sosial bahwa orang lain terus menang, padahal kenyataannya 98% pemain kehilangan seluruh modalnya.
+        </div>
+      </div>
+
+      <!-- HERO BANNER PROMO KASINO -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <!-- KARTU HERO UTAMA -->
+          <div class="hero-main-card">
+            <!-- Gambar dengan multi-fallback path -->
+            <img src="images/hero_slot_banner.jpg" 
+                 onerror="this.onerror=null; this.src='src/assets/images/hero_slot_banner_1791260830417.jpg';" 
+                 alt="Banner Slot Gacor" 
+                 class="hero-bg-img" />
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+              <div class="hero-badge-row">
+                <span class="hero-pill hero-pill-hot">🔥 EVENT MAXWIN HARI INI</span>
+                <span class="hero-pill hero-pill-gold">⚡ RTP LIVE 99.8% GACOR</span>
+              </div>
+
+              <h1 class="hero-title">
+                PETIR MERAH KAKEK ZEUS <br />PECAH MAXWIN X5000!
+              </h1>
+
+              <p class="hero-subtitle">
+                Deposit kilat 3 detik via QRIS, E-Wallet &amp; Bank. Dapatkan sensasi kemenangan tanpa batas dengan bocoran pola slot paling akurat hari ini!
+              </p>
+
+              <div class="hero-cta-group">
+                <label for="modal-bonus" class="btn-hero-primary" style="cursor: pointer;">
+                  <span>⚡ DEPOSIT SEKARANG</span>
+                </label>
+                <label for="modal-cs" class="btn-hero-secondary" style="cursor: pointer;">
+                  <span>💬 KONSULTASI POLA ADMIN</span>
+                </label>
+              </div>
+
+              <div class="reality-stamp">
+                <strong>[BEDAH MANIPULASI BANNER]:</strong>
+                <ul style="margin: 0.3rem 0 0 1.2rem;">
+                  <li><strong>RTP 99.8% Palsu:</strong> Di dunia perjudian nyata, tidak ada game dengan RTP 99.8%. Angka ini dicantumkan sepihak tanpa sertifikasi BMM Testlabs / GLI.</li>
+                  <li><strong>Sensasi Maxwin:</strong> Kemungkinan memicu pengali x5000 secara matematis kurang dari 1 banding 2.000.000 putaran.</li>
+                  <li><strong>Bocoran Pola Admin:</strong> &quot;Pola putaran (Spin Cepat 30x, Turbo 20x)&quot; adalah rekayasa mitos buatan tim promosi/afiliator agar saldo pemain terkuras dalam hitungan menit.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIDE CARD: PROGRESSIVE JACKPOT PALSU -->
+          <div class="hero-side-card">
+            <div class="jackpot-header">
+              <div class="jackpot-tag">🏆 GRAND JACKPOT PROGRESIF</div>
+              <div class="jackpot-meter">
+                Rp 14.892.420.580
+              </div>
+              <div style="font-size: 0.75rem; color: var(--gold-light);">*Siap meledak kapan saja hari ini</div>
+              <div class="reality-stamp">
+                <strong>[FAKTA METER JACKPOT]:</strong> Angka miliaran ini hanya counter visual. Server bandar tidak memiliki cadangan likuiditas riil sebesar ini. Jika ada pemain yang tak sengaja menang jackpot besar, akun akan langsung di-ban dengan tuduhan &#39;Kecurangan Indikasi Bot&#39;.
+              </div>
+            </div>
+
+            <div class="quick-stats-list">
+              <div class="quick-stat-item">
+                <span class="quick-stat-label">Min. Deposit:</span>
+                <span class="quick-stat-val text-gold">Rp 10.000</span>
+              </div>
+              <div class="quick-stat-item">
+                <span class="quick-stat-label">Kecepatan Depo:</span>
+                <span class="quick-stat-val text-cyan">⚡ 3 Detik</span>
+              </div>
+              <div class="quick-stat-item">
+                <span class="quick-stat-label">Kecepatan WD:</span>
+                <span class="quick-stat-val">1 - 3 Menit*</span>
+              </div>
+              <div class="quick-stat-item">
+                <span class="quick-stat-label">Metode Pembayaran:</span>
+                <span class="quick-stat-val">QRIS, DANA, OVO, Bank</span>
+              </div>
+            </div>
+
+            <div class="deposit-promo-box">
+              <div class="deposit-promo-title">BONUS NEW MEMBER 100%</div>
+              <div class="deposit-promo-sub">Deposit 100rb dapat 200rb langsung di depan!</div>
+              <label for="modal-bonus" style="display: inline-block; margin-top: 0.5rem; font-size: 0.75rem; color: #fef08a; text-decoration: underline; cursor: pointer;">
+                [Baca Syarat Turnover Tersembunyi]
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 3: SIMULATOR SLOT PURE CSS & BEDAH PSIKOLOGIS BANDAR -->
+      <section id="simulator" class="simulator-section">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">LABORATORIUM PSIKOLOGIS (100% PURE HTML &amp; CSS)</div>
+            <h2 class="section-title">SIMULASI MESIN SLOT: BAGAIMANA OTAK ANDA DIJEBAK</h2>
+            <p class="section-desc">
+              Pilih salah satu tombol putaran di bawah untuk melihat secara langsung trik visual &amp; manipulasi algoritma yang digunakan bandar judi online dalam memperdaya neurokimia otak manusia.
+            </p>
+          </div>
+
+          <!-- RADIO CONTROLLER UNTUK STAGE SLOT SIMULATOR (PURE CSS) -->
+          <input type="radio" name="slot-stage" id="slot-idle" class="toggle-hidden" checked />
+          <input type="radio" name="slot-stage" id="slot-spin1" class="toggle-hidden" />
+          <input type="radio" name="slot-stage" id="slot-spin2" class="toggle-hidden" />
+          <input type="radio" name="slot-stage" id="slot-spin3" class="toggle-hidden" />
+
+          <div class="slot-machine-wrapper">
+            <!-- HEADER MESIN SLOT -->
+            <div class="slot-header-bar">
+              <div class="slot-title-badge">
+                <span>⚡ OLYMPUS RIGGED ENGINE v1.0</span>
+              </div>
+              <div class="slot-balance-pill">
+                <span>SALDO SIMULASI: </span>
+                <span class="text-gold font-mono">Rp 50.000</span>
+              </div>
+            </div>
+
+            <!-- TAMPILAN 3 REEL SLOT -->
+            <div class="slot-reels-container">
+              <!-- REEL 1 -->
+              <div class="slot-reel">
+                <div class="reel-icon reel-stage-idle">⚡</div>
+                <div class="reel-icon reel-stage-1">⚡</div>
+                <div class="reel-icon reel-stage-2">🔔</div>
+                <div class="reel-icon reel-stage-3">🍋</div>
+              </div>
+
+              <!-- REEL 2 -->
+              <div class="slot-reel">
+                <div class="reel-icon reel-stage-idle">💎</div>
+                <div class="reel-icon reel-stage-1">⚡</div>
+                <div class="reel-icon reel-stage-2">🔔</div>
+                <div class="reel-icon reel-stage-3">🍒</div>
+              </div>
+
+              <!-- REEL 3 -->
+              <div class="slot-reel">
+                <div class="reel-icon reel-stage-idle">👑</div>
+                <div class="reel-icon reel-stage-1" style="filter: grayscale(0.8) opacity(0.85);">🍋</div>
+                <div class="reel-icon reel-stage-2">⭐</div>
+                <div class="reel-icon reel-stage-3">💀</div>
+              </div>
+            </div>
+
+            <!-- CONTROLLER BUTTONS (PURE CSS LABELS) -->
+            <div class="slot-controls-row">
+              <label for="slot-spin1" class="btn-slot-spin btn-label-spin1">
+                <span>🎯 Putaran 1: Trik &quot;Nyaris Menang&quot; (Near-Miss)</span>
+              </label>
+
+              <label for="slot-spin2" class="btn-slot-spin btn-label-spin2">
+                <span>🎉 Putaran 2: Kemenangan Semu (Loss Disguised as Win)</span>
+              </label>
+
+              <label for="slot-spin3" class="btn-slot-spin btn-label-spin3">
+                <span>📉 Putaran 3: Realita Rungkad (Saldo Habis)</span>
+              </label>
+
+              <label for="slot-idle" class="btn-slot-spin btn-label-idle" style="border-color: rgba(255,255,255,0.3);">
+                <span>🔄 Reset Mesin</span>
+              </label>
+            </div>
+
+            <!-- KOTAK BEDAH EDUKASI REAKTIF BERDASARKAN HASIL PUTARAN -->
+            <div class="simulation-feedback-box">
+              
+              <!-- KARTU 0: IDLE STATE -->
+              <div class="feedback-card card-idle">
+                <span class="feedback-badge badge-info">PANDUAN INVESTIGASI PUBLIK</span>
+                <div class="feedback-title">Silakan Uji Tiga Modus Manipulasi di Atas</div>
+                <div class="feedback-desc">
+                  Mesin slot digital di website judi online bukanlah permainan probabilitas acak yang adil. Kode program telah diatur secara matematis (RNG Settingan) oleh sindikat bandar untuk memicu respons emosional tertentu pada otak manusia. Tekan tombol Putaran 1, 2, atau 3 untuk membongkar anatomi psikologinya.
+                </div>
+              </div>
+
+              <!-- KARTU 1: NEAR-MISS EFFECT -->
+              <div class="feedback-card card-spin1">
+                <span class="feedback-badge badge-warning">MANIPULASI 1: THE NEAR-MISS EFFECT (NYARIS MENANG)</span>
+                <div class="feedback-title">Hasil: [⚡ Petir] [⚡ Petir] [🍋 Zonk] — &quot;Aduh, Kurang 1 Petir Lagi!&quot;</div>
+                <div class="feedback-desc">
+                  Perhatikan simbol ketiga: petir meleset hanya 1 geseran baris. Otak pemain langsung berteriak: <em>&quot;Sedikit lagi dapat Maxwin, putaran berikutnya pasti tembus!&quot;</em>
+                </div>
+                <div class="feedback-truth-box">
+                  <strong>🧠 BEDAH NEUROSAINS:</strong> 
+                  Riset dari Universitas Cambridge membuktikan bahwa pada mesin digital, &quot;nyaris menang&quot; secara komputasi adalah <strong>100% KALAH</strong>. Namun, algoritma sengaja memunculkan kombinasi nyaris menang hingga <strong>12 kali lebih sering</strong> daripada probabilitas statistik murni. Tujuannya adalah membanjiri reseptor otak dengan hormon dopamin palsu, membuat pemain ketagihan dan enggan berhenti.
+                </div>
+              </div>
+
+              <!-- KARTU 2: LOSSES DISGUISED AS WINS -->
+              <div class="feedback-card card-spin2">
+                <span class="feedback-badge badge-danger">MANIPULASI 2: LOSSES DISGUISED AS WINS (LDWs)</span>
+                <div class="feedback-title">Hasil: &quot;SELAMAT ANDA MENANG Rp 15.000!&quot; (Efek Musik Meriah &amp; Koin)</div>
+                <div class="feedback-desc">
+                  Layar menampilkan animasi lampu berpijar, suara terompet kemenangan, dan tulisan &quot;BIG WIN&quot;. Pemain merasa gembira dan merasa sedang beruntung.
+                </div>
+                <div class="feedback-truth-box">
+                  <strong>📉 REALITA MATEMATIKA:</strong> 
+                  Pemain memasang taruhan sebesar <strong>Rp 50.000</strong> dan hanya mendapatkan kembali <strong>Rp 15.000</strong>. Artinya, pada putaran ini pemain <strong>RUGI BERSIH Rp 35.000</strong>! Secara psikologis, stimulasi audio-visual meriah menipu sistem kognitif sehingga otak mencatatnya sebagai &#39;menang&#39;, padahal saldo dompet terus terkikis menuju nol.
+                </div>
+              </div>
+
+              <!-- KARTU 3: RUNGKAD / THE HOUSE ALWAYS WINS -->
+              <div class="feedback-card card-spin3">
+                <span class="feedback-badge badge-danger">MANIPULASI 3: SIKLUS RUNGKAD &amp; CHERRY-PICKING BANDAR</span>
+                <div class="feedback-title">Hasil: [🍋 Zonk] [🍒 Zonk] [💀 Tengkorak] — Saldo Anda: Rp 0 (Habis)</div>
+                <div class="feedback-desc">
+                  Ketika pemain mencoba menaikkan taruhan untuk &quot;membalikkan modal&quot; <em>(Chasing Losses)</em>, algoritma bandar mengunci peluang pada titik nadir.
+                </div>
+                <div class="feedback-truth-box">
+                  <strong>⚖️ HUKUM BILANGAN BESAR (LAW OF LARGE NUMBERS):</strong>
+                  Dalam teori probabilitas, setiap putaran judi memiliki nilai harapan negatif <em>(Negative Expected Value / -EV)</em> bagi pemain. Bandar memiliki keunggulan matematis mutlak <em>(House Edge)</em>. Semakin banyak frekuensi Anda bermain, probabilitas Anda kehilangan 100% kekayaan Anda mendekati kepastian mutlak (100%).
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 4: KATALOG GAME POPULER (KEDOK VS KENYATAAN) -->
+      <section id="katalog-game" class="games-section">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">KATALOG GAME MANIPULATIF</div>
+            <h2 class="section-title">DEKONSTRUKSI 4 GAME SLOT PALING POPULER</h2>
+            <p class="section-desc">
+              Game-game ini menggunakan grafis atraktif dan maskot mitologi untuk menyamarkan mekanisme penyedotan uang secara sistematis.
+            </p>
+          </div>
+
+          <div class="games-grid">
+            
+            <!-- GAME 1: ZEUS -->
+            <div class="game-card">
+              <div class="game-thumb-wrapper" style="background: linear-gradient(135deg, #2e1065, #0f172a); display: flex; align-items: center; justify-content: center;">
+                <img src="images/game_slot_zeus.jpg" 
+                     onerror="this.onerror=null; this.src='src/assets/images/game_slot_zeus_1791260843095.jpg';" 
+                     alt="Gates of Olympus" 
+                     class="game-thumb" />
+                <span class="game-rtp-badge">RTP 98.8%</span>
+              </div>
+              <div class="game-info">
+                <div>
+                  <div class="game-title">Gates of Olympus (Kakek Zeus)</div>
+                  <div class="game-provider">Provider: Pragmatic Clones</div>
+                </div>
+                <div class="reality-stamp">
+                  <strong>[BEDAH ZEUS]:</strong> Multiplier pengali x100, x250, dan x500 dikontrol oleh parameter <code>win_cap_ceiling</code> di server. Akun baru diberi kemenangan kecil di awal sebagai umpan <em>(hook)</em>, setelah deposit membesar, pengali tinggi dimatikan otomatis.
+                </div>
+                <label for="modal-cs" class="game-play-btn" style="display: block; margin-top: 0.75rem;">
+                  MAIN SEKARANG (DEMO)
+                </label>
+              </div>
+            </div>
+
+            <!-- GAME 2: PRINCESS -->
+            <div class="game-card">
+              <div class="game-thumb-wrapper" style="background: linear-gradient(135deg, #831843, #1e1b4b); display: flex; align-items: center; justify-content: center;">
+                <img src="images/game_slot_princess.jpg" 
+                     onerror="this.onerror=null; this.src='src/assets/images/game_slot_princess_1791260853666.jpg';" 
+                     alt="Starlight Princess" 
+                     class="game-thumb" />
+                <span class="game-rtp-badge">RTP 97.9%</span>
+              </div>
+              <div class="game-info">
+                <div>
+                  <div class="game-title">Starlight Princess (Putri Rungkad)</div>
+                  <div class="game-provider">Provider: Pragmatic Clones</div>
+                </div>
+                <div class="reality-stamp">
+                  <strong>[BEDAH PRINCESS]:</strong> Fitur &quot;Beli Freespin&quot; (Buy Spin seharga 100x nilai taruhan) adalah jalan pintas penghancur saldo. Secara statistik, 82% hasil buy spin menghasilkan pengembalian di bawah 30% dari modal beli.
+                </div>
+                <label for="modal-cs" class="game-play-btn" style="display: block; margin-top: 0.75rem;">
+                  MAIN SEKARANG (DEMO)
+                </label>
+              </div>
+            </div>
+
+            <!-- GAME 3: SWEET BONANZA -->
+            <div class="game-card">
+              <div class="game-thumb-wrapper">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, #ec4899, #831843); font-size: 5rem;">
+                  🍭
+                </div>
+                <span class="game-rtp-badge">RTP 96.5%</span>
+              </div>
+              <div class="game-info">
+                <div>
+                  <div class="game-title">Sweet Bonanza (Permen Pahit)</div>
+                  <div class="game-provider">Provider: Candy Trap</div>
+                </div>
+                <div class="reality-stamp">
+                  <strong>[BEDAH BONANZA]:</strong> Grafis permen warna-warni dirancang menyerupai game kasual anak muda. Animasi ledakan berturut-turut memicu refleks dopamin cepat untuk mempercepat frekuensi taruhan per menit.
+                </div>
+                <label for="modal-cs" class="game-play-btn" style="display: block; margin-top: 0.75rem;">
+                  MAIN SEKARANG (DEMO)
+                </label>
+              </div>
+            </div>
+
+            <!-- GAME 4: MAHJONG WAYS -->
+            <div class="game-card">
+              <div class="game-thumb-wrapper">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, #059669, #064e3b); font-size: 5rem;">
+                  🀄
+                </div>
+                <span class="game-rtp-badge">RTP 97.2%</span>
+              </div>
+              <div class="game-info">
+                <div>
+                  <div class="game-title">Mahjong Ways (Jalan Menuju Hutang)</div>
+                  <div class="game-provider">Provider: PG Mock</div>
+                </div>
+                <div class="reality-stamp">
+                  <strong>[BEDAH MAHJONG]:</strong> Simbol naga emas dan batangan emas memanfaatkan bias budaya keberuntungan Asia. Faktanya, game ini memiliki tingkat volatilitas ekstrem yang menghabiskan 500 putaran tanpa kemenangan signifikan.
+                </div>
+                <label for="modal-cs" class="game-play-btn" style="display: block; margin-top: 0.75rem;">
+                  MAIN SEKARANG (DEMO)
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- BAGIAN 5: 5 PILAR EDUKASI & SISI GELAP JUDI ONLINE (PURE CSS TABS) -->
+      <section id="edukasi-sistem" class="educational-tabs-section">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">INVESTIGASI MENDALAM &amp; BONGKAR FAKTA</div>
+            <h2 class="section-title">5 PILAR BEDAH SISTEM &amp; BAHAYA NYATA JUDOL</h2>
+            <p class="section-desc">
+              Pilih tab di bawah untuk membaca kajian sistematis tentang manipulasi backend, spiral kemiskinan, jerat hukum di Indonesia, dan mitigasi kecanduan.
+            </p>
+          </div>
+
+          <!-- RADIO CONTROLLER UNTUK PURE CSS TABS -->
+          <input type="radio" name="edu-tabs" id="tab-1" class="toggle-hidden" checked />
+          <input type="radio" name="edu-tabs" id="tab-2" class="toggle-hidden" />
+          <input type="radio" name="edu-tabs" id="tab-3" class="toggle-hidden" />
+          <input type="radio" name="edu-tabs" id="tab-4" class="toggle-hidden" />
+          <input type="radio" name="edu-tabs" id="tab-5" class="toggle-hidden" />
+
+          <div class="tabs-wrapper">
+            <!-- TAB NAVIGATION BUTTONS -->
+            <div class="tabs-nav">
+              <label for="tab-1" class="tab-label tab-label-1">
+                <span>⚙️ 1. Rahasia Backend Bandar</span>
+              </label>
+              <label for="tab-2" class="tab-label tab-label-2">
+                <span>💸 2. Spiral Kehancuran Finansial</span>
+              </label>
+              <label for="tab-3" class="tab-label tab-label-3">
+                <span>⚖️ 3. Jerat Hukum di Indonesia</span>
+              </label>
+              <label for="tab-4" class="tab-label tab-label-4">
+                <span>❓ 4. Mitos vs Fakta Ilmiah</span>
+              </label>
+              <label for="tab-5" class="tab-label tab-label-5">
+                <span>🆘 5. Pusat Bantuan &amp; Pemulihan</span>
+              </label>
+            </div>
+
+            <!-- PANEL 1: BACKEND BANDAR -->
+            <div class="tab-content-panel panel-1">
+              <div class="edu-card">
+                <div class="edu-grid-2">
+                  <div>
+                    <h3 class="font-display" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem;">
+                      Di Balik Layar: Panel Admin &amp; Saklar Win-Rate Bandar
+                    </h3>
+                    <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.7;">
+                      Banyak pemain meyakini bahwa mesin slot online menggunakan generator angka acak murni yang independen. Namun pada situs judi ilegal tanpa regulasi resmi, bandar memiliki akses dashboard backend lengkap dengan fitur:
+                    </p>
+
+                    <div class="feature-list">
+                      <div class="feature-item feature-item-danger">
+                        <div>
+                          <strong style="color: #fff; display: block;">1. Saklar Win/Loss Per Akun (RTP Dynamic)</strong>
+                          Admin dapat menurunkan Return to Player (RTP) akun tertentu menjadi 2% saat pemain melakukan taruhan besar (All-in), dan menaikkannya saat pemain baru mendaftar.
+                        </div>
+                      </div>
+
+                      <div class="feature-item feature-item-gold">
+                        <div>
+                          <strong style="color: #fff; display: block;">2. Tombol &quot;Pending / Reject Withdraw&quot;</strong>
+                          Jika pemain berhasil mengumpulkan kemenangan besar, bandar memiliki SOP untuk menolak penarikan dana dengan alasan klise: &quot;Server bank sedang gangguan&quot;, &quot;Perlu verifikasi foto selfie dengan KTP&quot;, atau membiarkan dana tertahan hingga pemain bosan dan memainkannya kembali sampai habis.
+                        </div>
+                      </div>
+
+                      <div class="feature-item">
+                        <div>
+                          <strong style="color: #fff; display: block;">3. Perdagangan Data Pribadi Pemain</strong>
+                          Nomor WhatsApp, rekening bank, dan nama Anda yang dimasukkan saat pendaftaran tidak dijaga kerahasiaannya. Data tersebut dijual ke sindikat pinjaman online ilegal, penipuan phising, dan telemarketing judi lainnya.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="edu-img-wrap">
+                    <img src="images/dark_reality_infographic.jpg" 
+                         onerror="this.onerror=null; this.src='src/assets/images/dark_reality_infographic_1791260864632.jpg';" 
+                         alt="Ilustrasi Sisi Gelap Judi Online" 
+                         class="edu-img" />
+                    <div style="padding: 1rem; background: #0c0a15; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle);">
+                      <strong class="text-danger">FAKTA RISET:</strong> &quot;The House Always Wins&quot; bukan sekadar peribahasa, melainkan kepastian matematika algoritma kasino digital.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: SPIRAL FINANSIAL -->
+            <div class="tab-content-panel panel-2">
+              <div class="edu-card">
+                <h3 class="font-display" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem;">
+                  Anatomi Spiral Kehancuran: Dari Rp 20 Ribu ke Jurang Hutang Milyaran
+                </h3>
+                <p style="color: #cbd5e1; font-size: 0.92rem; margin-bottom: 1.5rem;">
+                  Kecanduan judi online diakui oleh WHO dalam ICD-11 sebagai gangguan mental patologis <em>(Gambling Disorder)</em>. Perjalanan korbannya hampir selalu mengikuti 4 tahapan mematikan berikut:
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                  <div style="background: #171526; padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid #34d399;">
+                    <div style="font-weight: 800; color: #34d399; font-size: 0.8rem; margin-bottom: 0.25rem;">FASE 1</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Kemenangan Awal (The Hook)</div>
+                    <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.5;">
+                      Pemain mencoba dengan uang kecil (Rp 20.000 - Rp 50.000). Diberi menang beberapa ratus ribu. Otak menyimpulkan ini adalah &quot;cara mudah cari uang tambahan&quot;.
+                    </div>
+                  </div>
+
+                  <div style="background: #171526; padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--gold-light);">
+                    <div style="font-weight: 800; color: var(--gold-light); font-size: 0.8rem; margin-bottom: 0.25rem;">FASE 2</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Mengejar Kekalahan (Chasing Losses)</div>
+                    <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.5;">
+                      Mulai mengalami kekalahan beruntun. Menolak menerima kenyataan uang hilang, pemain menaikkan nominal taruhan dengan harapan &quot;modal bisa balik&quot;.
+                    </div>
+                  </div>
+
+                  <div style="background: #171526; padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid #f97316;">
+                    <div style="font-weight: 800; color: #f97316; font-size: 0.8rem; margin-bottom: 0.25rem;">FASE 3</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Perangkap Pinjol &amp; Gadai Aset</div>
+                    <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.5;">
+                      Tabungan terkuras, gaji bulanan ludes. Mulai meminjam ke teman, kerabat, hingga mengambil puluhan aplikasi pinjaman online ilegal berbunga mencekik demi deposit.
+                    </div>
+                  </div>
+
+                  <div style="background: #171526; padding: 1.25rem; border-radius: var(--radius-md); border-top: 3px solid var(--danger-red);">
+                    <div style="font-weight: 800; color: var(--danger-red); font-size: 0.8rem; margin-bottom: 0.25rem;">FASE 4</div>
+                    <div style="font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Kehancuran Total (Despair)</div>
+                    <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.5;">
+                      Diteror debt collector, perceraian rumah tangga, kehilangan pekerjaan, terdorong melakukan tindak kriminal pencurian, hingga depresi berat.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; background: rgba(239, 68, 68, 0.15); border: 1px solid var(--danger-red); border-radius: var(--radius-md); padding: 1rem; color: #fca5a5; font-size: 0.85rem;">
+                  <strong>DATA PUSAT PELAPORAN DAN ANALISIS TRANSAKSI KEUANGAN (PPATK):</strong>
+                  Perputaran dana judi online di Indonesia mencapai lebih dari <strong>Rp 327 Triliun</strong> per tahun. Mayoritas korban berasal dari kalangan berpenghasilan rendah, pelajar, dan buruh yang terjebak iming-iming kekayaan instan.
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: ASPEK HUKUM & PIDANA RI -->
+            <div class="tab-content-panel panel-3">
+              <div class="edu-card">
+                <h3 class="font-display" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.75rem;">
+                  Jerat Hukum Pidana Perjudian di Negara Republik Indonesia
+                </h3>
+                <p style="color: #cbd5e1; font-size: 0.92rem; margin-bottom: 1.5rem;">
+                  Di Indonesia, seluruh aktivitas perjudian konvensional maupun online adalah <strong>ILEGAL</strong> tanpa pengecualian. Baik penyelenggara, promotor (influencer/afiliator), maupun pemain dapat dijerat pasal berlapis:
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div style="background: #171526; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--gold-primary);">
+                    <h4 style="color: var(--gold-light); font-size: 1.1rem; margin-bottom: 0.5rem;">
+                      1. UU ITE Pasal 27 Ayat (2) Jo Pasal 45 Ayat (3)
+                    </h4>
+                    <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                      <em>&quot;Setiap Orang yang dengan sengaja dan tanpa hak mendistribusikan, mentransmisikan, dan/atau membuat dapat diaksesnya Informasi Elektronik dan/atau Dokumen Elektronik yang memiliki muatan perjudian...&quot;</em>
+                    </p>
+                    <div style="margin-top: 0.75rem; font-weight: 700; color: #ef4444; font-size: 0.85rem;">
+                      ⚠️ Ancaman Pidana: Penjara maksimal 10 TAHUN dan/atau denda paling banyak Rp 10.000.000.000 (Sepuluh Miliar Rupiah).
+                    </div>
+                  </div>
+
+                  <div style="background: #171526; padding: 1.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--purple-brand);">
+                    <h4 style="color: #c084fc; font-size: 1.1rem; margin-bottom: 0.5rem;">
+                      2. Pasal 303 &amp; 303 bis KUHP (Kitab Undang-Undang Hukum Pidana)
+                    </h4>
+                    <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+                      Pemain judi yang turut serta bermain di tempat umum maupun menggunakan sarana internet dapat dijerat pidana penjara paling lama <strong>4 tahun</strong> atau denda pidana.
+                    </p>
+                    <div style="margin-top: 0.75rem; font-weight: 700; color: #a5b4fc; font-size: 0.85rem;">
+                      📌 Rekening bank yang terindikasi menampung atau mentransfer dana judi online otomatis diblokir permanen oleh Satgas PASTI OJK dan Bareskrim Polri.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 4: MITOS VS FAKTA ACCORDION -->
+            <div class="tab-content-panel panel-4">
+              <div class="edu-card">
+                <h3 class="font-display" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem;">
+                  Dekonstruksi 6 Mitos Terbesar yang Dipercaya Pemain Judol
+                </h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+                  Klik tanda plus (+) di samping untuk membuka fakta ilmiah di balik masing-masing mitos:
+                </p>
+
+                <div class="accordion-group">
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 1: &quot;Ada &#39;Jam Gacor&#39; (Subuh jam 02.00 - 04.00) saat server sedang lengah&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA ILMIAH:</strong> Server slot digital beroperasi dengan algoritma cloud computing 24/7 otomatis tanpa mengenal rasa kantuk. Mitos &#39;jam gacor subuh&#39; sengaja disebarkan oleh afiliator agar korban bermain di waktu larut malam ketika kondisi otak lelah dan kontrol emosi <em>(prefrontal cortex)</em> melemah, sehingga pemain lebih ceroboh dan memasang taruhan tanpa perhitungan rasional.
+                    </div>
+                  </details>
+
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 2: &quot;Mengikuti &#39;Pola Slot&#39; (10x Manual, 30x Auto, 50x Turbo) bisa memecahkan algoritma&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA MATEMATIKA:</strong> Setiap putaran <em>(spin)</em> adalah kejadian independen <em>(independent event)</em>. Pergantian mode manual ke turbo hanyalah perubahan durasi animasi visual di sisi browser (client-side), sama sekali tidak mengubah formula matematis di server. Pola slot diciptakan oleh tim marketing bandar untuk memberikan ilusi kendali <em>(illusion of control)</em>.
+                    </div>
+                  </details>
+
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 3: &quot;Akun baru atau Akun VIP memiliki persentase menang lebih tinggi&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA SISTEM:</strong> Status &#39;VIP&#39; hanyalah taktik psikologis (gamifikasi) untuk memicu ego pemain agar merasa istimewa dan terus menyetor uang dengan jumlah yang lebih fantastis. Tidak ada satu pun kasino yang memberikan keunggulan statistik kepada pemain VIP.
+                    </div>
+                  </details>
+
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 4: &quot;Kalau sudah kalah banyak, sebentar lagi mesin PASTI akan memuntahkan jackpot&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA PSIKOLOGI:</strong> Ini adalah bias kognitif klasik bernama <strong>Gambler&#39;s Fallacy</strong> (Kekeliruan Penjudi). Mesin digital tidak memiliki ingatan <em>(memoryless)</em> tentang berapa banyak uang yang telah Anda masukkan sebelumnya. Peluang putaran ke-1000 sama persis dengan peluang putaran ke-1: yakni probabilitas yang selalu menguntungkan bandar.
+                    </div>
+                  </details>
+
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 5: &quot;Judi online bisa dijadikan penghasilan sampingan / investasi masa depan&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA EKONOMI:</strong> Investasi menghasilkan nilai tambah riil melalui kegiatan ekonomi produktif. Judi online adalah permainan jumlah nol negatif <em>(Negative-Sum Game)</em> di mana uang pemain diserap langsung oleh sindikat bandar. Tidak pernah ada orang di dunia yang menjadi kaya raya secara berkelanjutan dengan menjadi pemain judi slot online.
+                    </div>
+                  </details>
+
+                  <details class="faq-item">
+                    <summary class="faq-question">
+                      Mitos 6: &quot;Afiliator dan YouTuber yang pamer menang ratusan juta membuktikan slot itu nyata&quot;
+                    </summary>
+                    <div class="faq-answer">
+                      <strong>FAKTA INDUSTRI:</strong> Mayoritas streamer judi online menggunakan <strong>Akun Demo Khusus (Admin Feed)</strong> dengan saldo tanpa batas yang diberikan langsung oleh bandar. Kemenangan mereka adalah skenario tontonan untuk menarik penonton mendaftar melalui link referral mereka. Afiliator mendapatkan komisi dari setiap rupiah KEKALAHAN pemain yang mendaftar lewat kodenya.
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 5: PUSAT BANTUAN -->
+            <div class="tab-content-panel panel-5">
+              <div class="edu-card">
+                <h3 class="font-display" style="font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem;">
+                  Layanan Bantuan, Konseling &amp; Kanal Pengaduan Resmi Indonesia
+                </h3>
+                <p style="color: #cbd5e1; font-size: 0.92rem;">
+                  Jika Anda, anggota keluarga, atau rekan Anda sedang berjuang melawan dorongan kecanduan judi online atau terjerat hutang, segera hubungi lembaga-lembaga terpercaya berikut untuk mendapatkan pendampingan psikologis dan hukum secara gratis dan rahasia:
+                </p>
+
+                <div class="hotline-grid">
+                  <div class="hotline-card">
+                    <div>
+                      <div class="hotline-name">Kemenkes Sejiwa (Kesehatan Mental)</div>
+                      <div class="hotline-target">Konseling psikolog resmi bagi pecandu &amp; keluarga depresi</div>
+                    </div>
+                    <div class="hotline-contact-btn">📞 Telepon: 119 (Ext. 8)</div>
+                  </div>
+
+                  <div class="hotline-card">
+                    <div>
+                      <div class="hotline-name">Satgas PASTI / OJK</div>
+                      <div class="hotline-target">Pemblokiran rekening penampung judi &amp; pinjol ilegal</div>
+                    </div>
+                    <div class="hotline-contact-btn">✉️ konsumen@ojk.go.id / 157</div>
+                  </div>
+
+                  <div class="hotline-card">
+                    <div>
+                      <div class="hotline-name">Aduan Konten Komdigi (Kominfo)</div>
+                      <div class="hotline-target">Pelaporan situs, aplikasi, &amp; rekening judi online</div>
+                    </div>
+                    <div class="hotline-contact-btn">🌐 aduankonten.id / WA 08119224545</div>
+                  </div>
+
+                  <div class="hotline-card">
+                    <div>
+                      <div class="hotline-name">Yayasan Pulih / Komunitas Stop Judol</div>
+                      <div class="hotline-target">Dukungan sebaya (peer-support) pemulihan kecanduan</div>
+                    </div>
+                    <div class="hotline-contact-btn">🤝 yayasanpulih.org</div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding: 1.25rem; background: #0c0a15; border-radius: var(--radius-md); border: 1px dashed rgba(255, 255, 255, 0.15);">
+                  <strong style="color: #fff; display: block; margin-bottom: 0.4rem;">💡 Langkah Pertama Berhenti Hari Ini:</strong>
+                  <ol style="margin-left: 1.2rem; color: #cbd5e1; font-size: 0.85rem; line-height: 1.7;">
+                    <li>Akui secara jujur kepada orang terdekat bahwa Anda sedang menghadapi masalah judi.</li>
+                    <li>Serahkan kendali m-banking, rekening, dan dompet digital Anda sementara waktu kepada pasangan atau orang tua.</li>
+                    <li>Blokir dan hapus seluruh aplikasi perbankan digital dari ponsel Anda yang terhubung dengan akses deposit.</li>
+                    <li>Cari bantuan profesional psikolog klinis melalui fasilitas BPJS di Puskesmas atau RSUD terdekat.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER SITUS -->
+      <footer id="bantuan" class="site-footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <div style="font-size: 1.25rem;">⚡</div>
+                <div class="font-display" style="font-size: 1.25rem; font-weight: 800; color: #fff;">
+                  BEDAH JUDOL
+                </div>
+              </div>
+              <p style="font-size: 0.82rem; line-height: 1.6; max-width: 450px;">
+                Sebuah platform independen dan gerakan kampanye sosial yang didedikasikan untuk membangun literasi digital kritis masyarakat Indonesia, mengungkap rekayasa algoritma kasino digital ilegal, dan menyelamatkan generasi bangsa dari jurang kemiskinan akibat jeratan sindikat judi online.
+              </p>
+              <div style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--gold-light);">
+              </div>
+            </div>
+
+            <div>
+              <div class="footer-col-title">Navigasi Materi</div>
+              <ul class="footer-list">
+                <li><a href="#simulator" style="color: var(--text-muted);">Lab Simulator Slot</a></li>
+                <li><a href="#katalog-game" style="color: var(--text-muted);">Katalog 4 Game Populer</a></li>
+                <li><a href="#edukasi-sistem" style="color: var(--text-muted);">5 Pilar Bedah Sistem</a></li>
+                <li><label for="modal-bonus" style="cursor: pointer; color: var(--text-muted);">Analisis Syarat Turnover</label></li>
+                <li><label for="modal-cs" style="cursor: pointer; color: var(--text-muted);">Bocoran Script CS Bandar</label></li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="footer-col-title">Kanal Advokasi &amp; Gerakan</div>
+              <ul class="footer-list">
+                <li><span>Fokus: Literasi Digital &amp; Anti-Judol</span></li>
+                <li><span>Jangkauan: Seluruh Wilayah Indonesia</span></li>
+                <li><span>Status: Advokasi Publik Bebas Akses</span></li>
+                <li><span>Aksi: Edukasi Keluarga &amp; Komunitas</span></li>
+                <li><label for="modal-manifesto" style="cursor: pointer; color: #fef08a; text-decoration: underline;">Manifesto Lawan Sindikat</label></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div>
+              &copy; 2026 Proyek Edukasi Anti-Judi Online. Hak Cipta Terbuka untuk Tujuan Edukasi &amp; Non-Komersial.
+            </div>
+            <div>
+              <span class="text-danger" style="font-weight: 700;">#StopJudiOnline</span>
+              <span style="margin: 0 0.5rem;">•</span>
+              <span class="text-gold" style="font-weight: 700;">#KeluargaSejahteraTanpaJudol</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div> <!-- END SITE-CONTENT -->
+
+    <!-- ==========================================================================
+         MODAL 1: KONTRAK JEBAKAN BONUS DEPOSIT 100% (PURE CSS)
+         ========================================================================== -->
+    <div class="modal-overlay modal-bonus-overlay">
+      <div class="modal-card">
+        <label for="modal-bonus" class="modal-close-btn" title="Tutup">&times;</label>
+        <span class="feedback-badge badge-danger">DOKUMEN BEDAH JEBAKAN BANDAR</span>
+        <h3 class="modal-title">KONTRAK BONUS 100% (SYARAT TURNOVER 40X)</h3>
+        <p class="modal-subtitle">
+          Berikut adalah klausul matematis yang sengaja disembunyikan dalam huruf kecil oleh situs judi online saat menawarkan &#39;Bonus Gratis&#39;:
+        </p>
+
+        <div style="background: #0d0b17; padding: 1rem; border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.8rem; color: #fca5a5; border-left: 3px solid var(--danger-red); margin-bottom: 1rem; line-height: 1.6;">
+          Deposit Anda: Rp 100.000<br />
+          Bonus Tambahan: Rp 100.000<br />
+          Syarat Turnover (TO): 40x (Deposit + Bonus)<br />
+          TOTAL TARUHAN WAJIB = 40 x (Rp 200.000) = <strong>Rp 8.000.000!</strong>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 1rem;">
+          <strong>MENGAPA INI JEBAKAN PASTI KALAH?</strong><br />
+          Untuk bisa mencairkan uang Rp 100.000 Anda, Anda diwajibkan memutar taruhan akumulatif sebesar <strong>Rp 8.000.000</strong>. Dengan keunggulan matematis bandar rata-rata 5-10% per putaran, modal Rp 200.000 Anda akan hangus berkeping-keping jauh sebelum target Rp 8.000.000 tercapai. Secara statistik, <strong>99.8% pemain bangkrut</strong> sebelum syarat turnover terpenuhi!
+        </p>
+
+        <label for="modal-bonus" class="btn-casino btn-register" style="display: block; width: 100%; text-align: center; cursor: pointer;">
+          SAYA MENGERTI, INI ADALAH JEBAKAN
+        </label>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 2: BOCORAN SCRIPT CS BANDAR (PURE CSS)
+         ========================================================================== -->
+    <div class="modal-overlay modal-cs-overlay">
+      <div class="modal-card">
+        <label for="modal-cs" class="modal-close-btn" title="Tutup">&times;</label>
+        <span class="feedback-badge badge-warning">DOKUMEN RAHASIA INTERNAL AGEN</span>
+        <h3 class="modal-title">BOCORAN SCRIPT CUSTOMER SERVICE (CS)</h3>
+        <p class="modal-subtitle">
+          Transkrip standar operasional manipulasi psikologis yang digunakan agen bandar untuk menahan pemain yang ingin berhenti:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.82rem; margin-bottom: 1.25rem;">
+          <div style="background: rgba(255,255,255,0.05); padding: 0.75rem; border-radius: var(--radius-sm);">
+            <strong style="color: #cbd5e1;">Pemain Curhat:</strong> <em>&quot;Admin, saya udah kalah 5 juta hari ini, gaji sebulan ludes...&quot;</em>
+          </div>
+          <div style="background: rgba(245, 158, 11, 0.15); border-left: 3px solid var(--gold-primary); padding: 0.75rem; border-radius: var(--radius-sm); color: #fef08a;">
+            <strong>Script Respons CS:</strong> <em>&quot;Sabar ya Kak, barusan dicek riwayat ID Kakak sebentar lagi siklus Maxwin-nya pecah! Coba depo 500rb lagi Kak, main di jam 02.15 pakai pola turbo 30x. Banyak member kami yang tadinya kalah langsung balik modal puluhan juta kok!&quot;</em>
+          </div>
+          <div style="background: rgba(239, 68, 68, 0.15); border-left: 3px solid var(--danger-red); padding: 0.75rem; border-radius: var(--radius-sm); color: #fca5a5;">
+            <strong>FAKTA DI BALIK SCRIPT:</strong> CS mendapatkan insentif komisi dari setiap nominal deposit yang berhasil mereka bujuk dari pemain yang sedang stres. CS tidak memiliki akses &#39;bocoran&#39; apa pun; mereka dilatih untuk memanfaatkan rasa putus asa korban.
+          </div>
+        </div>
+
+        <label for="modal-cs" class="btn-casino btn-login" style="display: block; width: 100%; text-align: center; cursor: pointer;">
+          TUTUP BOCORAN
+        </label>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         MODAL 3: MANIFESTO GERAKAN & PANDUAN MELAWAN SINDIKAT JUDI ONLINE
+         ========================================================================== -->
+    <div class="modal-overlay modal-manifesto-overlay">
+      <div class="modal-card">
+        <label for="modal-manifesto" class="modal-close-btn" title="Tutup">&times;</label>
+        <span class="feedback-badge badge-danger">DOKUMEN ADVOKASI PUBLIK</span>
+        <h3 class="modal-title">MANIFESTO GERAKAN LAWAN SINDIKAT JUDI ONLINE</h3>
+        <p class="modal-subtitle">
+          Deklarasi independen untuk membuka mata masyarakat Indonesia terhadap kejahatan siber berkedok permainan digital:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 1.25rem;">
+          <div style="background: #171526; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 3px solid var(--danger-red);">
+            <strong style="color: #f87171;">✊ 1. KASINO ONLINE ADALAH KEJAHATAN SIBER TERORGANISIR:</strong><br />
+            Slot digital bukan permainan keberuntungan atau hiburan adil. Di balik animasi lampu dan koin emas, terdapat sindikat transnasional yang menggunakan kode rekayasa untuk menyedot uang masyarakat dari kalangan paling rentan.
+          </div>
+          <div style="background: #171526; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 3px solid var(--gold-primary);">
+            <strong style="color: #fbbf24;">🛡️ 2. MEMUTUS RANTAI KORBAN &amp; PINJOL ILEGAL:</strong><br />
+            Kecanduan judi online adalah pintu gerbang menuju pinjaman online ilegal, penjualan aset keluarga, dan keputusasaan mental. Menolak judi online berarti melindungi masa depan finansial dan keharmonisan keluarga Anda.
+          </div>
+          <div style="background: #171526; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 3px solid var(--cyan-accent);">
+            <strong style="color: #22d3ee;">📢 3. SOLIDARITAS &amp; LAPORKAN REKENING PENAMPUNG:</strong><br />
+            Jangan biarkan orang-orang terdekat Anda tenggelam sendirian. Berikan edukasi dengan membagikan pembedahan sistem ini, dan segera laporkan nomor rekening bandar yang Anda temui ke Satgas PASTI OJK dan kanal resmi pemerintah.
+          </div>
+        </div>
+
+        <label for="modal-manifesto" class="btn-casino btn-register" style="display: block; width: 100%; text-align: center; cursor: pointer;">
+          SAYA DUKUNG GERAKAN STOP JUDI ONLINE
+        </label>
+      </div>
+    </div>
+
+    <div id="root" style="display: none;"></div>
+  </body>
+</html>

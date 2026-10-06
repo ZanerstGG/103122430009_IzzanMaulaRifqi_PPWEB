@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Era 2010-an: Game Smartphone, Minecraft & Fenomena Streamer — LUDOSFERA</title>
+    <meta name="description" content="Cerita seru dekade 2010-an: Booming smartphone, fenomena Minecraft karya developer indie, toko digital Steam, dan asyiknya nonton YouTuber gaming." />
+    <!-- Path relatif agar aman saat dibuka di VS Code / file lokal -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="../index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <a href="../stories.html" class="nav-link">Kumpulan Cerita</a>
+          <a href="../history.html" class="nav-link active">Garis Waktu</a>
+          <a href="../about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="../index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="../index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="../stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="../history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="../about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Pilihan Dekade Garis Waktu</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="../history/1980s.html"><span>Era 1980-an</span><span>8-Bit & Koin</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/1990s.html"><span>Era 1990-an</span><span>Poligon 3D</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2000s.html"><span>Era 2000-an</span><span>Jejaring & Warnet</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2010s.html"><span>Era 2010-an</span><span>Layar Saku & Indie</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2020s.html"><span>Era 2020-an</span><span>Spasial & Realitas</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>SEJARAH GAME DARI MASA KE MASA • ERA 2010-AN</div>
+        <div>HTML5 + CSS MURNI • TAHUN 2026</div>
+      </div>
+    </div>
+
+    <!-- Konten Artikel -->
+    <main class="editorial-essay-wrapper">
+      <div class="editorial-container prose-container">
+        <header class="essay-meta-header">
+          <span class="page-kicker">Garis Waktu • Dekade 2010 — 2019</span>
+          <h1 class="page-title">Era 2010-an: Ledakan Game Smartphone & Masa Emas Game Indie</h1>
+          <p class="page-intro">
+            Dekade waktu game buatan satu orang programmer kamar tidur bisa ngalahin perusahaan raksasa, sementara jutaan orang di seluruh dunia asyik nonton YouTuber mabar game.
+          </p>
+        </header>
+
+        <figure class="essay-lead-figure">
+          <img 
+            src="../images/mobile/mobile_main.jpg" 
+            alt="Bermain game di smartphone saat perjalanan kereta komuter malam"
+            referrerpolicy="no-referrer"
+          />
+          <figcaption>
+            Foto 04 — Game di mana-mana: Layar smartphone bikin siapa aja bisa main game kapan pun, baik di dalam KRL, halte bus, maupun warkop.
+          </figcaption>
+        </figure>
+
+        <article class="essay-body-prose">
+          <p class="dropcap">
+            Dekade 2010-an dimulai dengan kejutan besar: bikin game keren nggak lagi harus punya studio raksasa bermodal ratusan miliar rupiah. Lewat toko digital seperti Steam di PC dan App Store di smartphone, siapa pun bisa bikin game dari kamar kos dan menjualnya langsung ke pemain di seluruh dunia.
+          </p>
+
+          <p>
+            Buktinya? <em>Minecraft</em> (2011) yang awalnya dibikin secara mandiri oleh Markus Persson berhasil meledak jadi fenomena budaya terbesar abad ini. Anak-anak dan orang dewasa di seluruh dunia asyik numpuk balok virtual, bikin rumah impian, dan berburu monster bareng temen.
+          </p>
+
+          <div class="essay-pullquote">
+            "Ketika toko digital bikin distribusi game gampang banget, ide-ide kreatif yang unik, puitis, dan menyentuh hati akhirnya bisa nemuin jutaan penggemar setia di seluruh dunia."
+          </div>
+
+          <h2 class="essay-subheading">Fenomena Nonton Streamer & YouTuber Gaming</h2>
+          <p>
+            Lahirnya platform kayak Twitch dan YouTube Gaming bikin kebiasaan baru: kita nggak cuma seneng main sendiri, tapi juga ketagihan nonton orang lain main game sambil ngasih komentar lucu (*Let's Play*). Di Indonesia, kreator konten gaming jadi idola baru anak-anak muda, ngisi waktu santai sepulang sekolah atau kerja.
+          </p>
+
+          <h2 class="essay-subheading">Game Paling Ikonik di Era 2010-an</h2>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2011 — Minecraft:</strong> Kanvas balok tak terbatas tempat anak-anak dan arsitek berimajinasi sesuka hati.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2011 — Dark Souls:</strong> Game penuh tantangan yang ngajarin kita jangan gampang menyerah pas gagal berkali-kali.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2013 — The Last of Us:</strong> Kisah perjalanan Joel dan Ellie yang punya akting suara dan drama emosional sekelas film peraih piala Oscar.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2015 — Undertale:</strong> Game indie grafis retro yang ngajarin bahwa kita bisa tamatin game tanpa harus ngelawan musuh pakai kekerasan.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2017 — Zelda: Breath of the Wild:</strong> Petualangan alam bebas yang ngasih kebebasan pemain manjat tebing mana aja dan eksperimen sama hukum fisika.
+            </li>
+          </ul>
+
+          <div class="essay-navigation-foot">
+            <a href="../history/2000s.html" class="editorial-link-arrow">
+              <span class="arrow" aria-hidden="true">←</span>
+              <span>Era Sebelumnya: 2000-an</span>
+            </a>
+            <a href="../history/2020s.html" class="editorial-link-arrow">
+              <span>Lanjut ke Era Masa Kini (2020-an)</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html">Beranda</a></li>
+              <li><a href="../stories.html">Kumpulan Cerita</a></li>
+              <li><a href="../history.html">Garis Waktu</a></li>
+              <li><a href="../about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Pilihan Era Lain</div>
+            <ul class="footer-nav-list">
+              <li><a href="../history/1980s.html">Era 80-an (Famicom)</a></li>
+              <li><a href="../history/1990s.html">Era 90-an (PS1)</a></li>
+              <li><a href="../history/2000s.html">Era 2000-an (Warnet)</a></li>
+              <li><a href="../history/2020s.html">Era 2020-an (VR & Masa Kini)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>SEJARAH GAME ERA 2010-AN • 2026</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

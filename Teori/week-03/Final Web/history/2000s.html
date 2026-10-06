@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Era 2000-an: Rental PS2, Masa Emas Warnet & Game Online — LUDOSFERA</title>
+    <meta name="description" content="Cerita seru dekade 2000-an: Konsol legendaris PlayStation 2, begadang paket malam di warnet, tanding Counter-Strike, dan serunya mabar bareng temen." />
+    <!-- Path relatif agar aman saat dibuka di VS Code / file lokal -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="../index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <a href="../stories.html" class="nav-link">Kumpulan Cerita</a>
+          <a href="../history.html" class="nav-link active">Garis Waktu</a>
+          <a href="../about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="../index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="../index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="../stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="../history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="../about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Pilihan Dekade Garis Waktu</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="../history/1980s.html"><span>Era 1980-an</span><span>8-Bit & Koin</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/1990s.html"><span>Era 1990-an</span><span>Poligon 3D</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2000s.html"><span>Era 2000-an</span><span>Jejaring & Warnet</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2010s.html"><span>Era 2010-an</span><span>Layar Saku & Indie</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2020s.html"><span>Era 2020-an</span><span>Spasial & Realitas</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>SEJARAH GAME DARI MASA KE MASA • ERA 2000-AN</div>
+        <div>HTML5 + CSS MURNI • TAHUN 2026</div>
+      </div>
+    </div>
+
+    <!-- Konten Artikel -->
+    <main class="editorial-essay-wrapper">
+      <div class="editorial-container prose-container">
+        <header class="essay-meta-header">
+          <span class="page-kicker">Garis Waktu • Dekade 2000 — 2009</span>
+          <h1 class="page-title">Era 2000-an: Rental PS2, Masa Emas Warnet & Game Online</h1>
+          <p class="page-intro">
+            Dekade waktu kabel internet mulai nyambung ke rumah dan ruko-ruko pinggir jalan, melahirkan kultur begadang paket malam dan persaudaraan tanpa sekat jarak.
+          </p>
+        </header>
+
+        <figure class="essay-lead-figure">
+          <img 
+            src="../images/online/online_main.jpg" 
+            alt="Pesta jaringan dan warnet era 2000-an"
+            referrerpolicy="no-referrer"
+          />
+          <figcaption>
+            Foto 03 — Warnet dan pesta jaringan: Arena nongkrong favorit pemuda zaman milenium baru yang selalu ramai dari sore sampai subuh.
+          </figcaption>
+        </figure>
+
+        <article class="essay-body-prose">
+          <p class="dropcap">
+            Milenium baru dibuka sama satu konsol yang nggak ada lawan: Sony PlayStation 2 (rilis tahun 2000). Konsol warna hitam tebal ini bukan cuma laku lebih dari 155 juta unit di dunia, tapi di Indonesia melahirkan bisnis menjamur: rental PS2 per jam! Siapa yang dulu rela ngantre nunggu abang-abang rental kelar main petualangan Carl Johnson di <em>GTA San Andreas</em> atau turnamen bola <em>Winning Eleven</em>?
+          </p>
+
+          <p>
+            Tapi keajaiban terbesarnya adalah internet cepat (broadband). Bermain game nggak lagi cuma lawan komputer (bot) yang gerakannya gitu-gitu aja, tapi melawan kecerdikan manusia asli yang duduk ratusan kilometer jauhnya.
+          </p>
+
+          <div class="essay-pullquote">
+            "Suara teriakan di bilik warnet dan ketawa bareng di headset mic jadi soundtrack masa muda paling rame buat anak-anak angkatan 2000-an."
+          </div>
+
+          <h2 class="essay-subheading">Kisah Game Online MMORPG & Pasar Virtual</h2>
+          <p>
+            Tahun 2004, <em>World of Warcraft</em> dan <em>Ragnarok Online</em> mencapai puncak kejayaannya. Game bukan lagi sekadar mainan santai, tapi udah kayak kota kedua tempat kita punya nama alias, punya temen mabar tetap, dan bahkan jual beli item langka pake uang rupiah asli. Hubungan pertemanan di guild online sering kali lebih akrab dibanding temen sekelas di dunia nyata!
+          </p>
+
+          <h2 class="essay-subheading">Game Paling Membekas di Era 2000-an</h2>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2000 — Counter-Strike:</strong> Modifikasi game tembak-tembakan yang jadi game esports paling awet dan melahirkan panggilan 'GG'.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2004 — GTA: San Andreas:</strong> Kebebasan keliling kota naik sepeda BMX, dengerin radio lagu jadul, dan cheat legendaris HESOYAM.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2004 — World of Warcraft:</strong> Dunia fantasi online raksasa yang dihuni belasan juta pemain di seluruh dunia.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">2006 — Nintendo Wii:</strong> Stik sensor gerak yang bikin satu keluarga—dari adik kecil sampai kakek nenek—ikut berdiri main tenis di ruang tamu.
+            </li>
+          </ul>
+
+          <div class="essay-navigation-foot">
+            <a href="../history/1990s.html" class="editorial-link-arrow">
+              <span class="arrow" aria-hidden="true">←</span>
+              <span>Era Sebelumnya: 1990-an</span>
+            </a>
+            <a href="../history/2010s.html" class="editorial-link-arrow">
+              <span>Lanjut ke Era 2010-an (Smartphone)</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html">Beranda</a></li>
+              <li><a href="../stories.html">Kumpulan Cerita</a></li>
+              <li><a href="../history.html">Garis Waktu</a></li>
+              <li><a href="../about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Pilihan Era Lain</div>
+            <ul class="footer-nav-list">
+              <li><a href="../history/1980s.html">Era 80-an (Famicom)</a></li>
+              <li><a href="../history/1990s.html">Era 90-an (PS1)</a></li>
+              <li><a href="../history/2010s.html">Era 2010-an (Smartphone)</a></li>
+              <li><a href="../history/2020s.html">Era 2020-an (VR)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>SEJARAH GAME ERA 2000-AN • 2026</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

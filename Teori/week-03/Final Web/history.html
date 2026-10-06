@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garis Waktu Perjalanan Game (1980–2026) — LUDOSFERA</title>
+    <meta name="description" content="Perjalanan lengkap evolusi video game dari zaman dingdong dan kaset 8-bit sampai era konsol modern dan kacamata virtual reality." />
+    <!-- Path relatif agar aman saat dibuka di VS Code / komputer lokal -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="./index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="./index.html" class="nav-link">Beranda</a>
+          <a href="./stories.html" class="nav-link">Kumpulan Cerita</a>
+          <a href="./history.html" class="nav-link active">Garis Waktu</a>
+          <a href="./about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="./index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="./index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="./stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="./history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="./about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Pilihan Era Garis Waktu</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="./history/1980s.html"><span>Era 1980-an</span><span>Koin & Famicom</span></a></li>
+            <li class="overlay-theme-item"><a href="./history/1990s.html"><span>Era 1990-an</span><span>PS1 & Poligon 3D</span></a></li>
+            <li class="overlay-theme-item"><a href="./history/2000s.html"><span>Era 2000-an</span><span>PS2 & Warnet</span></a></li>
+            <li class="overlay-theme-item"><a href="./history/2010s.html"><span>Era 2010-an</span><span>Smartphone & Indie</span></a></li>
+            <li class="overlay-theme-item"><a href="./history/2020s.html"><span>Era 2020-an</span><span>VR & Masa Kini</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>PERJALANAN GAME DARI MASA KE MASA • TAHUN 2026</div>
+        <div>DIBIKIN PAKE HTML5 + CSS MURNI</div>
+      </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <main>
+      <section class="page-hero">
+        <div class="editorial-container">
+          <span class="page-kicker">Garis Waktu Lengkap • 1980 Hingga 2026</span>
+          <h1 class="page-title">Perjalanan Budaya Game</h1>
+          <p class="page-intro">
+            Tiap dekade selalu punya kenangan ikonik masing-masing. Dari zaman rebutan stik di rumah temen, begadang bareng anak-anak warnet, sampai era game mobile dan virtual reality masa kini.
+          </p>
+
+          <!-- Navigasi Lompat Dekade -->
+          <div class="timeline-filter-bar">
+            <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--color-accent); padding: 0.5rem 0.75rem; text-transform: uppercase;">
+              Lompat ke Era:
+            </span>
+            <a href="#era-1980" class="timeline-tab-label">1980-an (Dingdong)</a>
+            <a href="#era-1990" class="timeline-tab-label">1990-an (Poligon)</a>
+            <a href="#era-2000" class="timeline-tab-label">2000-an (Warnet)</a>
+            <a href="#era-2010" class="timeline-tab-label">2010-an (Mobile)</a>
+            <a href="#era-2020" class="timeline-tab-label">2020–2026 (Masa Kini)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Daftar Garis Waktu -->
+      <section class="editorial-container">
+        <div class="timeline-items-flow">
+          <!-- Era 1980-an -->
+          <div id="era-1980" class="timeline-milestone">
+            <div class="milestone-year">
+              1980s
+              <span>Zaman 8-Bit</span>
+            </div>
+            <div class="milestone-card">
+              <h2 class="milestone-title">Ledakan Mesin Koin Dingdong & Hadirnya Nintendo Famicom</h2>
+              <p class="milestone-body">
+                Setelah pasar game di barat sempat lesu, Nintendo bikin gebrakan lewat Famicom (NES). Di Indonesia, konsol kloningan seperti Spica dengan kaset kuning bergambar Mario Bros dan Contra mulai nangkring di samping TV ruang keluarga.
+              </p>
+              
+              <details class="curator-dispatch">
+                <summary>
+                  <span>Momen Ikonik: Super Mario Bros & Kaset Kotak Kuning</span>
+                  <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+                </summary>
+                <div class="dispatch-body">
+                  <p>
+                    Super Mario Bros (1985) ngajarin jutaan anak cara jalan dari kiri ke kanan, nginjak musuh jamur, dan lompat masuk ke pipa hijau. Mekanika simpel ini jadi standar baku semua game petualangan di dunia sampai sekarang.
+                  </p>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="./history/1980s.html" class="editorial-link-arrow">
+                  <span>Baca Cerita Lengkap Era 80-an</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Era 1990-an -->
+          <div id="era-1990" class="timeline-milestone">
+            <div class="milestone-year">
+              1990s
+              <span>Lompatan 3D</span>
+            </div>
+            <div class="milestone-card">
+              <h2 class="milestone-title">Perang Sega vs Nintendo, Grafis 3D Poligon, dan Lahirnya PlayStation</h2>
+              <p class="milestone-body">
+                Dari gambar gepeng 2 dimensi, dunia game lompat ke ruang tiga dimensi. Kehadiran Sony PlayStation 1 dengan keping CD bikin game punya video animasi keren, lagu orkestra, dan cerita dramatis sekelas film bioskop.
+              </p>
+
+              <details class="curator-dispatch">
+                <summary>
+                  <span>Momen Ikonik: CD-ROM & Memory Card Legendaris</span>
+                  <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+                </summary>
+                <div class="dispatch-body">
+                  <p>
+                    CD murah bikin game bisa muat video sinematik panjang kayak Final Fantasy VII dan Metal Gear Solid. Siapa yang dulu punya Memory Card PS1 isi 15 blok dan paling takut datanya ketimpa temen?
+                  </p>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="./history/1990s.html" class="editorial-link-arrow">
+                  <span>Baca Cerita Lengkap Era 90-an</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Era 2000-an -->
+          <div id="era-2000" class="timeline-milestone">
+            <div class="milestone-year">
+              2000s
+              <span>Era Game Online</span>
+            </div>
+            <div class="milestone-card">
+              <h2 class="milestone-title">Masa Keemasan Rental PS2, Warnet Paket Malam, dan Komunitas Mabar</h2>
+              <p class="milestone-body">
+                Di rumah, rental PS2 penuh sesak sama anak-anak yang main Winning Eleven atau petualangan GTA San Andreas. Di jalanan, warnet berjamur di mana-mana: tempat klan Counter-Strike dan guild Ragnarok kumpul mabar semalaman.
+              </p>
+
+              <details class="curator-dispatch">
+                <summary>
+                  <span>Momen Ikonik: Headset Warnet & Istilah 'GG' yang Lahir</span>
+                  <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+                </summary>
+                <div class="dispatch-body">
+                  <p>
+                    Main game online bikin bahasa pergaulan berubah. Istilah kayak 'Good Game' (GG), AFK, Lag, Bocor, dan Gank pertama kali akrab di telinga anak muda zaman ini dan masih dipake sampai sekarang.
+                  </p>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="./history/2000s.html" class="editorial-link-arrow">
+                  <span>Baca Cerita Lengkap Era 2000-an</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Era 2010-an -->
+          <div id="era-2010" class="timeline-milestone">
+            <div class="milestone-year">
+              2010s
+              <span>Era Game Saku</span>
+            </div>
+            <div class="milestone-card">
+              <h2 class="milestone-title">Banjir Game Smartphone, Kejayaan Game Indie, dan Fenomena Streamer</h2>
+              <p class="milestone-body">
+                Smartphone bikin semua orang mendadak jadi gamer. Di komputer, platform Steam melahirkan game indie keren buatan tim kecil kayak Minecraft, Journey, dan Undertale. Nonton streamer main game di YouTube dan Twitch juga resmi jadi tontonan nomor satu.
+              </p>
+
+              <details class="curator-dispatch">
+                <summary>
+                  <span>Momen Ikonik: Game Gratis Free-to-Play & Budaya Nonton Streamer</span>
+                  <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+                </summary>
+                <div class="dispatch-body">
+                  <p>
+                    Bukan cuma main sendiri, anak-anak muda zaman ini suka banget nongkrong nonton kreator favorit mereka main sambil ngobrol di live chat seru.
+                  </p>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="./history/2010s.html" class="editorial-link-arrow">
+                  <span>Baca Cerita Lengkap Era 2010-an</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Era 2020-2026 -->
+          <div id="era-2020" class="timeline-milestone">
+            <div class="milestone-year">
+              2020s
+              <span>Era Masa Kini</span>
+            </div>
+            <div class="milestone-card">
+              <h2 class="milestone-title">Mabar Pas Pandemi, Konsol Tanpa Loading, dan Kacamata Virtual Reality</h2>
+              <p class="milestone-body">
+                Waktu pandemi bikin semua orang di rumah aja, game kayak Animal Crossing dan Among Us jadi tempat nongkrong virtual paling aman. Ditambah SSD super kencang di PS5, PC genggam Steam Deck, dan kacamata VR canggih, dunia game sekarang makin seru tanpa sekat.
+              </p>
+
+              <details class="curator-dispatch">
+                <summary>
+                  <span>Momen Ikonik: SSD Instan, Ray Tracing, dan Realitas Campur</span>
+                  <span class="dispatch-toggle-symbol" aria-hidden="true">+</span>
+                </summary>
+                <div class="dispatch-body">
+                  <p>
+                    Di era sekarang, loading screen praktis udah hilang. Cahaya matahari dan pantulan air di game dihitung otomatis kayak dunia asli, dan kita udah bisa main pake gestur mata dan cubitan jari di udara.
+                  </p>
+                </div>
+              </details>
+
+              <div style="margin-top: 1.25rem;">
+                <a href="./history/2020s.html" class="editorial-link-arrow">
+                  <span>Baca Cerita Lengkap Era 2020-an (Masa Kini)</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="./index.html">Beranda</a></li>
+              <li><a href="./stories.html">Kumpulan Cerita</a></li>
+              <li><a href="./history.html">Garis Waktu</a></li>
+              <li><a href="./about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Semua Dekade</div>
+            <ul class="footer-nav-list">
+              <li><a href="./history/1980s.html">1980-an (Dingdong & 8-Bit)</a></li>
+              <li><a href="./history/1990s.html">1990-an (PS1 & Poligon)</a></li>
+              <li><a href="./history/2000s.html">2000-an (Warnet & PS2)</a></li>
+              <li><a href="./history/2010s.html">2010-an (Smartphone)</a></li>
+              <li><a href="./history/2020s.html">2020-an (VR & Masa Kini)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>GARIS WAKTU PERJALANAN GAME • AMAN DIBUKA DI VS CODE LOKAL</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

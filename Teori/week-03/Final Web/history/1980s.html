@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Era 1980-an: Ledakan Mesin Dingdong & Booming 8-Bit — LUDOSFERA</title>
+    <meta name="description" content="Kilas balik era 1980-an: Waktu Pac-Man bikin heboh satu dunia, kebangkitan Nintendo Famicom, dan kaset kuning Spica di rumah." />
+    <!-- Path relatif agar aman saat dibuka di VS Code / file lokal -->
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="../index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="../index.html" class="nav-link">Beranda</a>
+          <a href="../stories.html" class="nav-link">Kumpulan Cerita</a>
+          <a href="../history.html" class="nav-link active">Garis Waktu</a>
+          <a href="../about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="../index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="../index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="../stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="../history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="../about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Pilihan Dekade Garis Waktu</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="../history/1980s.html"><span>Era 1980-an</span><span>8-Bit & Koin</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/1990s.html"><span>Era 1990-an</span><span>Poligon 3D</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2000s.html"><span>Era 2000-an</span><span>Jejaring & Warnet</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2010s.html"><span>Era 2010-an</span><span>Layar Saku & Indie</span></a></li>
+            <li class="overlay-theme-item"><a href="../history/2020s.html"><span>Era 2020-an</span><span>Spasial & Realitas</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>SEJARAH GAME DARI MASA KE MASA • ERA 1980-AN</div>
+        <div>HTML5 + CSS MURNI • TAHUN 2026</div>
+      </div>
+    </div>
+
+    <!-- Konten Artikel -->
+    <main class="editorial-essay-wrapper">
+      <div class="editorial-container prose-container">
+        <header class="essay-meta-header">
+          <span class="page-kicker">Garis Waktu • Dekade 1980 — 1989</span>
+          <h1 class="page-title">Era 1980-an: Ledakan Mesin Dingdong & Kejayaan 8-Bit</h1>
+          <p class="page-intro">
+            Dekade waktu video game sempat dikira cuma tren mainan musiman yang bakal cepat basi, sebelum diselamatkan sama karakter-karakter legendaris kayak Mario dan Pac-Man.
+          </p>
+        </header>
+
+        <figure class="essay-lead-figure">
+          <img 
+            src="../images/arcade/arcade_main.jpg" 
+            alt="Mesin arcade dingdong klasik 1980-an"
+            referrerpolicy="no-referrer"
+          />
+          <figcaption>
+            Foto 01 — Era kejayaan arcade 1980–1983: Puncak antrean koin sebelum konsol rumah mulai banjir di pasaran.
+          </figcaption>
+        </figure>
+
+        <article class="essay-body-prose">
+          <p class="dropcap">
+            Awal dekade 1980-an dibuka sama fenomena gila: game kuning bulat pemakan titik-titik bernama <em>Pac-Man</em> (1980) bikin demam di seluruh dunia. Lagunya diputar di radio, ada kartunnya di TV hari Minggu, sampai kotak bekal anak sekolah pun bergambar Pac-Man.
+          </p>
+
+          <p>
+            Tapi saking banyaknya perusahaan yang kepengin untung instan, pasar sempat dibanjiri game jelek yang bikin orang bosan. Di Amerika sempat terjadi peristiwa terkenal di mana ribuan kaset game kualitas buruk dikubur di padang pasir. Banyak pengamat mengira masa depan game udah tamat.
+          </p>
+
+          <div class="essay-pullquote">
+            "Krisis game 1983 itu kayak seleksi alam: nyingkirin orang yang cuma mau cari untung cepat, dan nyisain kreator sejati yang beneran ngerti cara bikin game seru."
+          </div>
+
+          <h2 class="essay-subheading">Kelahiran Nintendo Famicom / NES</h2>
+          <p>
+            Penyelamat industri game datang dari Jepang. Nintendo merilis konsol Famicom (di barat dinamai NES). Mereka bikin aturan ketat: cuma game yang lolos uji kualitas yang boleh dijual. Di Indonesia, konsol ini populer banget lewat tiruan konsol legendaris bernama <em>Spica</em> dengan kaset kuning isi "99 in 1" yang padahal isinya diulang-ulang.
+          </p>
+
+          <h2 class="essay-subheading">Game Paling Ikonik di Era 80-an</h2>
+          <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">1980 — Pac-Man:</strong> Karakter game pertama yang punya ekspresi dan disukai cowok maupun cewek dari segala umur.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">1981 — Donkey Kong:</strong> Momen kemunculan pertama Mario yang waktu itu dinamai "Jumpman".
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">1985 — Super Mario Bros:</strong> Petualangan jalan ke kanan yang ngajarin kita cara melompati rintangan dan mecahin bata rahasia.
+            </li>
+            <li style="border-left: 2px solid var(--color-accent); padding-left: 1rem;">
+              <strong style="color: var(--color-text-primary); font-family: var(--font-mono);">1986 — The Legend of Zelda:</strong> Game petualangan pertama yang kasetnya punya baterai kecil di dalam buat nyimpen data tamat.
+            </li>
+          </ul>
+
+          <div class="essay-navigation-foot">
+            <a href="../history.html" class="editorial-link-arrow">
+              <span class="arrow" aria-hidden="true">←</span>
+              <span>Garis Waktu Lengkap</span>
+            </a>
+            <a href="../history/1990s.html" class="editorial-link-arrow">
+              <span>Lanjut ke Era 1990-an</span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="../index.html">Beranda</a></li>
+              <li><a href="../stories.html">Kumpulan Cerita</a></li>
+              <li><a href="../history.html">Garis Waktu</a></li>
+              <li><a href="../about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Pilihan Era Lain</div>
+            <ul class="footer-nav-list">
+              <li><a href="../history/1990s.html">Era 90-an (PS1)</a></li>
+              <li><a href="../history/2000s.html">Era 2000-an (Warnet)</a></li>
+              <li><a href="../history/2010s.html">Era 2010-an (Smartphone)</a></li>
+              <li><a href="../history/2020s.html">Era 2020-an (VR)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>SEJARAH GAME ERA 1980-AN • 2026</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

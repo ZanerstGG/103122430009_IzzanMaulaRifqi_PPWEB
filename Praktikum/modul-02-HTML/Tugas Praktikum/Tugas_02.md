@@ -1,4 +1,35 @@
-# Tugas Praktikum 02: HTML
+<div align="center">
+
+# LAPORAN PRAKTIKUM
+
+*Disusun untuk memenuhi Tugas Laporan Praktikum Mata Kuliah Perancangan dan Pemrograman Web*
+
+<br><br>
+
+<img src="TUP_Vertikal.png" alt="Deskripsi Gambar" width="300" height="300" />
+
+<br><br>
+
+**Disusun oleh :**
+
+| Nama | NIM |
+|---|---|
+| Izzan Maula Rifqi | 103122430009 |
+
+<br><br>
+
+### PROGRAM STUDI S1 SOFTWARE ENGINEERING
+### TELKOM UNIVERSITY PURWOKERTO
+
+### 2026 / 2027
+
+</div>
+
+<br>
+
+---
+
+# Laporan Praktikum 02: HTML
 
 **Nama:** Izzan Maula Rifqi <br>
 **NIM:** 103122430009 <br>

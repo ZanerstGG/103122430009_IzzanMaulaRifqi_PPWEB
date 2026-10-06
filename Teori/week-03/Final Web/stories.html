@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <script>
+      (function () {
+        try {
+          var origFetch = window.fetch;
+          Object.defineProperty(window, "fetch", {
+            get: function () {
+              return origFetch;
+            },
+            set: function (fn) {
+              origFetch = fn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        } catch (_) {}
+        try {
+          if (typeof Window !== "undefined" && Window.prototype) {
+            var protoFetch = Window.prototype.fetch;
+            Object.defineProperty(Window.prototype, "fetch", {
+              get: function () {
+                return origFetch || protoFetch;
+              },
+              set: function (fn) {
+                origFetch = fn;
+              },
+              configurable: true,
+              enumerable: true,
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kumpulan Cerita Seru Dunia Game — LUDOSFERA</title>
+    <meta name="description" content="Koleksi cerita nostalgia dan ulasan seru tentang empat era paling berkesan dalam perjalanan game: dari mesin koin, konsol TV, warnet, sampai game di HP." />
+    <!-- Path relatif agar aman di VS Code / file lokal -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress-bar" aria-hidden="true">
+      <div class="scroll-progress-fill"></div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-label="Buka Menu Navigasi" />
+
+    <!-- Header Navigasi -->
+    <header class="global-header">
+      <div class="editorial-container">
+        <a href="./index.html" class="nav-brand">
+          LUDOSFERA <span class="slash">·</span> PLAY
+        </a>
+        <nav class="nav-center-links" aria-label="Navigasi Menu">
+          <a href="./index.html" class="nav-link">Beranda</a>
+          <a href="./stories.html" class="nav-link active">Kumpulan Cerita</a>
+          <a href="./history.html" class="nav-link">Garis Waktu</a>
+          <a href="./about.html" class="nav-link">Tentang Website</a>
+        </nav>
+        <div class="nav-actions">
+          <label for="menu-toggle" class="menu-trigger-btn" role="button" tabindex="0">
+            <span class="menu-trigger-icon" aria-hidden="true"></span>
+            <span>Menu</span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hamparan Menu Layar Penuh -->
+    <div id="fullscreen-nav" class="fullscreen-overlay" role="dialog" aria-modal="true">
+      <div class="overlay-header">
+        <a href="./index.html" class="nav-brand">LUDOSFERA <span>·</span> PLAY</a>
+        <label for="menu-toggle" class="overlay-close-btn" role="button" tabindex="0">TUTUP [×]</label>
+      </div>
+      <div class="overlay-body">
+        <nav class="overlay-primary-nav">
+          <a href="./index.html" class="overlay-link"><span class="link-num">01</span> Beranda</a>
+          <a href="./stories.html" class="overlay-link"><span class="link-num">02</span> Kumpulan Cerita</a>
+          <a href="./history.html" class="overlay-link"><span class="link-num">03</span> Garis Waktu</a>
+          <a href="./about.html" class="overlay-link"><span class="link-num">04</span> Tentang Website</a>
+        </nav>
+        <div class="overlay-curatorial-col">
+          <div class="overlay-subhead">Daftar Cerita</div>
+          <ul class="overlay-themes-list">
+            <li class="overlay-theme-item"><a href="./stories/arcade.html"><span>01. Era Dingdong</span><span>Antre Koin & Nobar</span></a></li>
+            <li class="overlay-theme-item"><a href="./stories/console.html"><span>02. Era Konsol</span><span>Rebutan TV & Tiup Kaset</span></a></li>
+            <li class="overlay-theme-item"><a href="./stories/online.html"><span>03. Era Warnet</span><span>Begadang Paket Malam</span></a></li>
+            <li class="overlay-theme-item"><a href="./stories/mobile.html"><span>04. Era Game HP</span><span>Main di Sela Waktu</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay-footer">
+        <div>CERITA BUDAYA VIDEO GAME • TUGAS KREATIF MAHASISWA</div>
+        <div>DIBIKIN PAKE HTML5 + CSS MURNI • 2026</div>
+      </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <main>
+      <section class="page-hero">
+        <div class="editorial-container">
+          <span class="page-kicker">Kumpulan Cerita Nostalgia • 4 Babak Menarik</span>
+          <h1 class="page-title">Cerita Seru Perjalanan Game</h1>
+          <p class="page-intro">
+            Di sini kita ngobrol santai soal momen-momen paling membekas dari zaman dulu sampai sekarang: dari deg-degannya nunggu giliran main dingdong di mall, asyiknya nongkrong di warnet bareng klan mabar, sampai serunya main game HP di perjalanan kereta.
+          </p>
+        </div>
+      </section>
+
+      <section class="editorial-container">
+        <div class="stories-grid">
+          <!-- Cerita 1: Arcade -->
+          <article class="story-card-link">
+            <a href="./stories/arcade.html" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="story-card-image">
+                <img 
+                  src="./images/arcade/arcade_main.jpg" 
+                  alt="Suasana mesin arcade dingdong klasik"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="story-card-content">
+                <div class="story-meta-inline">
+                  <span>Babak 01</span>
+                  <span>·</span>
+                  <span>Baca Santai: 6 Menit</span>
+                  <span>·</span>
+                  <span>Nostalgia Mall</span>
+                </div>
+                <h2 class="story-title">
+                  Zaman Dingdong: Waktu Main Game Masih Antre Koin & Ditonton Orang Ramai
+                </h2>
+                <p class="story-excerpt">
+                  Ingat waktu rela nabung uang jajan sekolah cuma buat dituker koin logam di mall? Sensasi tangan gemeteran pas diliatin banyak orang di belakang kabinet kayu.
+                </p>
+                <div class="editorial-link-arrow" style="margin-top: auto; padding-top: 1rem;">
+                  <span>Baca Cerita Lengkap</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Cerita 2: Konsol -->
+          <article class="story-card-link">
+            <a href="./stories/console.html" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="story-card-image">
+                <img 
+                  src="./images/console/console_main.jpg" 
+                  alt="Televisi tabung dan konsol game rumahan"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="story-card-content">
+                <div class="story-meta-inline">
+                  <span>Babak 02</span>
+                  <span>·</span>
+                  <span>Baca Santai: 7 Menit</span>
+                  <span>·</span>
+                  <span>Ruang Tamu & TV</span>
+                </div>
+                <h2 class="story-title">
+                  Pindah ke Rumah: Rebutan TV Tabung, Stik Berkabel, dan Mitos Meniup Kaset
+                </h2>
+                <p class="story-excerpt">
+                  Dari Spica, Nintendo, sampai PlayStation 1: gimana TV keluarga mendadak dikuasai anak-anak yang lagi asyik main Winning Eleven atau petualangan seru sampai lupa waktu.
+                </p>
+                <div class="editorial-link-arrow" style="margin-top: auto; padding-top: 1rem;">
+                  <span>Baca Cerita Lengkap</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Cerita 3: Online & Warnet -->
+          <article class="story-card-link">
+            <a href="./stories/online.html" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="story-card-image">
+                <img 
+                  src="./images/online/online_main.jpg" 
+                  alt="Suasana warnet malam hari dengan monitor tabung"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="story-card-content">
+                <div class="story-meta-inline">
+                  <span>Babak 03</span>
+                  <span>·</span>
+                  <span>Baca Santai: 8 Menit</span>
+                  <span>·</span>
+                  <span>Kultur Warnet</span>
+                </div>
+                <h2 class="story-title">
+                  Era Warnet & Game Online: Begadang Paket Malam Ditemani Mi Rebus Telur
+                </h2>
+                <p class="story-excerpt">
+                  Kenangan tak terlupakan pas patungan sewa bilik komputer, main Counter-Strike teriak-teriak sekampung, leveling di Ragnarok, sampai persahabatan yang awet hingga sekarang.
+                </p>
+                <div class="editorial-link-arrow" style="margin-top: auto; padding-top: 1rem;">
+                  <span>Baca Cerita Lengkap</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Cerita 4: Game HP -->
+          <article class="story-card-link">
+            <a href="./stories/mobile.html" style="display: flex; flex-direction: column; height: 100%;">
+              <div class="story-card-image">
+                <img 
+                  src="./images/mobile/mobile_touch.jpg" 
+                  alt="Jempol bermain game di layar sentuh ponsel pintar"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+              <div class="story-card-content">
+                <div class="story-meta-inline">
+                  <span>Babak 04</span>
+                  <span>·</span>
+                  <span>Baca Santai: 6 Menit</span>
+                  <span>·</span>
+                  <span>Era Smartphone</span>
+                </div>
+                <h2 class="story-title">
+                  Game Masuk Kantong Celana: Main Simpel di Gerbong Kereta dan Antrean
+                </h2>
+                <p class="story-excerpt">
+                  Waktu layar sentuh bikin siapa aja bisa main game tanpa pusing belajar tombol. Dari ketapel Angry Birds sampai mabar Mobile Legends di warkop pinggir jalan.
+                </p>
+                <div class="editorial-link-arrow" style="margin-top: auto; padding-top: 1rem;">
+                  <span>Baca Cerita Lengkap</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="global-footer">
+      <div class="editorial-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-lockup">
+            <div class="footer-brand-title">LUDOSFERA <span>·</span> PLAY</div>
+            <p class="footer-tagline">Membahas perjalanan video game dari masa ke masa dengan bahasa yang santai, seru, dan penuh nostalgia.</p>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigasi Halaman</div>
+            <ul class="footer-nav-list">
+              <li><a href="./index.html">Beranda</a></li>
+              <li><a href="./stories.html">Kumpulan Cerita</a></li>
+              <li><a href="./history.html">Garis Waktu</a></li>
+              <li><a href="./about.html">Tentang Website</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Daftar Cerita</div>
+            <ul class="footer-nav-list">
+              <li><a href="./stories/arcade.html">01. Zaman Dingdong</a></li>
+              <li><a href="./stories/console.html">02. Zaman Konsol TV</a></li>
+              <li><a href="./stories/online.html">03. Zaman Warnet</a></li>
+              <li><a href="./stories/mobile.html">04. Zaman Game HP</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom-bar">
+          <div>© 2026 LUDOSFERA. DIBUAT DENGAN HTML5 + CSS MURNI TANPA JAVASCRIPT.</div>
+          <div>CERITA & NOSTALGIA BUDAYA GAME</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

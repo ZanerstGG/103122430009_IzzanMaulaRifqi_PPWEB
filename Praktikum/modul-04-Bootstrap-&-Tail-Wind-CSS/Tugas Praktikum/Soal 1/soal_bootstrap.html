@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Praktikum Pemrograman Web</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-4">
+        <h1 class="text-center text-uppercase fw-bold mb-4">
+            Pendaftaran Praktikum Pemrograman Web
+        </h1>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <h2 class="mb-3">Informasi Praktikum</h2>
+                <img
+                    src="assets/kegiatan-praktikum.jpeg"
+                    class="img-fluid mb-3"
+                    alt="Kegiatan Praktikum Pemrograman Web">
+                <p>
+                    Praktikum Pemrograman Web merupakan mata kuliah dengan tujuan mahasiswa diharapkan memahami pembuatan dan pengembangan
+                    halaman web menggunakan HTML, CSS, serta framework web.</p>
+                <p>
+                    Peserta praktikum diharapkan dapat mengikuti kegiatan dengan
+                    baik dan mengerjakan setiap tugas yang diberikan.</p>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Form Pendaftaran</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="nama"
+                            class="form-control"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nim" class="form-label">NIM</label>
+                        <input
+                            type="text"
+                            id="nim"
+                            class="form-control"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            class="form-control"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="kelas" class="form-label">Kelas</label>
+                        <input
+                            type="text"
+                            id="kelas"
+                            class="form-control"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Daftar</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </form>
+            </div>
+        </div>
+        <div class="table-responsive mt-4">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Lengkap</th>
+                        <th>NIM</th>
+                        <th>Kelas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Alya Putri</td>
+                        <td>101142400101</td>
+                        <td>IF-45-01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bima Pratama</td>
+                        <td>101142400102</td>
+                        <td>IF-45-02</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Nabila Zahra</td>
+                        <td>101142400103</td>
+                        <td>IF-45-01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
