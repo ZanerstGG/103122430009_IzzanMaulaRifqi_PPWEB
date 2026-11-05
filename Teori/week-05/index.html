@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="id" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yuki (雪) - Belajar Bahasa Jepang</title>
+
+    <meta
+      name="description"
+      content="Platform belajar bahasa Jepang bergaya Duolingo dengan tata letak 3 kolom unik, sistem level bertingkat, hiragana, katakana, kanji, kosakata, dan lencana bernuansa Asia Timur minimalis."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+      <link href="css/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet" />
+    <script>try{var t=localStorage.getItem('yuki-theme');if(t)document.documentElement.setAttribute('data-bs-theme',t)}catch(e){}</script>
+  </head>
+  <body class="bg-body-tertiary">
+    <header class="bg-body border-bottom sticky-top">
+      <div
+       class="container-xl d-flex align-items-center justify-content-between py-2"
+      >
+        <a
+         class="d-flex align-items-center gap-2 text-decoration-none text-body"
+          href="index.html"
+        >
+          <span
+           class="border border-2 border-danger rounded-circle text-danger fw-bold fs-4 lh-1 p-2"
+            >雪</span
+          >
+          <span class="d-flex flex-column lh-sm"
+            ><span class="fw-bold fs-4">Yuki</span
+            ><span class="small text-body-secondary"
+              >Belajar Bahasa Jepang</span
+            ></span
+          ></a
+        >
+        <button id="themeToggle" type="button" class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="Ganti tema"></button>
+      </div>
+      <div class="container-xl">
+        <ul class="nav nav-pills flex-nowrap overflow-x-auto pb-2">
+          <li class="nav-item">
+            <a class="nav-link text-nowrap active bg-danger" href="index.html"
+              ><i class="bi bi-map" aria-hidden="true"></i> Peta Level</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="hiragana.html"
+              >あ Hiragana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="katakana.html"
+              >ア Katakana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="kanji.html"
+              >漢 Kanji Dasar</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="kosakata.html"
+              >語 Kosakata</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="lencana.html"
+              ><i class="bi bi-trophy" aria-hidden="true"></i> Lencana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="belajar.html"
+              ><i class="bi bi-pencil-square" aria-hidden="true"></i> Latihan Kuis</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="container-xl py-4">
+      <div class="row g-4">
+        <main class="col-lg-8">
+          <section class="card mb-4 overflow-hidden">
+            <div class="ratio ratio-21x9">
+              <img
+               class="object-fit-cover card-img-top"
+                src="assets/images/zen_study_banner.jpg"
+                alt="Lanskap kuil pagoda dan bunga sakura gaya lukisan tinta"
+              />
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="small fw-semibold text-body-secondary">
+                  ⛩️ Unit 1: Bagian dasar
+                </div>
+                <span class="display-4 lh-1 text-body-tertiary">一</span>
+              </div>
+              <h1 class="h4 mt-2">Langkah Pertama: Vokal &amp; Konsonan</h1>
+              <p class="small">
+                Pelajari dasar 46 karakter Hiragana mulai dari vokal dasar
+                hingga pembentukan kata sederhana sehari-hari.
+              </p>
+              <div class="d-flex align-items-center gap-3">
+                <div
+                 class="progress flex-grow-1"
+                  role="progressbar"
+                  aria-valuenow="65"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <div class="progress-bar bg-success col-8"></div>
+                </div>
+                <span class="small fw-semibold">65% Selesai</span>
+              </div>
+            </div>
+          </section>
+          <div class="mb-4">
+            <details id="modal-level-1" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-success bg-success text-white"
+                      ><span class="fs-2 lh-1">あ</span
+                      ><span class="small">★★★</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">1. Vokal Dasar</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="text-success fw-bold small">Selesai ★★★</span>
+                  <h2 class="h4">Level 1 • Vokal Dasar Hiragana</h2>
+                  <div class="text-center bg-body-secondary rounded p-3">
+                    <div class="display-6 fw-bold">あ い う え お</div>
+                    <div class="small text-body-secondary">
+                      a · i · u · e · o
+                    </div>
+                  </div>
+                  <p class="small mb-0">
+                    Anda telah menguasai vokal dasar dengan sempurna. Latih
+                    kembali memori untuk menjaga ketajaman refleks membaca.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+10 XP Latihan</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-star-fill" aria-hidden="true"></i></span> <span>Skor: 100%</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-success fw-bold" href="belajar.html#soal-1"
+                    >Latih Ulang Level 1</a
+                  >
+                </div>
+              </div>
+            </details>
+            <details id="modal-level-2" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled pe-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-success bg-success text-white"
+                      ><span class="fs-2 lh-1">か</span
+                      ><span class="small">★★★</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">2. Baris Ka</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="text-success fw-bold small">Selesai ★★★</span>
+                  <h2 class="h4">Level 2 • Baris Ka &amp; Kosakata</h2>
+                  <div class="text-center bg-body-secondary rounded p-3">
+                    <div class="display-6 fw-bold">か き く け こ</div>
+                    <div class="small text-body-secondary">
+                      ka · ki · ku · ke · ko
+                    </div>
+                  </div>
+                  <p class="small mb-0">
+                    Kombinasi konsonan K dengan vokal dasar. Contoh kata: 傘
+                    (kasa - payung), 川 (kawa - sungai).
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+10 XP Latihan</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-star-fill" aria-hidden="true"></i></span> <span>Skor: 100%</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-success fw-bold" href="belajar.html#soal-2"
+                    >Latih Ulang Level 2</a
+                  >
+                </div>
+              </div>
+            </details>
+            <details id="modal-level-3" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled pe-5 me-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-success bg-success text-white"
+                      ><span class="fs-2 lh-1">さ</span
+                      ><span class="small">★★☆</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">3. Baris Sa</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="text-success fw-bold small">Selesai ★★☆</span>
+                  <h2 class="h4">Level 3 • Baris Sa &amp; Pelafalan Khusus</h2>
+                  <div class="text-center bg-body-secondary rounded p-3">
+                    <div class="display-6 fw-bold">さ し す せ そ</div>
+                    <div class="small text-body-secondary">
+                      sa · shi · su · se · so
+                    </div>
+                  </div>
+                  <p class="small mb-0">
+                    Perhatikan pelafalan khusus "shi" (bukan "si"). Contoh kata:
+                    魚 (sakana - ikan), 寿司 (sushi).
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+15 XP Sempurnakan</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-star-fill" aria-hidden="true"></i></span> <span>Skor: 85%</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-success fw-bold" href="belajar.html#soal-2"
+                    >Tingkatkan Menjadi ★★★</a
+                  >
+                </div>
+              </div>
+            </details>
+            <details id="modal-chest-1" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled pe-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-warning bg-warning-subtle text-warning-emphasis"
+                      ><span class="fs-2 lh-1"><i class="bi bi-gift" aria-hidden="true"></i></span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2 text-warning-emphasis"
+                  >Peti Koin Mon</span
+                >
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div
+                 class="card-body d-flex flex-column gap-2 text-center align-items-center"
+                >
+                  <div class="display-5"><i class="bi bi-gift" aria-hidden="true"></i></div>
+                  <span class="text-warning-emphasis fw-bold small"
+                    >Peti Koin Emas Terbuka!</span
+                  >
+                  <h2 class="h4">Selamat! Anda Menemukan Harta Karun</h2>
+                  <p class="small mb-0">
+                    Sebagai apresiasi ketekunan belajar 14 hari beruntun, Anda
+                    memperoleh hadiah khusus!
+                  </p>
+                  <div
+                   class="col-12 bg-warning-subtle border-warning-subtle text-center bg-body-secondary rounded p-3"
+                  >
+                    <div class="fs-3 fw-bold text-warning-emphasis">
+                      +50 Koin Mon &amp; +30 XP
+                    </div>
+                    <div
+                     class="text-warning-emphasis small text-body-secondary"
+                    >
+                      Ditambahkan ke saldo akun Anda!
+                    </div>
+                  </div>
+                  <a class="btn btn-warning fw-bold w-100" href="#">
+                    Klaim &amp; Lanjutkan Perjalanan
+                  </a>
+                </div>
+              </div>
+            </details>
+            <details id="modal-level-4" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled"
+                role="button"
+              >
+                <span class="badge text-bg-danger mb-2">Lanjutkan! +20 XP</span
+                ><span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-danger bg-danger text-white shadow"
+                      ><span class="fs-2 lh-1">た</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2 fw-bold text-danger"
+                  >4. Baris Ta (Aktif)</span
+                >
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="fw-bold small">Pelajaran Aktif Saat Ini</span>
+                  <h2 class="h4">Level 4 • Baris Ta &amp; Konsonan Halus</h2>
+                  <div class="text-center bg-body-secondary rounded p-3">
+                    <div class="text-danger display-6 fw-bold">
+                      た ち つ て と
+                    </div>
+                    <div class="small text-body-secondary">
+                      ta · chi · tsu · te · to
+                    </div>
+                  </div>
+                  <p class="small mb-0">
+                    Karakter unik: <strong>chi (ち)</strong> dan
+                    <strong>tsu (つ)</strong>. Siap menguji pemahaman dan
+                    membuka gerbang checkpoint selanjutnya!
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+20 XP Hadiah</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-coin" aria-hidden="true"></i></span> <span>+5 Mon</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-fire" aria-hidden="true"></i></span> <span>+1 Hari Streak</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-danger fw-bold" href="belajar.html#soal-4">
+                    Mulai Belajar Sekarang <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </details>
+            <details id="modal-level-5" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled ps-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-success bg-success-subtle text-success-emphasis"
+                      ><span class="fs-2 lh-1">な</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">5. Baris Na</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="text-success fw-bold small">Tersedia</span>
+                  <h2 class="h4">Level 5 • Baris Na (なにぬねの)</h2>
+                  <div class="text-center bg-body-secondary rounded p-3">
+                    <div class="display-6 fw-bold">な に ぬ ね の</div>
+                    <div class="small text-body-secondary">
+                      na · ni · nu · ne · no
+                    </div>
+                  </div>
+                  <p class="small mb-0">
+                    Karakter penting untuk partikel gramatikal kepemilikan
+                    <strong>の (no)</strong> dan kata
+                    <strong>何 (nani - apa)</strong>.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+20 XP</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-coin" aria-hidden="true"></i></span> <span>+5 Mon</span>
+                    </div>
+                  </div>
+                  <a class="btn btn-success fw-bold" href="belajar.html#soal-1"
+                    >Mulai Pelajaran 5</a
+                  >
+                </div>
+              </div>
+            </details>
+            <details id="modal-locked" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled ps-5 ms-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-secondary bg-secondary-subtle text-body-secondary"
+                      ><span class="fs-2 lh-1"><i class="bi bi-lock-fill" aria-hidden="true"></i></span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">6. Angka 1-10</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div
+                 class="card-body d-flex flex-column gap-2 text-center align-items-center"
+                >
+                  <div class="display-5"><i class="bi bi-lock-fill" aria-hidden="true"></i></div>
+                  <h2 class="h4">Level Masih Terkunci</h2>
+                  <p class="small mb-0">
+                    Langkah demi langkah adalah filosofi jalan Zen. Selesaikan
+                    pelajaran sebelumnya untuk membuka tantangan baru ini!
+                  </p>
+                  <a
+                   class="btn btn-success fw-bold w-100"
+                    href="#modal-level-4"
+                  >
+                    Kerjakan Level Aktif Sekarang
+                  </a>
+                </div>
+              </div>
+            </details>
+            <details class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled ps-5"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-secondary bg-secondary-subtle text-body-secondary"
+                      ><span class="fs-2 lh-1"><i class="bi bi-gem" aria-hidden="true"></i></span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">Peti Magatama</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div
+                 class="card-body d-flex flex-column gap-2 text-center align-items-center"
+                >
+                  <div class="display-5"><i class="bi bi-lock-fill" aria-hidden="true"></i></div>
+                  <h2 class="h4">Level Masih Terkunci</h2>
+                  <p class="small mb-0">
+                    Langkah demi langkah adalah filosofi jalan Zen. Selesaikan
+                    pelajaran sebelumnya untuk membuka tantangan baru ini!
+                  </p>
+                  <a
+                   class="btn btn-success fw-bold w-100"
+                    href="#modal-level-4"
+                  >
+                    Kerjakan Level Aktif Sekarang
+                  </a>
+                </div>
+              </div>
+            </details>
+            <details id="modal-torii" class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-danger bg-danger-subtle text-danger-emphasis"
+                      ><span class="fs-2 lh-1">⛩️</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2 fw-bold text-danger"
+                  >Checkpoint Torii</span
+                >
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div class="card-body d-flex flex-column gap-2">
+                  <span class="text-danger fw-bold small"
+                    >Gerbang Kelulusan Unit 1</span
+                  >
+                  <h2 class="h4">⛩️ Ujian Evaluasi Gerbang Torii</h2>
+                  <p class="small mb-0">
+                    Ujian komprehensif menguji seluruh huruf Hiragana dari Vokal
+                    hingga baris Na sebelum Anda diizinkan memasuki Unit 2
+                    (Katakana).
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-trophy" aria-hidden="true"></i></span> <span>Lencana Gerbang Kuil</span>
+                    </div>
+                    <div
+                     class="badge bg-body-secondary text-body-emphasis fw-semibold"
+                    >
+                      <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span> <span>+100 XP</span>
+                    </div>
+                  </div>
+                  <div class="small text-danger bg-danger-subtle p-2 rounded">
+                    Selesaikan Level 4 dan Level 5 terlebih dahulu untuk membuka
+                    gerbang ini.
+                  </div>
+                  <a class="btn btn-success fw-bold" href="belajar.html#soal-4"
+                    >Selesaikan Level 4 Dulu</a
+                  >
+                </div>
+              </div>
+            </details>
+            <section class="card mb-4 opacity-75">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="small fw-semibold text-body-secondary">
+                    🏯 Unit 2: Kata serapan &amp; modern
+                  </div>
+                  <span class="display-4 lh-1 text-body-tertiary">二</span>
+                </div>
+                <h2 class="h5 mt-2">Menjelajah Katakana &amp; Nama Benda</h2>
+                <p class="small">
+                  Kuasai huruf Katakana untuk membaca menu restoran, nama kota
+                  dunia, dan teknologi terkini.
+                </p>
+                <div class="d-flex align-items-center gap-3">
+                  <div
+                   class="progress flex-grow-1"
+                    role="progressbar"
+                    aria-valuenow="0"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                  <span class="small fw-semibold"
+                    >Terkunci (Selesaikan Unit 1)</span
+                  >
+                </div>
+              </div>
+            </section>
+            <details class="mb-3">
+              <summary
+               class="d-flex flex-column align-items-center list-unstyled"
+                role="button"
+              >
+                <span class="col-4 col-md-2"
+                  ><span class="ratio ratio-1x1"
+                    ><span
+                     class="d-flex flex-column align-items-center justify-content-center rounded-circle border border-4 border-secondary bg-secondary-subtle text-body-secondary"
+                      ><span class="fs-2 lh-1">ア</span></span
+                    ></span
+                  ></span
+                ><span class="small fw-semibold mt-2">Unit 2 • Katakana</span>
+              </summary>
+              <div class="card mt-3 col-12 col-md-10 mx-auto">
+                <div
+                 class="card-body d-flex flex-column gap-2 text-center align-items-center"
+                >
+                  <div class="display-5"><i class="bi bi-lock-fill" aria-hidden="true"></i></div>
+                  <h2 class="h4">Level Masih Terkunci</h2>
+                  <p class="small mb-0">
+                    Langkah demi langkah adalah filosofi jalan Zen. Selesaikan
+                    pelajaran sebelumnya untuk membuka tantangan baru ini!
+                  </p>
+                  <a
+                   class="btn btn-success fw-bold w-100"
+                    href="#modal-level-4"
+                  >
+                    Kerjakan Level Aktif Sekarang
+                  </a>
+                </div>
+              </div>
+            </details>
+          </div>
+        </main>
+        <aside class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                 class="border border-2 border-danger rounded-circle text-danger fs-4 lh-1 p-2"
+                  >健</span
+                >
+                <div>
+                  <div class="fw-bold">Izzan (あなた)</div>
+                  <div class="small text-body-secondary">
+                    Murid Tingkat IV • 剣士
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between small mt-3">
+                <span><i class="bi bi-fire" aria-hidden="true"></i> 14 Hari Beruntun</span><span><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <div class="badge rounded-pill fs-6 text-bg-danger">
+              <span><i class="bi bi-fire" aria-hidden="true"></i></span>
+              <span>14 Hari</span>
+            </div>
+            <div class="badge rounded-pill fs-6 text-bg-warning">
+              <span><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
+              <span>1,420 XP</span>
+            </div>
+            <div class="badge rounded-pill fs-6 text-bg-success">
+              <span><i class="bi bi-coin" aria-hidden="true"></i></span>
+              <span>85 Mon</span>
+            </div>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0"><i class="bi bi-bullseye" aria-hidden="true"></i> Target Harian</h3>
+              <span class="badge bg-body-secondary text-body">30 / 50 XP</span>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between small">
+                <span>Progres Target</span>
+                <span>60%</span>
+              </div>
+              <div class="progress">
+                <div class="col-7 progress-bar bg-success"></div>
+              </div>
+              <div class="d-flex flex-column gap-1">
+                <div class="d-flex gap-2 small text-success">
+                  <span class="fw-bold">✓</span>
+                  <span>Selesaikan 1 pelajaran baru (+15 XP)</span>
+                </div>
+                <div class="d-flex gap-2 small">
+                  <span class="fw-bold"></span>
+                  <span>Raih akurasi 90% di kuis (+15 XP)</span>
+                </div>
+                <div class="d-flex gap-2 small text-success">
+                  <span class="fw-bold">✓</span>
+                  <span>Klaim bonus peti harian (+10 XP)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0"><i class="bi bi-flower1" aria-hidden="true"></i> Liga Sakura</h3>
+              <span
+               class="text-danger bg-danger-subtle border-danger-subtle badge bg-body-secondary text-body"
+                >Sisa 3 Hari</span
+              >
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <div class="d-flex gap-2">
+                  <span class="text-body-secondary">1</span>
+                  <span>Akbar Ivanka</span>
+                </div>
+                <span class="small text-body-secondary">1,680 XP</span>
+              </div>
+              <div
+               class="d-flex justify-content-between py-1 border-bottom fw-bold text-success"
+              >
+                <div class="d-flex gap-2">
+                  <span class="text-body-secondary">2</span>
+                  <span>Izzan</span>
+                </div>
+                <span class="small text-body-secondary">1,420 XP</span>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <div class="d-flex gap-2">
+                  <span class="text-body-secondary">3</span>
+                  <span>Surya Pradipta</span>
+                </div>
+                <span class="small text-body-secondary">1,390 XP</span>
+              </div>
+              <div class="d-flex justify-content-between py-1 border-bottom">
+                <div class="d-flex gap-2">
+                  <span class="text-body-secondary">4</span>
+                  <span>Danang Kumala</span>
+                </div>
+                <span class="small text-body-secondary">1,150 XP</span>
+              </div>
+            </div>
+            <span class="small text-success fw-bold text-center">
+              <i class="bi bi-arrow-up-circle" aria-hidden="true"></i> Anda berada di zona promosi ke Liga Bambu Emas!
+            </span>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0"><i class="bi bi-feather" aria-hidden="true"></i> Kata Hari Ini</h3>
+              <span class="small fw-bold text-body-secondary"
+                >Jepang Estetik</span
+              >
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="display-5 text-danger">木漏れ日</div>
+              <div class="fw-semibold">Komorebi (こもれび)</div>
+              <p class="mb-0 small">
+                Fenomena puitis ketika sinar matahari menyaring lembut menembus
+                celah dedaunan pohon yang rindang.
+              </p>
+              <div class="small bg-body-secondary rounded p-2">
+                <strong>Contoh Kalimat:</strong>
+                森を歩くと、美しい木漏れ日が差し込んでいた。
+                <em
+                  >(Saat berjalan di hutan, sinar komorebi yang indah
+                  terpancar.)</em
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0"><i class="bi bi-award" aria-hidden="true"></i> Lencana Terbaru</h3>
+              <a class="small fw-bold text-success" href="lencana.html"
+                >Lihat Semua →</a
+              >
+            </div>
+            <div class="d-flex gap-3 align-items-center">
+              <div
+               class="fs-5 d-inline-flex align-items-center justify-content-center rounded-circle border fs-4 p-2"
+              >
+                <i class="bi bi-flower1" aria-hidden="true"></i>
+              </div>
+              <div
+               class="fs-5 d-inline-flex align-items-center justify-content-center rounded-circle border fs-4 p-2"
+              >
+                筆
+              </div>
+              <div
+               class="fs-5 d-inline-flex align-items-center justify-content-center rounded-circle border fs-4 p-2"
+              >
+                <i class="bi bi-pencil-square" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <footer
+     class="bg-body border-top py-3 text-center small text-body-secondary"
+    >
+      © 2026 Yuki (雪), tempat belajar bahasa Jepang
+    </footer>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/efek.js"></script>
+  </body>
+</html>

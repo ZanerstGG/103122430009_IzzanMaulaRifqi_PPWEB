@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michi (道) - Belajar Bahasa Jepang</title>
+    <meta name="description" content="Platform belajar bahasa Jepang bergaya Duolingo dengan tata letak 3 kolom unik, sistem level bertingkat, hiragana, katakana, kanji, kosakata, dan lencana bernuansa Asia Timur minimalis." />
+    <meta property="og:title" content="Michi (道) - Belajar Bahasa Jepang" />
+    <meta property="og:description" content="Belajar bahasa Jepang dari dasar hingga mahir dengan sistem level interaktif, hiragana, katakana, kanji, dan lencana estetik." />
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header (Tampil pada resolusi ponsel) -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px;">道</span>
+        <span>Michi 日本語</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak" title="Streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp" title="XP"><span class="stat-icon">⚡</span> 1,420</span>
+        <span class="stat-pill hearts" title="Nyawa"><span class="stat-icon">❤️</span> 4</span>
+      </div>
+    </header>
+
+    <!-- App Layout 3 Kolom Unik (Kiri: Nav & Profil, Tengah: Level Path, Kanan: Target & Info) -->
+    <div class="app-layout">
+      
+      <!-- ================= KOLOM KIRI: NAVIGASI & PROFIL ================= -->
+      <aside class="sidebar-left">
+        <div>
+          <!-- Brand Logo & Stempel Hanko -->
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko Michi" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title">
+                  <span class="brand-kanji">道</span> Michi
+                </span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Menu Navigasi Utama -->
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item active" title="Peta Perjalanan Level">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item" title="Bagan & Latihan Hiragana">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item" title="Bagan & Kosakata Katakana">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item" title="Kanji Dasar N5-N4">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item" title="Kosakata & Percakapan Harian">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item" title="Koleksi Lencana & Pencapaian">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item" title="Sesi Latihan Kuis Interaktif">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Kartu Profil Murid & Semangat Zen -->
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">健</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank">Murid Tingkat IV • 剣士</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <div class="stat-streak" title="Runtutan Belajar Tanpa Putus">
+              <span>🔥</span>
+              <span>14 Hari Beruntun</span>
+            </div>
+            <div class="stat-hearts" title="Kesempatan Menjawab">
+              <span>❤️❤️❤️❤️🤍</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ================= KOLOM TENGAH: PETA LEVEL S-CURVE (DUOLINGO STYLE) ================= -->
+      <main class="main-path-column">
+        
+        <!-- Unit 1 Card Banner -->
+        <section class="unit-card">
+          <div class="unit-card-illustration">
+            <img src="./assets/images/zen_study_banner.jpg" alt="Lanskap Zen Ilustrasi" />
+          </div>
+          <span class="unit-card-watermark">一</span>
+          <div class="unit-meta">
+            <span>⛩️ UNIT 1</span>
+            <span>·</span>
+            <span>BAGIAN DASAR</span>
+          </div>
+          <h1 class="unit-title">Langkah Pertama: Vokal & Konsonan</h1>
+          <p class="unit-desc">Pelajari dasar 46 karakter Hiragana mulai dari vokal dasar hingga pembentukan kata sederhana sehari-hari.</p>
+          <div class="unit-progress-container">
+            <div class="unit-progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+              <div class="unit-progress-fill" style="width: 65%;"></div>
+            </div>
+            <span class="unit-progress-text">65% Selesai</span>
+          </div>
+        </section>
+
+        <!-- S-Curve Winding Level Path Tree -->
+        <div class="path-tree">
+          <!-- Garis Putus-putus Penghubung Jalur -->
+          <div class="path-spine"></div>
+
+          <!-- LEVEL 1: Vokal Dasar (Selesai ★★★) -->
+          <div class="path-node-wrapper pos-center">
+            <a href="#modal-level-1" class="path-node completed" title="Level 1: Vokal Dasar あいうえお">
+              <div class="node-inner">
+                <span>あ</span>
+                <span class="node-stars">★★★</span>
+              </div>
+            </a>
+            <span class="node-label">1. Vokal Dasar</span>
+          </div>
+
+          <!-- LEVEL 2: Baris Ka (Selesai ★★★) -->
+          <div class="path-node-wrapper pos-left-1">
+            <a href="#modal-level-2" class="path-node completed" title="Level 2: Baris Ka かきくけこ">
+              <div class="node-inner">
+                <span>か</span>
+                <span class="node-stars">★★★</span>
+              </div>
+            </a>
+            <span class="node-label">2. Baris Ka</span>
+          </div>
+
+          <!-- LEVEL 3: Baris Sa (Selesai ★★☆) -->
+          <div class="path-node-wrapper pos-left-2">
+            <a href="#modal-level-3" class="path-node completed" title="Level 3: Baris Sa さしすせそ">
+              <div class="node-inner">
+                <span>さ</span>
+                <span class="node-stars">★★☆</span>
+              </div>
+            </a>
+            <span class="node-label">3. Baris Sa</span>
+          </div>
+
+          <!-- HADIAH: Peti Harta Karun 1 (Siap Dibuka!) -->
+          <div class="path-node-wrapper pos-left-1">
+            <a href="#modal-chest-1" class="path-node chest" title="Buka Peti Koin Emas">
+              <div class="node-inner">
+                <span>🎁</span>
+              </div>
+            </a>
+            <span class="node-label" style="color: var(--gold-600);">Peti Koin Mon</span>
+          </div>
+
+          <!-- LEVEL 4: Baris Ta & Na (SEDANG AKTIF!) -->
+          <div class="path-node-wrapper pos-center">
+            <span class="active-bubble">Lanjutkan! +20 XP</span>
+            <a href="#modal-level-4" class="path-node active" title="Level 4: Baris Ta たちつてと">
+              <div class="node-inner">
+                <span>た</span>
+              </div>
+            </a>
+            <span class="node-label" style="color: var(--vermilion-600); font-weight: 800;">4. Baris Ta (Aktif)</span>
+          </div>
+
+          <!-- LEVEL 5: Baris Na & Angka (Terbuka Berikutnya) -->
+          <div class="path-node-wrapper pos-right-1">
+            <a href="#modal-level-5" class="path-node" style="background-color: #2F5C44; box-shadow: 0 7px 0 #1E3F2E;" title="Level 5: Baris Na なにぬねの">
+              <div class="node-inner" style="background-color: var(--matcha-500); color: white;">
+                <span>な</span>
+              </div>
+            </a>
+            <span class="node-label">5. Baris Na</span>
+          </div>
+
+          <!-- LEVEL 6: Angka & Waktu (Terkunci) -->
+          <div class="path-node-wrapper pos-right-2">
+            <a href="#modal-locked" class="path-node locked" title="Terkunci: Selesaikan level sebelumnya">
+              <div class="node-inner">
+                <span>🔒</span>
+              </div>
+            </a>
+            <span class="node-label">6. Angka 1-10</span>
+          </div>
+
+          <!-- HADIAH: Peti Magatama (Terkunci) -->
+          <div class="path-node-wrapper pos-right-1">
+            <a href="#modal-locked" class="path-node locked" title="Peti Magatama Terkunci">
+              <div class="node-inner">
+                <span>💎</span>
+              </div>
+            </a>
+            <span class="node-label">Peti Magatama</span>
+          </div>
+
+          <!-- CHECKPOINT: Gerbang Torii Kelulusan Unit 1 -->
+          <div class="path-node-wrapper pos-center">
+            <a href="#modal-torii" class="path-node torii" title="Ujian Gerbang Torii Unit 1">
+              <div class="node-inner">
+                <span>⛩️</span>
+              </div>
+            </a>
+            <span class="node-label" style="font-weight: 800; color: var(--vermilion-600);">Checkpoint Torii</span>
+          </div>
+
+          <!-- UNIT 2 DIVIDER & PREVIEW -->
+          <div class="unit-divider">
+            <section class="unit-card unit-locked">
+              <span class="unit-card-watermark">二</span>
+              <div class="unit-meta">
+                <span>🏯 UNIT 2</span>
+                <span>·</span>
+                <span>KATA SERAPAN & MODERN</span>
+              </div>
+              <h2 class="unit-title">Menjelajah Katakana & Nama Benda</h2>
+              <p class="unit-desc">Kuasai huruf Katakana untuk membaca menu restoran, nama kota dunia, dan teknologi terkini.</p>
+              <div class="unit-progress-container">
+                <div class="unit-progress-bar">
+                  <div class="unit-progress-fill"></div>
+                </div>
+                <span class="unit-progress-text">Terkunci (Selesaikan Unit 1)</span>
+              </div>
+            </section>
+          </div>
+
+          <!-- LEVEL 7: Katakana Vokal (Terkunci) -->
+          <div class="path-node-wrapper pos-center">
+            <a href="#modal-locked" class="path-node locked" title="Level Katakana Vokal">
+              <div class="node-inner">
+                <span>ア</span>
+              </div>
+            </a>
+            <span class="node-label">Unit 2 • Katakana</span>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- ================= KOLOM KANAN: STATISTIK, TARGET, LIGA & KATA HARI INI ================= -->
+      <aside class="sidebar-right">
+        
+        <!-- Quick Stats Top Bar -->
+        <div class="stats-bar-card">
+          <div class="stat-pill streak" title="Streak 14 Hari Berturut-turut">
+            <span class="stat-icon">🔥</span>
+            <span>14 Hari</span>
+          </div>
+          <div class="stat-pill xp" title="Total Poin Pengalaman (XP)">
+            <span class="stat-icon">⚡</span>
+            <span>1,420 XP</span>
+          </div>
+          <div class="stat-pill hearts" title="Koin Mon (Mata Uang)">
+            <span class="stat-icon">🪙</span>
+            <span>85 Mon</span>
+          </div>
+        </div>
+
+        <!-- Target Harian (Daily Goal) -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🎯 Target Harian</h3>
+            <span class="panel-badge">30 / 50 XP</span>
+          </div>
+          <div class="daily-goal-body">
+            <div class="goal-meta">
+              <span>Progres Target</span>
+              <span>60%</span>
+            </div>
+            <div class="goal-progress-bar">
+              <div class="goal-progress-fill" style="width: 60%;"></div>
+            </div>
+            <div class="goal-checklist">
+              <div class="goal-item done">
+                <span class="goal-check">✓</span>
+                <span>Selesaikan 1 pelajaran baru (+15 XP)</span>
+              </div>
+              <div class="goal-item">
+                <span class="goal-check"></span>
+                <span>Raih akurasi 90% di kuis (+15 XP)</span>
+              </div>
+              <div class="goal-item done">
+                <span class="goal-check">✓</span>
+                <span>Klaim bonus peti harian (+10 XP)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Peringkat Mingguan: Liga Sakura -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🌸 Liga Sakura</h3>
+            <span class="panel-badge" style="color: var(--vermilion-600); background-color: var(--vermilion-surface); border-color: var(--vermilion-border);">Sisa 3 Hari</span>
+          </div>
+          <div class="league-body">
+            <div class="league-row">
+              <div class="league-user-left">
+                <span class="league-rank">1</span>
+                <span class="league-name">Akbar Ivanka</span>
+              </div>
+              <span class="league-xp">1,680 XP</span>
+            </div>
+            <div class="league-row current-user">
+              <div class="league-user-left">
+                <span class="league-rank">2</span>
+                <span class="league-name">Izzan</span>
+              </div>
+              <span class="league-xp">1,420 XP</span>
+            </div>
+            <div class="league-row">
+              <div class="league-user-left">
+                <span class="league-rank">3</span>
+                <span class="league-name">Surya Pradipta</span>
+              </div>
+              <span class="league-xp">1,390 XP</span>
+            </div>
+            <div class="league-row">
+              <div class="league-user-left">
+                <span class="league-rank">4</span>
+                <span class="league-name">Danang Kumala</span>
+              </div>
+              <span class="league-xp">1,150 XP</span>
+            </div>
+          </div>
+          <span style="font-size: 0.75rem; color: var(--matcha-600); font-weight: 700; text-align: center;">
+            🌱 Anda berada di zona promosi ke Liga Bambu Emas!
+          </span>
+        </div>
+
+        <!-- Kata Hari Ini (Estetika Asia Timur / Wabi-sabi) -->
+        <div class="panel-card daily-word-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🍃 Kata Hari Ini</h3>
+            <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted);">Jepang Estetik</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <div class="daily-word-character">木漏れ日</div>
+            <div class="daily-word-romaji">Komorebi (こもれび)</div>
+            <p class="daily-word-meaning">
+              Fenomena puitis ketika sinar matahari menyaring lembut menembus celah dedaunan pohon yang rindang.
+            </p>
+            <div class="daily-word-example">
+              <strong>Contoh Kalimat:</strong>
+              森を歩くと、美しい木漏れ日が差し込んでいた。
+              <em>(Saat berjalan di hutan, sinar komorebi yang indah terpancar.)</em>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preview Lencana Terkini -->
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🏅 Lencana Terbaru</h3>
+            <a href="lencana.html" style="font-size: 0.78rem; font-weight: 700; color: var(--matcha-600);">Lihat Semua →</a>
+          </div>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <div class="badge-emblem" style="width: 44px; height: 44px; font-size: 1.3rem;" title="Langkah Awal Sakura">🌸</div>
+            <div class="badge-emblem" style="width: 44px; height: 44px; font-size: 1.3rem;" title="Master Kuas Hiragana">筆</div>
+            <div class="badge-emblem" style="width: 44px; height: 44px; font-size: 1.3rem;" title="Disiplin Samurai 14 Hari">⚔️</div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- ================= MODAL INTERAKTIF PURE CSS (MENGGUNAKAN :TARGET) ================= -->
+    
+    <!-- Modal Level 1: Review -->
+    <div id="modal-level-1" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge" style="color: var(--matcha-600);">Selesai ★★★</span>
+        <h2 class="modal-title">Level 1 • Vokal Dasar Hiragana</h2>
+        <div class="modal-target-characters">
+          <div class="characters-kanji-big">あ い う え お</div>
+          <div class="characters-romaji">a · i · u · e · o</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Anda telah menguasai vokal dasar dengan sempurna. Latih kembali memori untuk menjaga ketajaman refleks membaca.
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>⚡</span> <span>+10 XP Latihan</span></div>
+          <div class="perk-item"><span>⭐</span> <span>Skor: 100%</span></div>
+        </div>
+        <a href="belajar.html#soal-1" class="modal-btn-start">Latih Ulang Level 1</a>
+      </div>
+    </div>
+
+    <!-- Modal Level 2: Review Baris Ka -->
+    <div id="modal-level-2" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge" style="color: var(--matcha-600);">Selesai ★★★</span>
+        <h2 class="modal-title">Level 2 • Baris Ka & Kosakata</h2>
+        <div class="modal-target-characters">
+          <div class="characters-kanji-big">か き く け こ</div>
+          <div class="characters-romaji">ka · ki · ku · ke · ko</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Kombinasi konsonan K dengan vokal dasar. Contoh kata: 傘 (kasa - payung), 川 (kawa - sungai).
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>⚡</span> <span>+10 XP Latihan</span></div>
+          <div class="perk-item"><span>⭐</span> <span>Skor: 100%</span></div>
+        </div>
+        <a href="belajar.html#soal-2" class="modal-btn-start">Latih Ulang Level 2</a>
+      </div>
+    </div>
+
+    <!-- Modal Level 3: Review Baris Sa -->
+    <div id="modal-level-3" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge" style="color: var(--matcha-600);">Selesai ★★☆</span>
+        <h2 class="modal-title">Level 3 • Baris Sa & Pelafalan Khusus</h2>
+        <div class="modal-target-characters">
+          <div class="characters-kanji-big">さ し す せ そ</div>
+          <div class="characters-romaji">sa · shi · su · se · so</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Perhatikan pelafalan khusus "shi" (bukan "si"). Contoh kata: 魚 (sakana - ikan), 寿司 (sushi).
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>⚡</span> <span>+15 XP Sempurnakan</span></div>
+          <div class="perk-item"><span>⭐</span> <span>Skor: 85%</span></div>
+        </div>
+        <a href="belajar.html#soal-2" class="modal-btn-start">Tingkatkan Menjadi ★★★</a>
+      </div>
+    </div>
+
+    <!-- Modal Level 4: AKTIF (Tujuan Belajar Utama Saat Ini!) -->
+    <div id="modal-level-4" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge">Pelajaran Aktif Saat Ini</span>
+        <h2 class="modal-title">Level 4 • Baris Ta & Konsonan Halus</h2>
+        <div class="modal-target-characters">
+          <div class="characters-kanji-big" style="color: var(--vermilion-600);">た ち つ て と</div>
+          <div class="characters-romaji">ta · chi · tsu · te · to</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Karakter unik: <strong>chi (ち)</strong> dan <strong>tsu (つ)</strong>. Siap menguji pemahaman dan membuka gerbang checkpoint selanjutnya!
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>⚡</span> <span>+20 XP Hadiah</span></div>
+          <div class="perk-item"><span>🪙</span> <span>+5 Mon</span></div>
+          <div class="perk-item"><span>🔥</span> <span>+1 Hari Streak</span></div>
+        </div>
+        <a href="belajar.html#soal-4" class="modal-btn-start" style="background-color: var(--vermilion-500); box-shadow: 0 5px 0 var(--vermilion-shadow);">
+          Mulai Belajar Sekarang ⚔️
+        </a>
+      </div>
+    </div>
+
+    <!-- Modal Level 5: Terbuka -->
+    <div id="modal-level-5" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge" style="color: var(--matcha-600);">Tersedia</span>
+        <h2 class="modal-title">Level 5 • Baris Na (なにぬねの)</h2>
+        <div class="modal-target-characters">
+          <div class="characters-kanji-big">な に ぬ ね の</div>
+          <div class="characters-romaji">na · ni · nu · ne · no</div>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Karakter penting untuk partikel gramatikal kepemilikan <strong>の (no)</strong> dan kata <strong>何 (nani - apa)</strong>.
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>⚡</span> <span>+20 XP</span></div>
+          <div class="perk-item"><span>🪙</span> <span>+5 Mon</span></div>
+        </div>
+        <a href="belajar.html#soal-1" class="modal-btn-start">Mulai Pelajaran 5</a>
+      </div>
+    </div>
+
+    <!-- Modal Peti Harta Karun -->
+    <div id="modal-chest-1" class="modal-overlay">
+      <div class="modal-card" style="text-align: center; align-items: center;">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <div style="font-size: 3.5rem; margin-bottom: -10px;">🎁</div>
+        <span class="modal-badge" style="color: var(--gold-600);">Peti Koin Emas Terbuka!</span>
+        <h2 class="modal-title">Selamat! Anda Menemukan Harta Karun</h2>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Sebagai apresiasi ketekunan belajar 14 hari beruntun, Anda memperoleh hadiah khusus!
+        </p>
+        <div class="modal-target-characters" style="width: 100%; background-color: var(--gold-surface); border-color: var(--gold-border);">
+          <div style="font-size: 1.6rem; font-weight: 800; color: var(--gold-600);">+50 Koin Mon & +30 XP</div>
+          <div class="characters-romaji" style="color: var(--gold-600);">Ditambahkan ke saldo akun Anda!</div>
+        </div>
+        <a href="#" class="modal-btn-start" style="background-color: var(--gold-500); box-shadow: 0 5px 0 var(--gold-shadow); width: 100%;">
+          Klaim & Lanjutkan Perjalanan
+        </a>
+      </div>
+    </div>
+
+    <!-- Modal Checkpoint Torii -->
+    <div id="modal-torii" class="modal-overlay">
+      <div class="modal-card">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <span class="modal-badge" style="color: var(--vermilion-600);">Gerbang Kelulusan Unit 1</span>
+        <h2 class="modal-title">⛩️ Ujian Evaluasi Gerbang Torii</h2>
+        <p style="font-size: 0.88rem; color: var(--text-body);">
+          Ujian komprehensif menguji seluruh huruf Hiragana dari Vokal hingga baris Na sebelum Anda diizinkan memasuki Unit 2 (Katakana).
+        </p>
+        <div class="modal-perks">
+          <div class="perk-item"><span>🏆</span> <span>Lencana Gerbang Kuil</span></div>
+          <div class="perk-item"><span>⚡</span> <span>+100 XP</span></div>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--vermilion-600); background: var(--vermilion-surface); padding: 10px; border-radius: 8px;">
+          Selesaikan Level 4 dan Level 5 terlebih dahulu untuk membuka gerbang ini.
+        </div>
+        <a href="belajar.html#soal-4" class="modal-btn-start">Selesaikan Level 4 Dulu</a>
+      </div>
+    </div>
+
+    <!-- Modal Terkunci -->
+    <div id="modal-locked" class="modal-overlay">
+      <div class="modal-card" style="text-align: center; align-items: center;">
+        <a href="#" class="modal-close-icon" title="Tutup">✕</a>
+        <div style="font-size: 3rem;">🔒</div>
+        <h2 class="modal-title">Level Masih Terkunci</h2>
+        <p style="font-size: 0.88rem; color: var(--text-body); max-width: 320px;">
+          Langkah demi langkah adalah filosofi jalan Zen. Selesaikan pelajaran sebelumnya untuk membuka tantangan baru ini!
+        </p>
+        <a href="#modal-level-4" class="modal-btn-start" style="width: 100%;">
+          Kerjakan Level Aktif Sekarang
+        </a>
+      </div>
+    </div>
+
+    <!-- ================= MOBILE BOTTOM NAVIGATION ================= -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Bawah Ponsel">
+      <a href="index.html" class="mobile-nav-link active">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+
+  </body>
+</html>

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kosakata Sehari-hari (言葉) - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px; background-color: var(--matcha-500);">語</span>
+        <span>Kosakata Harian</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp"><span class="stat-icon">⚡</span> 1,420</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item active">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background: linear-gradient(135deg, var(--matcha-500), var(--matcha-600));">話</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank">Perbendaharaan: 82 Kata</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Daftar Kosakata & Frasa Populer -->
+      <main class="main-path-column">
+        <section class="subpage-hero">
+          <div class="subpage-hero-text">
+            <h1>Kosakata & Ungkapan (言葉)</h1>
+            <p>Ungkapan praktis dan tata krama esensial yang langsung dapat Anda gunakan saat bertegur sapa, memesan makanan, atau bepergian.</p>
+          </div>
+          <div class="hero-kanji-stamp">語</div>
+        </section>
+
+        <!-- Pure CSS Tab Switcher Kategori Kosakata -->
+        <div class="css-tabs-wrapper">
+          <input type="radio" name="vocab-tab" id="tab1" class="tab-radio" checked />
+          <input type="radio" name="vocab-tab" id="tab2" class="tab-radio" />
+          <input type="radio" name="vocab-tab" id="tab3" class="tab-radio" />
+
+          <div class="tab-nav-bar">
+            <label for="tab1" class="tab-label">Salam & Sopan Santun (挨拶)</label>
+            <label for="tab2" class="tab-label">Kuliner & Restoran (食事)</label>
+            <label for="tab3" class="tab-label">Perjalanan & Stasiun (旅行)</label>
+          </div>
+
+          <div class="tab-panels-content">
+            <!-- PANEL 1: AISATSU & SALAM -->
+            <div id="panel1" class="tab-panel">
+              <div class="vocab-list">
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">おはようございます</span>
+                    <span class="vocab-reading">Ohayou Gozaimasu</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Selamat Pagi (Sopan)</span>
+                    <span class="vocab-tag">Pagi hari</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">こんにちは</span>
+                    <span class="vocab-reading">Konnichiwa</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Selamat Siang / Halo</span>
+                    <span class="vocab-tag">Siang hari</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">こんばんは</span>
+                    <span class="vocab-reading">Konbanwa</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Selamat Malam</span>
+                    <span class="vocab-tag">Malam hari</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">ありがとうございます</span>
+                    <span class="vocab-reading">Arigatou Gozaimasu</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Terima Kasih Banyak</span>
+                    <span class="vocab-tag">Tata krama</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">すみません</span>
+                    <span class="vocab-reading">Sumimasen</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Permisi / Maaf</span>
+                    <span class="vocab-tag">Sangat penting</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">お疲れ様です</span>
+                    <span class="vocab-reading">Otsukaresama desu</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Terima kasih atas kerja kerasnya</span>
+                    <span class="vocab-tag">Budaya kerja</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: KULINER & RESTORAN -->
+            <div id="panel2" class="tab-panel">
+              <div class="vocab-list">
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">いただきます</span>
+                    <span class="vocab-reading">Itadakimasu</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Selamat makan (Saya menerima berkah ini)</span>
+                    <span class="vocab-tag">Sebelum makan</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">ごちそうさまでした</span>
+                    <span class="vocab-reading">Gochisousama deshita</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Terima kasih atas hidangannya yang lezat</span>
+                    <span class="vocab-tag">Selesai makan</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">水 (みず)</span>
+                    <span class="vocab-reading">Mizu / Ohiya</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Air putih / Air dingin</span>
+                    <span class="vocab-tag">Minuman</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">ご飯 (ごはん)</span>
+                    <span class="vocab-reading">Gohan</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Nasi / Makanan</span>
+                    <span class="vocab-tag">Makanan pokok</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">お茶 (おちゃ)</span>
+                    <span class="vocab-reading">Ocha</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Teh hijau Jepang</span>
+                    <span class="vocab-tag">Minuman</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: PERJALANAN & STASIUN -->
+            <div id="panel3" class="tab-panel">
+              <div class="vocab-list">
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">駅 (えき)</span>
+                    <span class="vocab-reading">Eki</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Stasiun Kereta</span>
+                    <span class="vocab-tag">Lokasi</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">切符 (きっぷ)</span>
+                    <span class="vocab-reading">Kippu</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Tiket</span>
+                    <span class="vocab-tag">Transportasi</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">ここはどこですか</span>
+                    <span class="vocab-reading">Koko wa doko desu ka</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Ini di mana ya?</span>
+                    <span class="vocab-tag">Pertanyaan</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">いくらですか</span>
+                    <span class="vocab-reading">Ikura desu ka</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Berapa harganya?</span>
+                    <span class="vocab-tag">Belanja</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background-color: var(--bg-surface); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card);">
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--text-main);">Latihan Ungkapan Sopan</h3>
+            <p style="font-size: 0.84rem; color: var(--text-body);">Uji refleks kosakata sopan santun Anda di sesi kuis cepat.</p>
+          </div>
+          <a href="belajar.html#soal-4" class="btn-primary-action">Mulai Kuis Kosakata 🌸</a>
+        </div>
+      </main>
+
+      <!-- Kolom Kanan: Catatan Budaya -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🍵 Etiket Membungkuk (お辞儀 - Ojigi)</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Di Jepang, salam lisan selalu dibarengi dengan membungkukkan badan dari pinggang. Ada tiga tingkatan: <strong>Eshaku (15°)</strong> untuk sapaan santai, <strong>Keirei (30°)</strong> untuk rasa hormat formal, dan <strong>Saikeirei (45°)</strong> untuk rasa terima kasih mendalam atau permohonan maaf.
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🥢 Filosofi "Itadakimasu"</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Secara harfiah berarti "saya dengan rendah hati menerima". Ini adalah ungkapan terima kasih mendalam kepada alam, petani, koki, dan hewan yang menyerahkan kehidupannya untuk makanan kita.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>

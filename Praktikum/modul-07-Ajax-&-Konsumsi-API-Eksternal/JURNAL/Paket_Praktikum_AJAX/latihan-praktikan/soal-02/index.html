@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Soal 02 - Registrasi Peserta React</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .sheet {
+      margin: 8px auto;
+      max-width: 1180px;
+      min-height: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: var(--gap);
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      min-width: 0;
+    }
+
+    .panel.full {
+      grid-column: 1 / -1;
+    }
+
+    .result[data-state=loading] {
+      color: var(--accent);
+    }
+
+    .result[data-state=empty] {
+      color: #714100;
+      background: #fffbeb;
+    }
+
+    .hint {
+      color: var(--negative);
+      font-size: 14px;
+      margin: -12px 0 16px;
+    }
+
+    input[aria-invalid=true] {
+      border-color: var(--negative);
+    }
+
+    dl.response {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 6px 16px;
+      margin: 16px 0 0;
+    }
+
+    dl.response dt {
+      color: var(--muted);
+    }
+
+    dl.response dd {
+      margin: 0;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .log {
+      max-height: 220px;
+      overflow-y: auto;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 13px;
+      background: var(--raised);
+      border-radius: 6px;
+      padding: 12px 12px 12px 36px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="sheet">
+    <div class="page-meta">Modul 07 / Soal 02 / Axios GET dan POST, useState, useEffect</div>
+    <h1>Aplikasi Registrasi Peserta</h1>
+    <p class="intro">Daftar peserta dimuat otomatis dengan <strong>axios.get()</strong> melalui useEffect. Formulir
+      pendaftaran dikirim dengan <strong>axios.post()</strong> setelah tombol ditekan.</p>
+    <div id="root"></div>
+  </main>
+  <script src="../../vendor/react.development.js"></script>
+  <script src="../../vendor/react-dom.development.js"></script>
+  <script src="../../vendor/axios.min.js"></script>
+  <script src="../../vendor/babel.min.js"></script>
+  <script type="text/babel" data-presets="react" src="app.jsx"></script>
+</body>
+
+</html>

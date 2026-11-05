@@ -1,0 +1,5 @@
+{
+  "name": "praktikum-ajax-sederhana", "version": "1.0.0", "private": true,
+  "description": "Contoh per submateri Modul 7 AJAX dengan API mock lokal",
+  "scripts": { "start": "node server.cjs --open" }, "engines": { "node": ">=18" }
+}

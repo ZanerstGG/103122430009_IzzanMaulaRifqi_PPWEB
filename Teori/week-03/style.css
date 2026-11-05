@@ -1,0 +1,1900 @@
+/* ==========================================================================
+   MICHI (道) - JAPANESE LEARNING PLATFORM
+   Pure HTML & CSS Architecture | East Asian Zen Minimalist Aesthetic
+   Cross-Browser & Standalone File-System Compatible (No Node / Vite required)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Canvas & Neutral Tones (Rice Paper & Washi Inspired) */
+  --bg-canvas: #FAF7F2;
+  --bg-subtle: #F3ECE2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #FFFFFF;
+  --border-hairline: rgba(54, 45, 36, 0.1);
+  --border-strong: rgba(54, 45, 36, 0.2);
+
+  /* Deep Sumi Ink & Stone Typography */
+  --text-main: #212925;
+  --text-body: #4A5650;
+  --text-muted: #7E8C84;
+  --text-on-accent: #FFFFFF;
+
+  /* Traditional Japanese Semantic Accents */
+  /* Matcha Green (Uji Green - Mastery & Growth) */
+  --matcha-600: #2C5B43;
+  --matcha-500: #387255;
+  --matcha-400: #4F8E6F;
+  --matcha-shadow: #1E3F2E;
+  --matcha-surface: #EEF6F1;
+  --matcha-border: #BCD9C8;
+
+  /* Vermilion / Shu-iro (Torii Gate & Fire Streak) */
+  --vermilion-600: #B83B2E;
+  --vermilion-500: #CC4536;
+  --vermilion-shadow: #8A261C;
+  --vermilion-surface: #FDF2F0;
+  --vermilion-border: #F5BDB5;
+
+  /* Amber Gold / Koban (Mon & XP Gems) */
+  --gold-600: #B57B23;
+  --gold-500: #CF902E;
+  --gold-shadow: #875713;
+  --gold-surface: #FCF6EA;
+  --gold-border: #F1D4A3;
+
+  /* Indigo / Aizome (Formal & Katakana) */
+  --indigo-600: #284464;
+  --indigo-500: #345880;
+  --indigo-surface: #EEF3F8;
+
+  /* Stone Gray (Locked Nodes) */
+  --stone-300: #D8D2C7;
+  --stone-400: #BFB8AC;
+  --stone-500: #9B9487;
+  --stone-shadow: #7E776B;
+
+  /* Geometry & Rhythm */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadow & Elevation */
+  --shadow-sm: 0 1px 2px rgba(40, 32, 24, 0.04);
+  --shadow-card: 0 4px 16px -2px rgba(42, 34, 26, 0.05), 0 1px 3px rgba(42, 34, 26, 0.04);
+  --shadow-lift: 0 10px 28px -4px rgba(42, 34, 26, 0.08), 0 2px 6px rgba(42, 34, 26, 0.04);
+  --shadow-modal: 0 24px 60px -8px rgba(32, 26, 18, 0.22);
+
+  /* Fonts */
+  --font-display: 'Noto Serif JP', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout widths */
+  --sidebar-left-w: 250px;
+  --sidebar-right-w: 320px;
+  --center-max-w: 640px;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-canvas);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background-color: var(--bg-canvas);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Washi Paper Texture Pattern */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(120, 105, 90, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 0;
+}
+
+/* Base Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   APP SHELL - 3-COLUMN UNIQUE LAYOUT (NO STANDARD HEADER/FOOTER)
+   ========================================================================== */
+.app-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  display: grid;
+  grid-template-columns: var(--sidebar-left-w) minmax(0, 1fr) var(--sidebar-right-w);
+  gap: 32px;
+  align-items: start;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   LEFT SIDEBAR (NAVIGATION & USER PROFILE)
+   ========================================================================== */
+.sidebar-left {
+  position: sticky;
+  top: 24px;
+  height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.brand-section {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hanko-stamp {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background-color: var(--vermilion-500);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 3px 0 var(--vermilion-shadow);
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hanko-stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-kanji {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--matcha-600);
+}
+
+.brand-tagline {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Nav Menu */
+.sidebar-nav {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  color: var(--text-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.nav-item:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  transform: translateX(3px);
+}
+
+.nav-item.active {
+  background-color: var(--matcha-surface);
+  color: var(--matcha-600);
+  border-color: var(--matcha-border);
+  font-weight: 700;
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+}
+
+.nav-item.active .nav-icon {
+  background-color: var(--matcha-600);
+  color: white;
+}
+
+/* User Profile Badge at bottom of left sidebar */
+.user-profile-card {
+  padding: 14px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--matcha-500), var(--matcha-600));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 6px rgba(44, 91, 67, 0.25);
+  flex-shrink: 0;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.profile-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-rank {
+  font-size: 0.75rem;
+  color: var(--matcha-600);
+  font-weight: 600;
+}
+
+.profile-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgba(54, 45, 36, 0.08);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stat-streak {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--vermilion-600);
+}
+
+.stat-hearts {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--vermilion-500);
+}
+
+/* ==========================================================================
+   CENTER COLUMN (THE DUOLINGO LEVEL PATH)
+   ========================================================================== */
+.main-path-column {
+  max-width: var(--center-max-w);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Unit Banner */
+.unit-card {
+  position: relative;
+  background: linear-gradient(145deg, #2A5A43, #1F4532);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.unit-card-watermark {
+  position: absolute;
+  right: -15px;
+  bottom: -20px;
+  font-family: var(--font-display);
+  font-size: 110px;
+  color: rgba(255, 255, 255, 0.06);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.unit-card-illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  opacity: 0.22;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+}
+
+.unit-card-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.unit-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #B2D8C3;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.unit-title {
+  color: white;
+  font-size: 1.45rem;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.unit-desc {
+  font-size: 0.88rem;
+  color: #E2EFE7;
+  max-width: 380px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.unit-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 360px;
+  position: relative;
+}
+
+.unit-progress-bar {
+  flex: 1;
+  height: 9px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.unit-progress-fill {
+  height: 100%;
+  width: 60%;
+  background: #A2E3BE;
+  border-radius: var(--radius-full);
+}
+
+.unit-progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #B2D8C3;
+}
+
+/* The Winding Path Tree */
+.path-tree {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 60px;
+  gap: 36px;
+}
+
+/* Winding Connecting Dashed Spine Line in Center */
+.path-spine {
+  position: absolute;
+  top: 30px;
+  bottom: 60px;
+  width: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--border-strong),
+    var(--border-strong) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Individual Node Positioning along Winding Path */
+.path-node-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* S-Curve Offsets mimicking Duolingo's path */
+.path-node-wrapper.pos-center  { transform: translateX(0); }
+.path-node-wrapper.pos-left-1  { transform: translateX(-45px); }
+.path-node-wrapper.pos-left-2  { transform: translateX(-75px); }
+.path-node-wrapper.pos-right-1 { transform: translateX(45px); }
+.path-node-wrapper.pos-right-2 { transform: translateX(75px); }
+
+/* The 3D Tactile Node Button */
+.path-node {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.node-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  transition: inherit;
+}
+
+.node-stars {
+  position: absolute;
+  bottom: -6px;
+  font-size: 0.68rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-600);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+
+/* NODE STATES */
+
+/* 1. Completed Nodes (Matcha Green with Gold Stars) */
+.path-node.completed {
+  background-color: var(--matcha-shadow);
+  box-shadow: 0 7px 0 var(--matcha-shadow), 0 10px 18px rgba(44, 91, 67, 0.2);
+}
+.path-node.completed .node-inner {
+  background-color: var(--matcha-500);
+  color: white;
+}
+.path-node.completed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 0 var(--matcha-shadow), 0 12px 22px rgba(44, 91, 67, 0.25);
+}
+.path-node.completed:active {
+  transform: translateY(4px);
+  box-shadow: 0 3px 0 var(--matcha-shadow);
+}
+
+/* 2. Active Node (Current Learning Target - Pulsing Aura) */
+.path-node.active {
+  background-color: var(--vermilion-shadow);
+  box-shadow: 0 8px 0 var(--vermilion-shadow), 0 12px 24px rgba(204, 69, 54, 0.3);
+}
+.path-node.active .node-inner {
+  background: linear-gradient(145deg, var(--vermilion-500), var(--vermilion-600));
+  color: white;
+  font-size: 1.65rem;
+}
+.path-node.active::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: var(--radius-full);
+  border: 2px dashed var(--vermilion-500);
+  animation: rotate-pulse 8s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.path-node.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 var(--vermilion-shadow), 0 14px 28px rgba(204, 69, 54, 0.35);
+}
+.path-node.active:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 var(--vermilion-shadow);
+}
+
+/* Active Floating Tooltip Callout */
+.active-bubble {
+  position: absolute;
+  top: -46px;
+  background-color: var(--vermilion-500);
+  color: white;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(204, 69, 54, 0.35);
+  animation: float-bob 2.2s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+.active-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: var(--vermilion-500) transparent transparent;
+}
+
+/* 3. Treasure Chest Node */
+.path-node.chest {
+  background-color: var(--gold-shadow);
+  box-shadow: 0 7px 0 var(--gold-shadow), 0 8px 18px rgba(207, 144, 46, 0.25);
+}
+.path-node.chest .node-inner {
+  background: linear-gradient(145deg, #E6A339, var(--gold-500));
+  color: white;
+  font-size: 1.6rem;
+}
+.path-node.chest:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 0 var(--gold-shadow);
+}
+
+/* 4. Torii Checkpoint Node */
+.path-node.torii {
+  width: 82px;
+  height: 82px;
+  background-color: var(--vermilion-shadow);
+  box-shadow: 0 8px 0 var(--vermilion-shadow), 0 12px 24px rgba(204, 69, 54, 0.25);
+}
+.path-node.torii .node-inner {
+  background-color: var(--vermilion-500);
+  color: white;
+  font-size: 2rem;
+}
+
+/* 5. Locked Node */
+.path-node.locked {
+  background-color: var(--stone-shadow);
+  box-shadow: 0 6px 0 var(--stone-shadow);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+.path-node.locked .node-inner {
+  background-color: var(--stone-300);
+  color: var(--stone-500);
+  font-size: 1.25rem;
+}
+
+/* Node Subtitle Label */
+.node-label {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-body);
+  text-align: center;
+  max-width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Unit 2 Divider Section */
+.unit-divider {
+  width: 100%;
+  margin: 32px 0 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.unit-card.unit-locked {
+  background: linear-gradient(145deg, #3A4540, #252D2A);
+  opacity: 0.9;
+}
+.unit-card.unit-locked .unit-progress-fill {
+  width: 0%;
+}
+
+/* ==========================================================================
+   RIGHT SIDEBAR (DAILY GOALS, XP, LEAGUE, DAILY WORD)
+   ========================================================================== */
+.sidebar-right {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Top Quick Stats Pill Row */
+.stats-bar-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-pill.streak { color: var(--vermilion-600); }
+.stat-pill.xp { color: var(--gold-600); }
+.stat-pill.hearts { color: var(--matcha-600); }
+
+.stat-icon {
+  font-size: 1.15rem;
+}
+
+/* Generic Right Panel Card */
+.panel-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title {
+  font-size: 1rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--matcha-600);
+  background-color: var(--matcha-surface);
+  border: 1px solid var(--matcha-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Daily Target Widget */
+.daily-goal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+.goal-progress-bar {
+  height: 10px;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid rgba(54, 45, 36, 0.05);
+}
+
+.goal-progress-fill {
+  height: 100%;
+  width: 60%;
+  background: linear-gradient(90deg, var(--gold-500), #E6A339);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+.goal-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-body);
+  margin-top: 4px;
+}
+
+.goal-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.goal-item.done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.goal-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.goal-item.done .goal-check {
+  background-color: var(--matcha-500);
+  border-color: var(--matcha-500);
+}
+
+/* Weekly League Leaderboard */
+.league-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.league-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  transition: background 0.15s ease;
+}
+
+.league-row:hover {
+  background-color: var(--bg-subtle);
+}
+
+.league-row.current-user {
+  background-color: var(--matcha-surface);
+  border: 1px solid var(--matcha-border);
+  font-weight: 700;
+}
+
+.league-user-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.league-rank {
+  font-weight: 700;
+  width: 20px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.league-row:nth-child(1) .league-rank { color: #D69E2E; }
+.league-row:nth-child(2) .league-rank { color: #8F9FA8; }
+.league-row:nth-child(3) .league-rank { color: #C07D4C; }
+
+.league-name {
+  color: var(--text-main);
+}
+
+.league-xp {
+  font-weight: 700;
+  color: var(--gold-600);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Word of the Day (East Asian Aesthetic) */
+.daily-word-card {
+  background: linear-gradient(145deg, #FAF4EB, #F2E8DC);
+  border-color: #E6D8C5;
+  position: relative;
+  overflow: hidden;
+}
+
+.daily-word-character {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  color: var(--matcha-600);
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(44, 91, 67, 0.1);
+}
+
+.daily-word-romaji {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.daily-word-meaning {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
+.daily-word-example {
+  padding-top: 10px;
+  border-top: 1px dashed rgba(54, 45, 36, 0.15);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.daily-word-example strong {
+  color: var(--text-main);
+  display: block;
+}
+
+/* ==========================================================================
+   PURE CSS MODAL SYSTEM VIA :TARGET (ZERO JAVASCRIPT REQUIRED)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(28, 22, 16, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 28px;
+  box-shadow: var(--shadow-modal);
+  border: 1px solid var(--border-hairline);
+  transform: scale(0.92) translateY(12px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+/* Activated state when hash matches ID */
+.modal-overlay:target {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-overlay:target .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-subtle);
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.modal-close-icon:hover {
+  background-color: #E5DDD2;
+  color: var(--text-main);
+}
+
+.modal-badge {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vermilion-600);
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  color: var(--text-main);
+}
+
+.modal-target-characters {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.characters-kanji-big {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--text-main);
+  letter-spacing: 0.2em;
+}
+
+.characters-romaji {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.modal-perks {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-btn-start {
+  background-color: var(--matcha-500);
+  color: white;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 5px 0 var(--matcha-shadow);
+  transition: all 0.15s ease;
+  display: block;
+}
+
+.modal-btn-start:hover {
+  background-color: var(--matcha-400);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--matcha-shadow);
+}
+
+.modal-btn-start:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--matcha-shadow);
+}
+
+/* ==========================================================================
+   SUB-PAGE COMMON ELEMENTS (HIRAGANA, KATAKANA, KANJI, KOSAKATA, LENCANA)
+   ========================================================================== */
+.subpage-hero {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.subpage-hero-text h1 {
+  font-size: 1.55rem;
+  margin-bottom: 6px;
+}
+
+.subpage-hero-text p {
+  color: var(--text-body);
+  font-size: 0.9rem;
+  max-width: 440px;
+}
+
+.hero-kanji-stamp {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  background-color: var(--matcha-surface);
+  border: 2px solid var(--matcha-border);
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--matcha-600);
+  flex-shrink: 0;
+}
+
+/* PURE CSS TAB SWITCHER (USING RADIO BUTTONS) */
+.css-tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab-radio {
+  display: none;
+}
+
+.tab-nav-bar {
+  display: flex;
+  background-color: var(--bg-subtle);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  gap: 4px;
+  border: 1px solid var(--border-hairline);
+}
+
+.tab-label {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.tab-label:hover {
+  color: var(--text-main);
+}
+
+/* Radio Checked Styles for Pure CSS Tabs */
+#tab1:checked ~ .tab-nav-bar label[for="tab1"],
+#tab2:checked ~ .tab-nav-bar label[for="tab2"],
+#tab3:checked ~ .tab-nav-bar label[for="tab3"],
+#tab4:checked ~ .tab-nav-bar label[for="tab4"] {
+  background-color: var(--bg-surface);
+  color: var(--matcha-600);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tab Panels Visibility */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#tab1:checked ~ .tab-panels-content #panel1,
+#tab2:checked ~ .tab-panels-content #panel2,
+#tab3:checked ~ .tab-panels-content #panel3,
+#tab4:checked ~ .tab-panels-content #panel4 {
+  display: block;
+}
+
+/* ==========================================================================
+   HIRAGANA & KATAKANA GRID & FLASHCARDS
+   ========================================================================== */
+.kana-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.kana-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.kana-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--matcha-border);
+  box-shadow: var(--shadow-lift);
+}
+
+.kana-char {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.kana-romaji {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--matcha-600);
+}
+
+.kana-sample {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   KANJI CARDS WITH 3D FLIP EFFECT (PURE CSS)
+   ========================================================================== */
+.kanji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.flip-card-wrapper {
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  height: 220px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card-wrapper:hover .flip-card-inner,
+.flip-card-wrapper:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-hairline);
+}
+
+.flip-card-front {
+  background-color: var(--bg-surface);
+}
+
+.flip-kanji-big {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.flip-kanji-meaning {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--matcha-600);
+  margin-top: 6px;
+}
+
+.flip-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.flip-card-back {
+  background: linear-gradient(145deg, #FAF4EB, #F2ECE0);
+  transform: rotateY(180deg);
+  border-color: #E2D7C5;
+  text-align: left;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.reading-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.reading-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.reading-val {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   KOSAKATA (VOCABULARY LIST)
+   ========================================================================== */
+.vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vocab-item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  transition: all 0.18s ease;
+}
+
+.vocab-item:hover {
+  transform: translateX(4px);
+  border-color: var(--matcha-border);
+}
+
+.vocab-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vocab-jp {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.vocab-reading {
+  font-size: 0.82rem;
+  color: var(--matcha-600);
+  font-weight: 600;
+}
+
+.vocab-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.vocab-id {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+.vocab-tag {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   LENCANA (BADGES & ACHIEVEMENTS)
+   ========================================================================== */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.badge-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.badge-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.badge-card.unlocked {
+  border-color: var(--gold-border);
+}
+
+.badge-card.locked {
+  opacity: 0.65;
+  background-color: var(--bg-subtle);
+}
+
+.badge-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.badge-emblem {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  background-color: var(--gold-surface);
+  border: 2px solid var(--gold-border);
+  flex-shrink: 0;
+}
+
+.badge-card.locked .badge-emblem {
+  background-color: var(--stone-300);
+  border-color: var(--stone-400);
+  filter: grayscale(1);
+}
+
+.badge-details h3 {
+  font-size: 1rem;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-600);
+}
+
+.badge-desc {
+  font-size: 0.82rem;
+  color: var(--text-body);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   INTERACTIVE QUIZ / BELAJAR SESSION (PURE HTML + CSS FORM & TARGET ROUTING)
+   ========================================================================== */
+.quiz-step {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Default display question 1 if no hash is present */
+.quiz-step:first-of-type {
+  display: flex;
+}
+
+/* Target routing when user navigates through #soal-1, #soal-2, etc. */
+.quiz-step:target {
+  display: flex;
+}
+
+body:has(:target) .quiz-step:not(:target) {
+  display: none;
+}
+
+.quiz-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.quiz-exit-btn {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+}
+
+.quiz-progress-track {
+  flex: 1;
+  height: 12px;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+}
+
+.quiz-progress-fill-val {
+  height: 100%;
+  background: var(--matcha-500);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.quiz-hearts-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--vermilion-500);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Quiz Question Card */
+.question-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.question-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--matcha-600);
+  letter-spacing: 0.04em;
+}
+
+.question-prompt {
+  font-size: 1.35rem;
+  color: var(--text-main);
+}
+
+.question-prompt-jp {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  text-align: center;
+  color: var(--matcha-600);
+  margin: 10px 0;
+}
+
+/* Options Grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* Radio Button Options styled as tactile buttons */
+.quiz-radio {
+  display: none;
+}
+
+.option-button-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 14px;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(54, 45, 36, 0.08);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.option-button-label:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(54, 45, 36, 0.08);
+}
+
+.option-jp-text {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.option-sub-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Pure CSS Checked State Feedback */
+.quiz-radio.correct:checked + .option-button-label {
+  background-color: var(--matcha-surface);
+  border-color: var(--matcha-500);
+  color: var(--matcha-600);
+  box-shadow: 0 4px 0 var(--matcha-shadow);
+}
+.quiz-radio.correct:checked + .option-button-label .option-jp-text {
+  color: var(--matcha-600);
+}
+
+.quiz-radio.wrong:checked + .option-button-label {
+  background-color: var(--vermilion-surface);
+  border-color: var(--vermilion-500);
+  color: var(--vermilion-600);
+  box-shadow: 0 4px 0 var(--vermilion-shadow);
+}
+.quiz-radio.wrong:checked + .option-button-label .option-jp-text {
+  color: var(--vermilion-600);
+}
+
+/* Feedback Bubbles */
+.feedback-bubble-correct, .feedback-bubble-wrong {
+  display: none;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease;
+}
+
+.feedback-bubble-correct {
+  background-color: var(--matcha-surface);
+  border: 1px solid var(--matcha-border);
+  color: var(--matcha-600);
+}
+
+.feedback-bubble-wrong {
+  background-color: var(--vermilion-surface);
+  border: 1px solid var(--vermilion-border);
+  color: var(--vermilion-600);
+}
+
+.question-card:has(.quiz-radio.correct:checked) .feedback-bubble-correct {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.question-card:has(.quiz-radio.wrong:checked) .feedback-bubble-wrong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Button Styling */
+.btn-primary-action {
+  background-color: var(--matcha-500);
+  color: white;
+  padding: 13px 26px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 5px 0 var(--matcha-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-primary-action:hover {
+  background-color: var(--matcha-400);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--matcha-shadow);
+}
+
+.btn-primary-action:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--matcha-shadow);
+}
+
+.question-next-btn {
+  opacity: 0.45;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.question-card:has(.quiz-radio:checked) .question-next-btn {
+  opacity: 1;
+  pointer-events: all;
+  box-shadow: 0 6px 0 var(--matcha-shadow);
+  animation: float-bob 2s ease-in-out infinite;
+}
+
+/* Fallback for browsers without :has */
+@supports not selector(:has(*)) {
+  .question-next-btn {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+/* ==========================================================================
+   BOTTOM NAVIGATION BAR FOR MOBILE SCREENS
+   ========================================================================== */
+.mobile-bottom-nav {
+  display: none;
+}
+
+.mobile-top-header {
+  display: none;
+}
+
+/* ==========================================================================
+   KEYFRAME ANIMATIONS
+   ========================================================================== */
+@keyframes rotate-pulse {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.04); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM
+   ========================================================================== */
+
+/* 1. Medium Tablets (under 1120px) */
+@media (max-width: 1120px) {
+  .app-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+  }
+  .sidebar-right {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    position: static;
+  }
+  .stats-bar-card {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 2. Mobile & Small Tablets (under 768px) */
+@media (max-width: 768px) {
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px 90px 14px;
+    gap: 20px;
+  }
+
+  .sidebar-left {
+    display: none;
+  }
+
+  .sidebar-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mobile-top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .mobile-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-hairline);
+    box-shadow: 0 -4px 16px rgba(44, 38, 30, 0.08);
+    z-index: 90;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8px;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--matcha-600);
+    font-weight: 700;
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.25rem;
+  }
+
+  .path-node-wrapper.pos-left-1  { transform: translateX(-24px); }
+  .path-node-wrapper.pos-left-2  { transform: translateX(-44px); }
+  .path-node-wrapper.pos-right-1 { transform: translateX(24px); }
+  .path-node-wrapper.pos-right-2 { transform: translateX(44px); }
+
+  .path-node {
+    width: 64px;
+    height: 64px;
+  }
+
+  .node-inner {
+    font-size: 1.35rem;
+  }
+
+  .kana-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}

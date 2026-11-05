@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="id" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bagan Katakana (片仮名) - Yuki 日本語</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+      <link href="css/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet" />
+    <script>try{var t=localStorage.getItem('yuki-theme');if(t)document.documentElement.setAttribute('data-bs-theme',t)}catch(e){}</script>
+  </head>
+  <body class="bg-body-tertiary">
+    <header class="bg-body border-bottom sticky-top">
+      <div
+       class="container-xl d-flex align-items-center justify-content-between py-2"
+      >
+        <a
+         class="d-flex align-items-center gap-2 text-decoration-none text-body"
+          href="index.html"
+        >
+          <span
+           class="border border-2 border-danger rounded-circle text-danger fw-bold fs-4 lh-1 p-2"
+            >雪</span
+          >
+          <span class="d-flex flex-column lh-sm"
+            ><span class="fw-bold fs-4">Yuki</span
+            ><span class="small text-body-secondary"
+              >Belajar Bahasa Jepang</span
+            ></span
+          ></a
+        >
+        <button id="themeToggle" type="button" class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="Ganti tema"></button>
+      </div>
+      <div class="container-xl">
+        <ul class="nav nav-pills flex-nowrap overflow-x-auto pb-2">
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="index.html"
+              ><i class="bi bi-map" aria-hidden="true"></i> Peta Level</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="hiragana.html"
+              >あ Hiragana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+             class="nav-link text-nowrap active bg-danger"
+              href="katakana.html"
+              >ア Katakana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="kanji.html"
+              >漢 Kanji Dasar</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="kosakata.html"
+              >語 Kosakata</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="lencana.html"
+              ><i class="bi bi-trophy" aria-hidden="true"></i> Lencana</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nowrap text-body" href="belajar.html"
+              ><i class="bi bi-pencil-square" aria-hidden="true"></i> Latihan Kuis</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="container-xl py-4">
+      <div class="row g-4">
+        <main class="col-lg-8">
+          <section class="card mb-4 overflow-hidden">
+            <div
+             class="card-body d-flex justify-content-between align-items-center gap-3 p-4"
+            >
+              <div>
+                <h1 class="h3">Bagan Katakana (片仮名) &amp; Gairaigo</h1>
+                <p class="text-body-secondary mb-0">
+                  Huruf dengan goresan tegas dan lurus untuk kata serapan asing,
+                  nama negara, menu kafe, onomatopoeia, serta penekanan istilah
+                  ilmiah.
+                </p>
+              </div>
+              <span class="display-3 text-danger">ア</span>
+            </div>
+          </section>
+          <details class="card mb-3" open>
+            <summary class="card-header fw-bold fs-5 d-flex justify-content-between align-items-center py-3 px-4" role="button">
+              46 Karakter Katakana
+            </summary>
+            <div class="card-body">
+              <div class="d-flex flex-column gap-3">
+                <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 g-2">
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ア</div>
+                        <div class="small fw-semibold text-danger">a</div>
+                        <div class="small text-body-secondary">
+                          アイス (aisu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">イ</div>
+                        <div class="small fw-semibold text-danger">i</div>
+                        <div class="small text-body-secondary">
+                          インド (indo)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ウ</div>
+                        <div class="small fw-semibold text-danger">u</div>
+                        <div class="small text-body-secondary">
+                          ウイルス (uirusu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">エ</div>
+                        <div class="small fw-semibold text-danger">e</div>
+                        <div class="small text-body-secondary">
+                          エアコン (eakon)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">オ</div>
+                        <div class="small fw-semibold text-danger">o</div>
+                        <div class="small text-body-secondary">
+                          オレンジ (orenji)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">カ</div>
+                        <div class="small fw-semibold text-danger">ka</div>
+                        <div class="small text-body-secondary">
+                          カメラ (kamera)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">キ</div>
+                        <div class="small fw-semibold text-danger">ki</div>
+                        <div class="small text-body-secondary">キロ (kiro)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ク</div>
+                        <div class="small fw-semibold text-danger">ku</div>
+                        <div class="small text-body-secondary">
+                          クラス (kurasu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ケ</div>
+                        <div class="small fw-semibold text-danger">ke</div>
+                        <div class="small text-body-secondary">
+                          ケーキ (kēki)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">コ</div>
+                        <div class="small fw-semibold text-danger">ko</div>
+                        <div class="small text-body-secondary">
+                          コーヒー (kōhī)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">サ</div>
+                        <div class="small fw-semibold text-danger">sa</div>
+                        <div class="small text-body-secondary">
+                          サラダ (sarada)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">シ</div>
+                        <div class="small fw-semibold text-danger">shi</div>
+                        <div class="small text-body-secondary">
+                          シャツ (shatsu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ス</div>
+                        <div class="small fw-semibold text-danger">su</div>
+                        <div class="small text-body-secondary">
+                          スポーツ (supōtsu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">セ</div>
+                        <div class="small fw-semibold text-danger">se</div>
+                        <div class="small text-body-secondary">
+                          セーター (sētā)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ソ</div>
+                        <div class="small fw-semibold text-danger">so</div>
+                        <div class="small text-body-secondary">
+                          ソフト (sofuto)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">タ</div>
+                        <div class="small fw-semibold text-danger">ta</div>
+                        <div class="small text-body-secondary">
+                          タクシー (takushī)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">チ</div>
+                        <div class="small fw-semibold text-danger">chi</div>
+                        <div class="small text-body-secondary">
+                          チーズ (chīzu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ツ</div>
+                        <div class="small fw-semibold text-danger">tsu</div>
+                        <div class="small text-body-secondary">
+                          ツアー (tsuā)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">テ</div>
+                        <div class="small fw-semibold text-danger">te</div>
+                        <div class="small text-body-secondary">
+                          テレビ (terebi)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ト</div>
+                        <div class="small fw-semibold text-danger">to</div>
+                        <div class="small text-body-secondary">
+                          トマト (tomato)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ナ</div>
+                        <div class="small fw-semibold text-danger">na</div>
+                        <div class="small text-body-secondary">
+                          ナイフ (naifu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ニ</div>
+                        <div class="small fw-semibold text-danger">ni</div>
+                        <div class="small text-body-secondary">
+                          ニュース (nyūsu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヌ</div>
+                        <div class="small fw-semibold text-danger">nu</div>
+                        <div class="small text-body-secondary">
+                          カヌー (kanū)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ネ</div>
+                        <div class="small fw-semibold text-danger">ne</div>
+                        <div class="small text-body-secondary">
+                          ネクタイ (nekutai)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ノ</div>
+                        <div class="small fw-semibold text-danger">no</div>
+                        <div class="small text-body-secondary">
+                          ノート (nōto)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ハ</div>
+                        <div class="small fw-semibold text-danger">ha</div>
+                        <div class="small text-body-secondary">
+                          ハガキ (hagaki)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヒ</div>
+                        <div class="small fw-semibold text-danger">hi</div>
+                        <div class="small text-body-secondary">
+                          ヒーター (hītā)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">フ</div>
+                        <div class="small fw-semibold text-danger">fu</div>
+                        <div class="small text-body-secondary">
+                          フォーク (fōku)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヘ</div>
+                        <div class="small fw-semibold text-danger">he</div>
+                        <div class="small text-body-secondary">
+                          ヘリコプター
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ホ</div>
+                        <div class="small fw-semibold text-danger">ho</div>
+                        <div class="small text-body-secondary">
+                          ホテル (hoteru)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">マ</div>
+                        <div class="small fw-semibold text-danger">ma</div>
+                        <div class="small text-body-secondary">
+                          マスク (masuku)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ミ</div>
+                        <div class="small fw-semibold text-danger">mi</div>
+                        <div class="small text-body-secondary">
+                          ミルク (miruku)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ム</div>
+                        <div class="small fw-semibold text-danger">mu</div>
+                        <div class="small text-body-secondary">
+                          ムード (mūdo)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">メ</div>
+                        <div class="small fw-semibold text-danger">me</div>
+                        <div class="small text-body-secondary">
+                          メニュー (menyū)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">モ</div>
+                        <div class="small fw-semibold text-danger">mo</div>
+                        <div class="small text-body-secondary">
+                          モデル (moderu)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヤ</div>
+                        <div class="small fw-semibold text-danger">ya</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ユ</div>
+                        <div class="small fw-semibold text-danger">yu</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヨ</div>
+                        <div class="small fw-semibold text-danger">yo</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ラ</div>
+                        <div class="small fw-semibold text-danger">ra</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">リ</div>
+                        <div class="small fw-semibold text-danger">ri</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ル</div>
+                        <div class="small fw-semibold text-danger">ru</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">レ</div>
+                        <div class="small fw-semibold text-danger">re</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ロ</div>
+                        <div class="small fw-semibold text-danger">ro</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ワ</div>
+                        <div class="small fw-semibold text-danger">wa</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ヲ</div>
+                        <div class="small fw-semibold text-danger">wo</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card h-100 text-center border-0 bg-body-tertiary">
+                      <div class="card-body py-3 px-2">
+                        <div class="fs-2">ン</div>
+                        <div class="small fw-semibold text-danger">n</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="card mb-3">
+            <summary class="card-header fw-bold fs-5 d-flex justify-content-between align-items-center py-3 px-4" role="button">
+              Kata Serapan Populer (外来語)
+            </summary>
+            <div class="card-body">
+              <div class="d-flex flex-column gap-3">
+                <ul class="list-group list-group-flush">
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">コーヒー</div>
+                      <div class="small text-body-secondary">Kōhī</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Kopi</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Coffee (Inggris)</span
+                      >
+                    </div>
+                  </li>
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">テレビ</div>
+                      <div class="small text-body-secondary">Terebi</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Televisi</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Television</span
+                      >
+                    </div>
+                  </li>
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">パン</div>
+                      <div class="small text-body-secondary">Pan</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Roti</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Pão (Portugis)</span
+                      >
+                    </div>
+                  </li>
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">レストラン</div>
+                      <div class="small text-body-secondary">Resutoran</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Restoran</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Restaurant</span
+                      >
+                    </div>
+                  </li>
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">ホテル</div>
+                      <div class="small text-body-secondary">Hoteru</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Hotel / Penginapan</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Hotel</span
+                      >
+                    </div>
+                  </li>
+                  <li
+                   class="list-group-item d-flex justify-content-between align-items-center gap-3 py-3"
+                  >
+                    <div>
+                      <div class="fs-5 fw-bold">アニメ</div>
+                      <div class="small text-body-secondary">Anime</div>
+                    </div>
+                    <div class="text-end">
+                      <div>Animasi Jepang</div>
+                      <span
+                       class="badge bg-success-subtle text-success-emphasis"
+                        >Dari Animation</span
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+          <details class="card mb-3">
+            <summary class="card-header fw-bold fs-5 d-flex justify-content-between align-items-center py-3 px-4" role="button">
+              Aturan Vokal Panjang (ー)
+            </summary>
+            <div class="card-body">
+              <div class="d-flex flex-column gap-3">
+                <div
+                 class="bg-body p-3 rounded border d-flex flex-column gap-3"
+                >
+                  <h3 class="h6 mb-0">1. Garis Vokal Panjang (長音符 ー)</h3>
+                  <p class="small mb-0">
+                    Tanda strip horizontal <strong>ー</strong> menunjukkan vokal
+                    yang dibaca panjang 2 ketukan. Contoh:
+                    <strong>カード (kādo - kartu)</strong>,
+                    <strong>ケーキ (kēki - kue)</strong>,
+                    <strong>スキー (sukī - ski)</strong>.
+                  </p>
+                  <h3 class="mt-2 h6 mb-0">
+                    2. Huruf Kecil Konsonan Ganda (ッ)
+                  </h3>
+                  <p class="small mb-0">
+                    Tsu kecil <strong>ッ</strong> menciptakan jeda atau konsonan
+                    rangkap (glottal stop). Contoh:
+                    <strong>カップ (kappu - cangkir)</strong>,
+                    <strong>ベッド (beddo - tempat tidur)</strong>.
+                  </p>
+                  <h3 class="mt-2 h6 mb-0">
+                    3. Perbedaan Kritis: シ (Shi) vs ツ (Tsu)
+                  </h3>
+                  <p class="small mb-0">
+                    <strong>シ (shi)</strong> digores mendatar dari kiri bawah
+                    ke kanan atas. Sedangkan <strong>ツ (tsu)</strong> digores
+                    menukik dari atas ke kanan bawah.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </details>
+          <div
+           class="bg-body p-3 rounded border d-flex align-items-center justify-content-between"
+          >
+            <div>
+              <h3 class="h6 mb-0">Tes Kosakata Katakana</h3>
+              <p class="small mb-0">
+                Uji kemampuan membaca istilah kafe dan teknologi dalam bahasa
+                Jepang.
+              </p>
+            </div>
+            <a class="btn btn-danger fw-bold" href="belajar.html#soal-2"
+              >Latihan Katakana 🚀</a
+            >
+          </div>
+        </main>
+        <aside class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                 class="border border-2 border-danger rounded-circle text-danger fs-4 lh-1 p-2"
+                  >刀</span
+                >
+                <div>
+                  <div class="fw-bold">Izzan (あなた)</div>
+                  <div class="small text-body-secondary">
+                    Katakana Explorer: 40%
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between small mt-3">
+                <span><i class="bi bi-fire" aria-hidden="true"></i> 14 Hari</span><span><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart-fill text-danger" aria-hidden="true"></i><i class="bi bi-heart" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <div class="badge rounded-pill fs-6 text-bg-danger"><i class="bi bi-fire" aria-hidden="true"></i> 14 Hari</div>
+            <div class="badge rounded-pill fs-6 text-bg-warning">
+              <i class="bi bi-lightning-charge-fill" aria-hidden="true"></i> 1,420 XP
+            </div>
+            <div class="badge rounded-pill fs-6 text-bg-success"><i class="bi bi-coin" aria-hidden="true"></i> 85 Mon</div>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0">⛩️ Asal-Usul Katakana</h3>
+            </div>
+            <p class="small mb-0">
+              Katakana diciptakan pada zaman Heian oleh para biksu Buddha yang
+              menyederhanakan potongan (kata = pecahan) karakter Kanji untuk
+              membuat catatan cepat dalam naskah suci.
+            </p>
+          </div>
+          <div class="card card-body gap-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="h6 mb-0">🍵 Budaya Kafe Jepang</h3>
+            </div>
+            <p class="small mb-0">
+              Jika Anda berkunjung ke Tokyo atau Kyoto, hampir 90% menu kafe dan
+              minuman tertulis dalam Katakana!
+            </p>
+            <div class="small bg-body-secondary p-2 rounded fw-bold">
+              「アイスコーヒーをください」<br />
+              <em>(Aisu kōhī o kudasai - Tolong es kopi satu)</em>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <footer
+     class="bg-body border-top py-3 text-center small text-body-secondary"
+    >
+      © 2026 Yuki (雪), tempat belajar bahasa Jepang
+    </footer>
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/efek.js"></script>
+  </body>
+</html>

@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bagan Katakana (片仮名) - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px; background-color: var(--indigo-600);">ア</span>
+        <span>Katakana Modern</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp"><span class="stat-icon">⚡</span> 1,420</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item active">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background: linear-gradient(135deg, var(--indigo-500), var(--indigo-600));">刀</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank" style="color: var(--indigo-600);">Katakana Explorer: 40%</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Katakana Grid & Kata Serapan -->
+      <main class="main-path-column">
+        <section class="subpage-hero">
+          <div class="subpage-hero-text">
+            <h1>Bagan Katakana (片仮名) & Gairaigo</h1>
+            <p>Huruf dengan goresan tegas dan lurus untuk kata serapan asing, nama negara, menu kafe, onomatopoeia, serta penekanan istilah ilmiah.</p>
+          </div>
+          <div class="hero-kanji-stamp" style="color: var(--indigo-600); border-color: #B5CBE0; background-color: var(--indigo-surface);">ア</div>
+        </section>
+
+        <!-- Pure CSS Tabs -->
+        <div class="css-tabs-wrapper">
+          <input type="radio" name="katakana-tab" id="tab1" class="tab-radio" checked />
+          <input type="radio" name="katakana-tab" id="tab2" class="tab-radio" />
+          <input type="radio" name="katakana-tab" id="tab3" class="tab-radio" />
+
+          <div class="tab-nav-bar">
+            <label for="tab1" class="tab-label">46 Karakter Katakana</label>
+            <label for="tab2" class="tab-label">Kata Serapan Populer (外来語)</label>
+            <label for="tab3" class="tab-label">Aturan Vokal Panjang (ー)</label>
+          </div>
+
+          <div class="tab-panels-content">
+            <!-- PANEL 1: KATAKANA CHARACTERS -->
+            <div id="panel1" class="tab-panel">
+              <div class="kana-grid">
+                <!-- A I U E O -->
+                <div class="kana-card"><span class="kana-char">ア</span><span class="kana-romaji">a</span><span class="kana-sample">アイス (aisu)</span></div>
+                <div class="kana-card"><span class="kana-char">イ</span><span class="kana-romaji">i</span><span class="kana-sample">インド (indo)</span></div>
+                <div class="kana-card"><span class="kana-char">ウ</span><span class="kana-romaji">u</span><span class="kana-sample">ウイルス (uirusu)</span></div>
+                <div class="kana-card"><span class="kana-char">エ</span><span class="kana-romaji">e</span><span class="kana-sample">エアコン (eakon)</span></div>
+                <div class="kana-card"><span class="kana-char">オ</span><span class="kana-romaji">o</span><span class="kana-sample">オレンジ (orenji)</span></div>
+
+                <!-- KA KI KU KE KO -->
+                <div class="kana-card"><span class="kana-char">カ</span><span class="kana-romaji">ka</span><span class="kana-sample">カメラ (kamera)</span></div>
+                <div class="kana-card"><span class="kana-char">キ</span><span class="kana-romaji">ki</span><span class="kana-sample">キロ (kiro)</span></div>
+                <div class="kana-card"><span class="kana-char">ク</span><span class="kana-romaji">ku</span><span class="kana-sample">クラス (kurasu)</span></div>
+                <div class="kana-card"><span class="kana-char">ケ</span><span class="kana-romaji">ke</span><span class="kana-sample">ケーキ (kēki)</span></div>
+                <div class="kana-card"><span class="kana-char">コ</span><span class="kana-romaji">ko</span><span class="kana-sample">コーヒー (kōhī)</span></div>
+
+                <!-- SA SHI SU SE SO -->
+                <div class="kana-card"><span class="kana-char">サ</span><span class="kana-romaji">sa</span><span class="kana-sample">サラダ (sarada)</span></div>
+                <div class="kana-card"><span class="kana-char">シ</span><span class="kana-romaji">shi</span><span class="kana-sample">シャツ (shatsu)</span></div>
+                <div class="kana-card"><span class="kana-char">ス</span><span class="kana-romaji">su</span><span class="kana-sample">スポーツ (supōtsu)</span></div>
+                <div class="kana-card"><span class="kana-char">セ</span><span class="kana-romaji">se</span><span class="kana-sample">セーター (sētā)</span></div>
+                <div class="kana-card"><span class="kana-char">ソ</span><span class="kana-romaji">so</span><span class="kana-sample">ソフト (sofuto)</span></div>
+
+                <!-- TA CHI TSU TE TO -->
+                <div class="kana-card"><span class="kana-char">タ</span><span class="kana-romaji">ta</span><span class="kana-sample">タクシー (takushī)</span></div>
+                <div class="kana-card"><span class="kana-char">チ</span><span class="kana-romaji">chi</span><span class="kana-sample">チーズ (chīzu)</span></div>
+                <div class="kana-card"><span class="kana-char">ツ</span><span class="kana-romaji">tsu</span><span class="kana-sample">ツアー (tsuā)</span></div>
+                <div class="kana-card"><span class="kana-char">テ</span><span class="kana-romaji">te</span><span class="kana-sample">テレビ (terebi)</span></div>
+                <div class="kana-card"><span class="kana-char">ト</span><span class="kana-romaji">to</span><span class="kana-sample">トマト (tomato)</span></div>
+
+                <!-- NA NI NU NE NO -->
+                <div class="kana-card"><span class="kana-char">ナ</span><span class="kana-romaji">na</span><span class="kana-sample">ナイフ (naifu)</span></div>
+                <div class="kana-card"><span class="kana-char">ニ</span><span class="kana-romaji">ni</span><span class="kana-sample">ニュース (nyūsu)</span></div>
+                <div class="kana-card"><span class="kana-char">ヌ</span><span class="kana-romaji">nu</span><span class="kana-sample">カヌー (kanū)</span></div>
+                <div class="kana-card"><span class="kana-char">ネ</span><span class="kana-romaji">ne</span><span class="kana-sample">ネクタイ (nekutai)</span></div>
+                <div class="kana-card"><span class="kana-char">ノ</span><span class="kana-romaji">no</span><span class="kana-sample">ノート (nōto)</span></div>
+
+                <!-- HA HI FU HE HO -->
+                <div class="kana-card"><span class="kana-char">ハ</span><span class="kana-romaji">ha</span><span class="kana-sample">ハガキ (hagaki)</span></div>
+                <div class="kana-card"><span class="kana-char">ヒ</span><span class="kana-romaji">hi</span><span class="kana-sample">ヒーター (hītā)</span></div>
+                <div class="kana-card"><span class="kana-char">フ</span><span class="kana-romaji">fu</span><span class="kana-sample">フォーク (fōku)</span></div>
+                <div class="kana-card"><span class="kana-char">ヘ</span><span class="kana-romaji">he</span><span class="kana-sample">ヘリコプター</span></div>
+                <div class="kana-card"><span class="kana-char">ホ</span><span class="kana-romaji">ho</span><span class="kana-sample">ホテル (hoteru)</span></div>
+
+                <!-- MA MI MU ME MO -->
+                <div class="kana-card"><span class="kana-char">マ</span><span class="kana-romaji">ma</span><span class="kana-sample">マスク (masuku)</span></div>
+                <div class="kana-card"><span class="kana-char">ミ</span><span class="kana-romaji">mi</span><span class="kana-sample">ミルク (miruku)</span></div>
+                <div class="kana-card"><span class="kana-char">ム</span><span class="kana-romaji">mu</span><span class="kana-sample">ムード (mūdo)</span></div>
+                <div class="kana-card"><span class="kana-char">メ</span><span class="kana-romaji">me</span><span class="kana-sample">メニュー (menyū)</span></div>
+                <div class="kana-card"><span class="kana-char">モ</span><span class="kana-romaji">mo</span><span class="kana-sample">モデル (moderu)</span></div>
+
+                <!-- YA YU YO, RA RI RU RE RO, WA O N -->
+                <div class="kana-card"><span class="kana-char">ヤ</span><span class="kana-romaji">ya</span></div>
+                <div class="kana-card" style="opacity: 0.3;"><span>-</span></div>
+                <div class="kana-card"><span class="kana-char">ユ</span><span class="kana-romaji">yu</span></div>
+                <div class="kana-card" style="opacity: 0.3;"><span>-</span></div>
+                <div class="kana-card"><span class="kana-char">ヨ</span><span class="kana-romaji">yo</span></div>
+
+                <div class="kana-card"><span class="kana-char">ラ</span><span class="kana-romaji">ra</span></div>
+                <div class="kana-card"><span class="kana-char">リ</span><span class="kana-romaji">ri</span></div>
+                <div class="kana-card"><span class="kana-char">ル</span><span class="kana-romaji">ru</span></div>
+                <div class="kana-card"><span class="kana-char">レ</span><span class="kana-romaji">re</span></div>
+                <div class="kana-card"><span class="kana-char">ロ</span><span class="kana-romaji">ro</span></div>
+
+                <div class="kana-card"><span class="kana-char">ワ</span><span class="kana-romaji">wa</span></div>
+                <div class="kana-card" style="opacity: 0.3;"><span>-</span></div>
+                <div class="kana-card"><span class="kana-char">ヲ</span><span class="kana-romaji">wo</span></div>
+                <div class="kana-card" style="opacity: 0.3;"><span>-</span></div>
+                <div class="kana-card"><span class="kana-char">ン</span><span class="kana-romaji">n</span></div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: LOANWORDS (GAIRAIGO) -->
+            <div id="panel2" class="tab-panel">
+              <div class="vocab-list">
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">コーヒー</span>
+                    <span class="vocab-reading">Kōhī</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Kopi</span>
+                    <span class="vocab-tag">Dari Coffee (Inggris)</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">テレビ</span>
+                    <span class="vocab-reading">Terebi</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Televisi</span>
+                    <span class="vocab-tag">Dari Television</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">パン</span>
+                    <span class="vocab-reading">Pan</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Roti</span>
+                    <span class="vocab-tag">Dari Pão (Portugis)</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">レストラン</span>
+                    <span class="vocab-reading">Resutoran</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Restoran</span>
+                    <span class="vocab-tag">Dari Restaurant</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">ホテル</span>
+                    <span class="vocab-reading">Hoteru</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Hotel / Penginapan</span>
+                    <span class="vocab-tag">Dari Hotel</span>
+                  </div>
+                </div>
+
+                <div class="vocab-item">
+                  <div class="vocab-left">
+                    <span class="vocab-jp">アニメ</span>
+                    <span class="vocab-reading">Anime</span>
+                  </div>
+                  <div class="vocab-right">
+                    <span class="vocab-id">Animasi Jepang</span>
+                    <span class="vocab-tag">Dari Animation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: RULES OF KATAKANA -->
+            <div id="panel3" class="tab-panel">
+              <div style="background-color: var(--bg-surface); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; flex-direction: column; gap: 16px;">
+                <h3 style="color: var(--indigo-600); font-size: 1.15rem;">1. Garis Vokal Panjang (長音符 ー)</h3>
+                <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.5;">
+                  Tanda strip horizontal <strong>ー</strong> menunjukkan vokal yang dibaca panjang 2 ketukan. Contoh: <strong>カード (kādo - kartu)</strong>, <strong>ケーキ (kēki - kue)</strong>, <strong>スキー (sukī - ski)</strong>.
+                </p>
+
+                <h3 style="color: var(--indigo-600); font-size: 1.15rem; margin-top: 8px;">2. Huruf Kecil Konsonan Ganda (ッ)</h3>
+                <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.5;">
+                  Tsu kecil <strong>ッ</strong> menciptakan jeda atau konsonan rangkap (glottal stop). Contoh: <strong>カップ (kappu - cangkir)</strong>, <strong>ベッド (beddo - tempat tidur)</strong>.
+                </p>
+
+                <h3 style="color: var(--indigo-600); font-size: 1.15rem; margin-top: 8px;">3. Perbedaan Kritis: シ (Shi) vs ツ (Tsu)</h3>
+                <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.5;">
+                  <strong>シ (shi)</strong> digores mendatar dari kiri bawah ke kanan atas. Sedangkan <strong>ツ (tsu)</strong> digores menukik dari atas ke kanan bawah.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background-color: var(--bg-surface); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card);">
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--text-main);">Tes Kosakata Katakana</h3>
+            <p style="font-size: 0.84rem; color: var(--text-body);">Uji kemampuan membaca istilah kafe dan teknologi dalam bahasa Jepang.</p>
+          </div>
+          <a href="belajar.html#soal-2" class="btn-primary-action" style="background-color: var(--indigo-600); box-shadow: 0 5px 0 #1B3047;">Latihan Katakana 🚀</a>
+        </div>
+      </main>
+
+      <!-- Kolom Kanan: Info & Trivia -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">⛩️ Asal-Usul Katakana</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Katakana diciptakan pada zaman Heian oleh para biksu Buddha yang menyederhanakan potongan (kata = pecahan) karakter Kanji untuk membuat catatan cepat dalam naskah suci.
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🍵 Budaya Kafe Jepang</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Jika Anda berkunjung ke Tokyo atau Kyoto, hampir 90% menu kafe dan minuman tertulis dalam Katakana!
+          </p>
+          <div style="font-size: 0.8rem; background-color: var(--bg-subtle); padding: 8px 12px; border-radius: var(--radius-sm); font-weight: 700;">
+            「アイスコーヒーをください」<br />
+            <em>(Aisu kōhī o kudasai - Tolong es kopi satu)</em>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link active">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>

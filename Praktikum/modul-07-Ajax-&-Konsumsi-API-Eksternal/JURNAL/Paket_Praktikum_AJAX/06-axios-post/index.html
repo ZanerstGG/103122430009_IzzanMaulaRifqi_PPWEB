@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>POST dengan Axios | Praktikum AJAX</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#utama">Lewati navigasi</a>
+<aside class="sidebar"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">{ }</span> Praktikum AJAX</a><div class="scope">Modul 07 / Pemrograman Web</div><nav aria-label="Daftar materi"><a href="../index.html">Peta materi</a><a href="../01-apa-itu-ajax/index.html">01 Apa itu AJAX?</a><a href="../02-cara-kerja-ajax/index.html">02 Cara kerja AJAX</a><a href="../03-event-xhr/index.html">03 Event dan XMLHttpRequest</a><a href="../04-fetch-get/index.html">04 GET dengan Fetch</a><a href="../05-axios-get/index.html">05 GET dengan Axios</a><a href="index.html" aria-current="page">06 POST dengan Axios</a><a href="../07-loading-error/index.html">07 Loading dan error handling</a><a href="../08-react-state/index.html">08 Loading dan error di React</a><a href="../09-api-eksternal/index.html">09 API lokal dan API eksternal</a></nav><p class="sidebar-footer">Belajar dari request pertama sampai state di React.<br>Data latihan: pengguna fiktif.</p></aside>
+<header class="topbar"><span>Modul 07 <span class="context">/ AJAX dan konsumsi API</span></span><a href="../Modul_07_AJAX_Sederhana.pdf">Baca modul PDF</a></header>
+<div class="mobile-nav"><label class="skip" for="pindah-materi">Pilih materi</label><select id="pindah-materi" aria-label="Pindah materi"><option value="../index.html">Peta materi</option><option value="../01-apa-itu-ajax/index.html">01 Apa itu AJAX?</option><option value="../02-cara-kerja-ajax/index.html">02 Cara kerja AJAX</option><option value="../03-event-xhr/index.html">03 Event dan XMLHttpRequest</option><option value="../04-fetch-get/index.html">04 GET dengan Fetch</option><option value="../05-axios-get/index.html">05 GET dengan Axios</option><option value="index.html" selected>06 POST dengan Axios</option><option value="../07-loading-error/index.html">07 Loading dan error handling</option><option value="../08-react-state/index.html">08 Loading dan error di React</option><option value="../09-api-eksternal/index.html">09 API lokal dan API eksternal</option></select></div>
+<main id="utama" class="sheet"><div class="file-warning" data-file-warning hidden><strong>Jalankan server terlebih dahulu.</strong><br>Ekstrak seluruh ZIP, lalu klik dua kali <code>JALANKAN.bat</code>. Buka <a href="http://127.0.0.1:3007">http://127.0.0.1:3007</a>. Contoh AJAX perlu alamat HTTP, bukan file://. Node.js 18+ diperlukan; Node.js LTS disarankan.</div><div class="page-meta">Contoh 06 / Submateri 7.4.3</div><h1>POST dengan Axios</h1><p class="intro">Mengirim nama dan email sebagai JSON ke API mock.</p>
+<div class="workspace"><section class="practice" aria-label="Program contoh"><h2>Coba program</h2>
+<form id="form-user">
+<label for="nama">Nama</label><input id="nama" required maxlength="80" value="Budi Praktikan">
+<label for="email">Email</label><input id="email" type="email" required maxlength="120" value="budi@example.com">
+<button id="kirim" type="submit">Kirim data</button>
+</form>
+<p id="status" role="status">Belum ada data dikirim.</p>
+<pre id="hasil" class="result">Response akan muncul di sini.</pre>
+<p class="note">Simulasi: data tidak disimpan. GET /api/users tetap berisi tiga pengguna awal.</p>
+</section>
+<section class="explanation"><h2>Inti materi</h2><p>POST mengirim data ke server. Axios mengubah objek JavaScript menjadi JSON dan mengatur Content-Type untuk objek biasa ini. Server latihan hanya mengembalikan data contoh dengan status 201; data tidak disimpan dan tidak akan ditambahkan ke daftar GET.</p><h3>Langkah mencoba</h3><ol><li>Isi nama dan email dengan data contoh.</li><li>Tekan Kirim data.</li><li>Perhatikan status 201 dan isi response JSON.</li></ol><h3>Hasil yang diharapkan</h3><p>Response berisi id 101, nama, email, dan simulated: true. Pengiriman ini adalah simulasi.</p><h3>Latihan kecil</h3><p>Ubah nama dan kirim lagi. Bandingkan payload di Network dengan response dari server.</p></section></div>
+<details class="source" data-source="app.js"><summary>Lihat kode JavaScript: app.js</summary><p class="meta">File: 06-axios-post/app.js. Edit di VS Code atau editor teks, simpan, lalu refresh browser.</p><pre class="source-code"><code>Memuat kode...</code></pre></details>
+<details class="source" data-source="index.html"><summary>Lihat kode HTML: index.html</summary><pre class="source-code"><code>Memuat kode...</code></pre></details>
+<div class="pager"><a href="../05-axios-get/">&larr; Sebelumnya</a><a href="../07-loading-error/">Berikutnya &rarr;</a></div></main>
+<script src="../assets/ui.js"></script><script src="../vendor/axios.min.js"></script>
+<script src="app.js"></script>
+</body></html>

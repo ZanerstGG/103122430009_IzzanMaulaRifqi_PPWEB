@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Soal 01 - Portal Informasi Praktikum</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <style>
+    .sheet { margin: 8px auto; max-width: 1180px; min-height: auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--gap); margin-top: 24px; align-items: start; }
+    .panel { border: 1px solid var(--border); border-radius: 8px; padding: 24px; min-width: 0; }
+    .panel.full { grid-column: 1 / -1; }
+    textarea { display: block; width: 100%; min-height: 80px; font: inherit; border: 1px solid var(--control); border-radius: 6px; padding: 8px 12px; margin: 6px 0 18px; resize: vertical; }
+    .stats { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 8px; }
+    .stats div { min-width: 160px; }
+    .stats b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
+    .result[data-state=loading] { color: var(--accent); }
+    .log { max-height: 220px; overflow-y: auto; font-family: "IBM Plex Mono", Consolas, monospace; font-size: 13px; background: var(--raised); border-radius: 6px; padding: 12px 12px 12px 36px; }
+  </style>
+</head>
+<body>
+<main class="sheet">
+  <div class="page-meta">Modul 07 / Soal 01 / AJAX, Event, XMLHttpRequest, Fetch</div>
+  <h1>Portal Informasi Praktikum</h1>
+  <p class="intro">Pengumuman dimuat dengan <strong>XMLHttpRequest</strong>, sedangkan direktori peserta dimuat dengan <strong>Fetch</strong>. Kedua bagian diperbarui tanpa memuat ulang halaman.</p>
+
+  <div class="grid">
+    <!-- Bagian interaksi praktikan: harus tetap bisa dipakai selama request berjalan -->
+    <section class="panel full" aria-labelledby="judul-aktivitas">
+      <h2 id="judul-aktivitas">Aktivitas praktikan</h2>
+      <label for="catatan">Catatan praktikan</label>
+      <textarea id="catatan" placeholder="Tulis catatan di sini, misalnya: mengerjakan soal 01..."></textarea>
+      <div class="actions">
+        <button id="tambah" type="button" class="secondary">Tambah hitungan</button>
+      </div>
+      <div class="stats">
+        <div>Hitungan<b id="hitungan">0</b></div>
+        <div>Halaman pertama dibuka<b id="waktu-awal">-</b></div>
+      </div>
+    </section>
+
+    <!-- Bagian pengumuman: XMLHttpRequest -->
+    <section class="panel" aria-labelledby="judul-pengumuman">
+      <h2 id="judul-pengumuman">Pengumuman</h2>
+      <p class="meta">Metode: XMLHttpRequest (asynchronous). URL: <code id="url-pengumuman">-</code></p>
+      <div class="actions">
+        <button id="muat-pengumuman" type="button">Muat pengumuman</button>
+      </div>
+      <p id="status-pengumuman" class="result" role="status" data-state="">Pengumuman belum dimuat.</p>
+      <pre id="isi-pengumuman" class="result">-</pre>
+    </section>
+
+    <!-- Bagian direktori: Fetch -->
+    <section class="panel" aria-labelledby="judul-direktori">
+      <h2 id="judul-direktori">Direktori peserta</h2>
+      <p class="meta">Metode: Fetch API. Menampilkan maksimal tiga peserta pertama.</p>
+      <label for="sumber">Sumber data</label>
+      <select id="sumber">
+        <option value="mock">Mock lokal</option>
+        <option value="eksternal">JSONPlaceholder</option>
+      </select>
+      <div class="actions">
+        <button id="ambil-peserta" type="button">Ambil peserta</button>
+      </div>
+      <p id="status-peserta" class="result" role="status" data-state="">Peserta belum dimuat.</p>
+      <ul id="daftar-peserta" class="users"></ul>
+      <p id="info-peserta" class="meta"></p>
+    </section>
+
+    <section class="panel full" aria-labelledby="judul-log">
+      <h2 id="judul-log">Riwayat aktivitas</h2>
+      <p class="meta">Mencatat request, response, dan klik hitungan beserta waktunya. Berguna sebagai bukti bahwa interaksi tetap berjalan selama menunggu data.</p>
+      <ol id="log" class="log"></ol>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

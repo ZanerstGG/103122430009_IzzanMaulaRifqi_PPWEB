@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lencana & Prestasi (章) - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px; background-color: var(--gold-600);">🏆</span>
+        <span>Lencana & Prestasi</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp"><span class="stat-icon">⚡</span> 1,420</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item active">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background: linear-gradient(135deg, var(--gold-500), var(--gold-600));">誉</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank" style="color: var(--gold-600);">6 dari 8 Lencana Terbuka</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Galeri Lencana Kehormatan -->
+      <main class="main-path-column">
+        <section class="subpage-hero">
+          <div class="subpage-hero-text">
+            <h1>Dinding Kehormatan & Lencana (勲章)</h1>
+            <p>Setiap lencana melambangkan dedikasi, kedisiplinan, dan langkah nyata Anda dalam menapaki jalan penguasaan bahasa Jepang.</p>
+          </div>
+          <div class="hero-kanji-stamp" style="color: var(--gold-600); border-color: var(--gold-border); background-color: var(--gold-surface);">誉</div>
+        </section>
+
+        <!-- Grid Koleksi Lencana -->
+        <div class="badge-grid">
+          <!-- Lencana 1: Bunga Sakura Awal -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: #FDF2F5; border-color: #F8C3D2; color: #D64273;">🌸</div>
+              <div class="badge-details">
+                <h3>Bunga Sakura Pertama</h3>
+                <span class="badge-status">Diraih pada Hari ke-3</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Menyelesaikan 3 hari belajar berturut-turut tanpa jeda. Kelopak bunga sakura mekar sebagai tanda tekad baru.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: +50 XP & 10 Mon</div>
+          </div>
+
+          <!-- Lencana 2: Goresan Kuas Shodou -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: var(--matcha-surface); border-color: var(--matcha-border); color: var(--matcha-600);">筆</div>
+              <div class="badge-details">
+                <h3>Master Kuas Hiragana</h3>
+                <span class="badge-status">Tingkat Kemahiran Tinggi</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Mengenali dan melafalkan lebih dari 40 karakter Hiragana dasar dengan akurasi di atas 90%.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: +100 XP & 20 Mon</div>
+          </div>
+
+          <!-- Lencana 3: Disiplin Samurai -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: var(--vermilion-surface); border-color: var(--vermilion-border); color: var(--vermilion-600);">⚔️</div>
+              <div class="badge-details">
+                <h3>Disiplin Samurai 14 Hari</h3>
+                <span class="badge-status">Pencapaian Beruntun Terkini</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Mempertahankan nyala api semangat (streak) selama 14 hari penuh tanpa membiarkan nyawa padam.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: +150 XP & 30 Mon</div>
+          </div>
+
+          <!-- Lencana 4: Ketenangan Teh Zen -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: var(--matcha-surface); border-color: var(--matcha-border); color: var(--matcha-600);">🍵</div>
+              <div class="badge-details">
+                <h3>Ketenangan Teh Zen</h3>
+                <span class="badge-status">Konsentrasi Sempurna</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Menyelesaikan 5 sesi kuis latihan berturut-turut tanpa melakukan kesalahan satu pun.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: +80 XP & 15 Mon</div>
+          </div>
+
+          <!-- Lencana 5: Puncak Gunung Fuji -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: #EEF4F8; border-color: #BCD3E3; color: #2B577A;">🗻</div>
+              <div class="badge-details">
+                <h3>Pendaki Gunung Fuji</h3>
+                <span class="badge-status">Tembus 1,000 XP</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Mengumpulkan lebih dari 1,000 poin pengalaman XP melalui latihan konsisten dan penjelajahan unit.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: Gelar Kenshi (剣士)</div>
+          </div>
+
+          <!-- Lencana 6: Penjaga Kuil Torii -->
+          <div class="badge-card unlocked">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: var(--vermilion-surface); border-color: var(--vermilion-border); color: var(--vermilion-600);">⛩️</div>
+              <div class="badge-details">
+                <h3>Penjaga Gerbang Torii</h3>
+                <span class="badge-status">Lulus Evaluasi Gerbang</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Menyelesaikan evaluasi gerbang checkpoint pertama dan membuka akses jalur unit berikutnya.
+            </p>
+            <div style="font-size: 0.76rem; font-weight: 700; color: var(--gold-600);">Hadiah: +200 XP</div>
+          </div>
+
+          <!-- Lencana 7: Kolektor Kartu Karuta N5 (Dalam Proses: 75%) -->
+          <div class="badge-card" style="border-color: var(--border-strong);">
+            <div class="badge-top">
+              <div class="badge-emblem" style="background-color: var(--bg-subtle); color: var(--text-body);">🎴</div>
+              <div class="badge-details">
+                <h3>Kolektor Karuta N5</h3>
+                <span class="badge-status" style="color: var(--matcha-600);">Progres: 24 / 50 Kanji (48%)</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Kuasai 50 Kanji tingkat JLPT N5 lengkap dengan On'yomi dan Kun'yomi.
+            </p>
+            <div class="goal-progress-bar" style="margin-top: 4px;">
+              <div class="goal-progress-fill" style="width: 48%; background: var(--matcha-500);"></div>
+            </div>
+          </div>
+
+          <!-- Lencana 8: Naga Emas Kyoto (Terkunci) -->
+          <div class="badge-card locked">
+            <div class="badge-top">
+              <div class="badge-emblem">🐉</div>
+              <div class="badge-details">
+                <h3>Naga Emas Kyoto</h3>
+                <span class="badge-status" style="color: var(--text-muted);">Terkunci 🔒</span>
+              </div>
+            </div>
+            <p class="badge-desc">
+              Pertahankan streak belajar selama 30 hari berturut-turut dan capai Liga Berlian Kekaisaran.
+            </p>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">Syarat: 16 hari lagi tersisa</div>
+          </div>
+        </div>
+
+        <div style="background-color: var(--bg-surface); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card); margin-top: 10px;">
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--text-main);">Tambah Koleksi Lencana Anda!</h3>
+            <p style="font-size: 0.84rem; color: var(--text-body);">Selesaikan kuis latihan hari ini untuk mempercepat terbukanya Lencana Karuta.</p>
+          </div>
+          <a href="belajar.html#soal-1" class="btn-primary-action">Latihan Sekarang ⚔️</a>
+        </div>
+      </main>
+
+      <!-- Kolom Kanan: Rangkuman Statistik Prestasi -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">📊 Statistik Belajar</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.84rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Total XP Diraih:</span>
+              <strong style="color: var(--gold-600); font-variant-numeric: tabular-nums;">1,420 XP</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Tingkat Ketepatan:</span>
+              <strong style="color: var(--matcha-600);">94.2%</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Pelajaran Selesai:</span>
+              <strong>18 Bab</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-muted);">Koin Mon Terkumpul:</span>
+              <strong style="color: var(--gold-600);">85 Mon</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">📜 Tingkatan Gelar Murid</h3>
+          </div>
+          <div style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 8px;">
+            <div style="color: var(--text-muted);">I. Shoshinsha (初心者 - Pemula) ✓</div>
+            <div style="color: var(--text-muted);">II. Minarai (見習い - Murid Magang) ✓</div>
+            <div style="color: var(--text-muted);">III. Deshi (弟子 - Murid Tetap) ✓</div>
+            <div style="color: var(--matcha-600); font-weight: 700; background: var(--matcha-surface); padding: 4px 8px; border-radius: 4px;">
+              IV. Kenshi (剣士 - Pendekar) ★ Saat ini
+            </div>
+            <div style="color: var(--text-muted);">V. Tatsujin (達人 - Pakar) (Butuh 2,500 XP)</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link active">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>

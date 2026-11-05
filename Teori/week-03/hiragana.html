@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bagan Hiragana (平仮名) - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px;">あ</span>
+        <span>Hiragana Dasar</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp"><span class="stat-icon">⚡</span> 1,420</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item active">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">健</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank">Master Hiragana: 85%</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Bagan Interaktif Hiragana -->
+      <main class="main-path-column">
+        <section class="subpage-hero">
+          <div class="subpage-hero-text">
+            <h1>Bagan Lengkap Hiragana (平仮名)</h1>
+            <p>Huruf fonetik asli Jepang yang digunakan untuk partikel, kata asli, dan akhiran kata kerja (okurigana).</p>
+          </div>
+          <div class="hero-kanji-stamp">あ</div>
+        </section>
+
+        <!-- Pure CSS Tab Switcher: Gojuon vs Dakuon vs Yoon -->
+        <div class="css-tabs-wrapper">
+          <input type="radio" name="kana-tab" id="tab1" class="tab-radio" checked />
+          <input type="radio" name="kana-tab" id="tab2" class="tab-radio" />
+          <input type="radio" name="kana-tab" id="tab3" class="tab-radio" />
+
+          <div class="tab-nav-bar">
+            <label for="tab1" class="tab-label">Gojuon (46 Huruf Dasar)</label>
+            <label for="tab2" class="tab-label">Dakuon (Teng-teng & Maru)</label>
+            <label for="tab3" class="tab-label">Yoon (Gabungan Ya, Yu, Yo)</label>
+          </div>
+
+          <div class="tab-panels-content">
+            <!-- PANEL 1: GOJUON (46 DASAR) -->
+            <div id="panel1" class="tab-panel">
+              <div class="kana-grid">
+                <!-- Baris Vokal A I U E O -->
+                <div class="kana-card">
+                  <span class="kana-char">あ</span>
+                  <span class="kana-romaji">a</span>
+                  <span class="kana-sample">朝 (asa)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">い</span>
+                  <span class="kana-romaji">i</span>
+                  <span class="kana-sample">犬 (inu)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">う</span>
+                  <span class="kana-romaji">u</span>
+                  <span class="kana-sample">海 (umi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">え</span>
+                  <span class="kana-romaji">e</span>
+                  <span class="kana-sample">駅 (eki)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">お</span>
+                  <span class="kana-romaji">o</span>
+                  <span class="kana-sample">お茶 (ocha)</span>
+                </div>
+
+                <!-- Baris Ka Ki Ku Ke Ko -->
+                <div class="kana-card">
+                  <span class="kana-char">か</span>
+                  <span class="kana-romaji">ka</span>
+                  <span class="kana-sample">傘 (kasa)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">き</span>
+                  <span class="kana-romaji">ki</span>
+                  <span class="kana-sample">木 (ki)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">く</span>
+                  <span class="kana-romaji">ku</span>
+                  <span class="kana-sample">車 (kuruma)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">け</span>
+                  <span class="kana-romaji">ke</span>
+                  <span class="kana-sample">煙 (kemuri)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">こ</span>
+                  <span class="kana-romaji">ko</span>
+                  <span class="kana-sample">心 (kokoro)</span>
+                </div>
+
+                <!-- Baris Sa Shi Su Se So -->
+                <div class="kana-card">
+                  <span class="kana-char">さ</span>
+                  <span class="kana-romaji">sa</span>
+                  <span class="kana-sample">桜 (sakura)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">し</span>
+                  <span class="kana-romaji">shi</span>
+                  <span class="kana-sample">白 (shiro)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">す</span>
+                  <span class="kana-romaji">su</span>
+                  <span class="kana-sample">寿司 (sushi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">せ</span>
+                  <span class="kana-romaji">se</span>
+                  <span class="kana-sample">先生 (sensei)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">そ</span>
+                  <span class="kana-romaji">so</span>
+                  <span class="kana-sample">空 (sora)</span>
+                </div>
+
+                <!-- Baris Ta Chi Tsu Te To -->
+                <div class="kana-card">
+                  <span class="kana-char">た</span>
+                  <span class="kana-romaji">ta</span>
+                  <span class="kana-sample">太陽 (taiyou)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ち</span>
+                  <span class="kana-romaji">chi</span>
+                  <span class="kana-sample">父 (chichi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">つ</span>
+                  <span class="kana-romaji">tsu</span>
+                  <span class="kana-sample">月 (tsuki)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">て</span>
+                  <span class="kana-romaji">te</span>
+                  <span class="kana-sample">手 (te)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">と</span>
+                  <span class="kana-romaji">to</span>
+                  <span class="kana-sample">友達 (tomodachi)</span>
+                </div>
+
+                <!-- Baris Na Ni Nu Ne No -->
+                <div class="kana-card">
+                  <span class="kana-char">な</span>
+                  <span class="kana-romaji">na</span>
+                  <span class="kana-sample">夏 (natsu)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">に</span>
+                  <span class="kana-romaji">ni</span>
+                  <span class="kana-sample">日本 (nihon)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ぬ</span>
+                  <span class="kana-romaji">nu</span>
+                  <span class="kana-sample">布 (nuno)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ね</span>
+                  <span class="kana-romaji">ne</span>
+                  <span class="kana-sample">猫 (neko)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">の</span>
+                  <span class="kana-romaji">no</span>
+                  <span class="kana-sample">野原 (nohara)</span>
+                </div>
+
+                <!-- Baris Ha Hi Fu He Ho -->
+                <div class="kana-card">
+                  <span class="kana-char">は</span>
+                  <span class="kana-romaji">ha</span>
+                  <span class="kana-sample">花 (hana)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ひ</span>
+                  <span class="kana-romaji">hi</span>
+                  <span class="kana-sample">光 (hikari)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ふ</span>
+                  <span class="kana-romaji">fu</span>
+                  <span class="kana-sample">富士 (fuji)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">へ</span>
+                  <span class="kana-romaji">he</span>
+                  <span class="kana-sample">部屋 (heya)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ほ</span>
+                  <span class="kana-romaji">ho</span>
+                  <span class="kana-sample">星 (hoshi)</span>
+                </div>
+
+                <!-- Baris Ma Mi Mu Me Mo -->
+                <div class="kana-card">
+                  <span class="kana-char">ま</span>
+                  <span class="kana-romaji">ma</span>
+                  <span class="kana-sample">水 (mizu)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">み</span>
+                  <span class="kana-romaji">mi</span>
+                  <span class="kana-sample">道 (michi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">む</span>
+                  <span class="kana-romaji">mu</span>
+                  <span class="kana-sample">昔 (mukashi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">め</span>
+                  <span class="kana-romaji">me</span>
+                  <span class="kana-sample">目 (me)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">も</span>
+                  <span class="kana-romaji">mo</span>
+                  <span class="kana-sample">森 (mori)</span>
+                </div>
+
+                <!-- Baris Ya Yu Yo, Ra Ri Ru Re Ro, Wa Wo N -->
+                <div class="kana-card">
+                  <span class="kana-char">や</span>
+                  <span class="kana-romaji">ya</span>
+                  <span class="kana-sample">山 (yama)</span>
+                </div>
+                <div class="kana-card" style="opacity: 0.3;">
+                  <span class="kana-char">-</span>
+                  <span class="kana-romaji">-</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ゆ</span>
+                  <span class="kana-romaji">yu</span>
+                  <span class="kana-sample">雪 (yuki)</span>
+                </div>
+                <div class="kana-card" style="opacity: 0.3;">
+                  <span class="kana-char">-</span>
+                  <span class="kana-romaji">-</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">よ</span>
+                  <span class="kana-romaji">yo</span>
+                  <span class="kana-sample">夜 (yoru)</span>
+                </div>
+
+                <div class="kana-card">
+                  <span class="kana-char">ら</span>
+                  <span class="kana-romaji">ra</span>
+                  <span class="kana-sample">桜 (sakura)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">り</span>
+                  <span class="kana-romaji">ri</span>
+                  <span class="kana-sample">林檎 (ringo)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">る</span>
+                  <span class="kana-romaji">ru</span>
+                  <span class="kana-sample">見る (miru)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">れ</span>
+                  <span class="kana-romaji">re</span>
+                  <span class="kana-sample">歴史 (rekishi)</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ろ</span>
+                  <span class="kana-romaji">ro</span>
+                  <span class="kana-sample">蝋燭 (rousoku)</span>
+                </div>
+
+                <div class="kana-card">
+                  <span class="kana-char">わ</span>
+                  <span class="kana-romaji">wa</span>
+                  <span class="kana-sample">和 (wa)</span>
+                </div>
+                <div class="kana-card" style="opacity: 0.3;">
+                  <span class="kana-char">-</span>
+                  <span class="kana-romaji">-</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">を</span>
+                  <span class="kana-romaji">wo (o)</span>
+                  <span class="kana-sample">Partikel</span>
+                </div>
+                <div class="kana-card" style="opacity: 0.3;">
+                  <span class="kana-char">-</span>
+                  <span class="kana-romaji">-</span>
+                </div>
+                <div class="kana-card">
+                  <span class="kana-char">ん</span>
+                  <span class="kana-romaji">n</span>
+                  <span class="kana-sample">本 (hon)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: DAKUON (GA, ZA, DA, BA, PA) -->
+            <div id="panel2" class="tab-panel">
+              <div class="kana-grid">
+                <div class="kana-card"><span class="kana-char">が</span><span class="kana-romaji">ga</span></div>
+                <div class="kana-card"><span class="kana-char">ぎ</span><span class="kana-romaji">gi</span></div>
+                <div class="kana-card"><span class="kana-char">ぐ</span><span class="kana-romaji">gu</span></div>
+                <div class="kana-card"><span class="kana-char">げ</span><span class="kana-romaji">ge</span></div>
+                <div class="kana-card"><span class="kana-char">ご</span><span class="kana-romaji">go</span></div>
+
+                <div class="kana-card"><span class="kana-char">ざ</span><span class="kana-romaji">za</span></div>
+                <div class="kana-card"><span class="kana-char">じ</span><span class="kana-romaji">ji</span></div>
+                <div class="kana-card"><span class="kana-char">ず</span><span class="kana-romaji">zu</span></div>
+                <div class="kana-card"><span class="kana-char">ぜ</span><span class="kana-romaji">ze</span></div>
+                <div class="kana-card"><span class="kana-char">ぞ</span><span class="kana-romaji">zo</span></div>
+
+                <div class="kana-card"><span class="kana-char">だ</span><span class="kana-romaji">da</span></div>
+                <div class="kana-card"><span class="kana-char">ぢ</span><span class="kana-romaji">ji (dji)</span></div>
+                <div class="kana-card"><span class="kana-char">づ</span><span class="kana-romaji">zu (dzu)</span></div>
+                <div class="kana-card"><span class="kana-char">で</span><span class="kana-romaji">de</span></div>
+                <div class="kana-card"><span class="kana-char">ど</span><span class="kana-romaji">do</span></div>
+
+                <div class="kana-card"><span class="kana-char">ば</span><span class="kana-romaji">ba</span></div>
+                <div class="kana-card"><span class="kana-char">び</span><span class="kana-romaji">bi</span></div>
+                <div class="kana-card"><span class="kana-char">ぶ</span><span class="kana-romaji">bu</span></div>
+                <div class="kana-card"><span class="kana-char">べ</span><span class="kana-romaji">be</span></div>
+                <div class="kana-card"><span class="kana-char">ぼ</span><span class="kana-romaji">bo</span></div>
+
+                <div class="kana-card"><span class="kana-char">ぱ</span><span class="kana-romaji">pa</span></div>
+                <div class="kana-card"><span class="kana-char">ぴ</span><span class="kana-romaji">pi</span></div>
+                <div class="kana-card"><span class="kana-char">ぷ</span><span class="kana-romaji">pu</span></div>
+                <div class="kana-card"><span class="kana-char">ぺ</span><span class="kana-romaji">pe</span></div>
+                <div class="kana-card"><span class="kana-char">ぽ</span><span class="kana-romaji">po</span></div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: YOON (KYA, SHA, CHA) -->
+            <div id="panel3" class="tab-panel">
+              <div class="kana-grid">
+                <div class="kana-card"><span class="kana-char">きゃ</span><span class="kana-romaji">kya</span></div>
+                <div class="kana-card"><span class="kana-char">きゅ</span><span class="kana-romaji">kyu</span></div>
+                <div class="kana-card"><span class="kana-char">きょ</span><span class="kana-romaji">kyo</span></div>
+                <div class="kana-card"><span class="kana-char">しゃ</span><span class="kana-romaji">sha</span></div>
+                <div class="kana-card"><span class="kana-char">しゅ</span><span class="kana-romaji">shu</span></div>
+
+                <div class="kana-card"><span class="kana-char">しょ</span><span class="kana-romaji">sho</span></div>
+                <div class="kana-card"><span class="kana-char">ちゃ</span><span class="kana-romaji">cha</span></div>
+                <div class="kana-card"><span class="kana-char">ちゅ</span><span class="kana-romaji">chu</span></div>
+                <div class="kana-card"><span class="kana-char">ちょ</span><span class="kana-romaji">cho</span></div>
+                <div class="kana-card"><span class="kana-char">にゃ</span><span class="kana-romaji">nya</span></div>
+
+                <div class="kana-card"><span class="kana-char">ひゃ</span><span class="kana-romaji">hya</span></div>
+                <div class="kana-card"><span class="kana-char">みゃ</span><span class="kana-romaji">mya</span></div>
+                <div class="kana-card"><span class="kana-char">りゃ</span><span class="kana-romaji">rya</span></div>
+                <div class="kana-card"><span class="kana-char">じゃ</span><span class="kana-romaji">ja</span></div>
+                <div class="kana-card"><span class="kana-char">ぴゃ</span><span class="kana-romaji">pya</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol Latihan Menuju Belajar Kuis -->
+        <div style="background-color: var(--bg-surface); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card);">
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--text-main);">Sudah Siap Menguji Ingatan?</h3>
+            <p style="font-size: 0.84rem; color: var(--text-body);">Uji pemahaman huruf Hiragana Anda lewat kuis interaktif dan raih +30 XP.</p>
+          </div>
+          <a href="belajar.html#soal-1" class="btn-primary-action">Mulai Kuis Hiragana ⚡</a>
+        </div>
+      </main>
+
+      <!-- Kolom Kanan: Tips Menghafal & Catatan Budaya -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">💡 Tips Membaca</h3>
+            <span class="panel-badge">Rahasia Zen</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Hiragana memiliki garis lengkung yang halus seperti aliran sungai. Latihlah menulis di atas kertas washi dengan urutan goresan (kakujun) dari atas ke bawah, kiri ke kanan.
+          </p>
+          <div style="background-color: var(--matcha-surface); border: 1px solid var(--matcha-border); padding: 10px; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--matcha-600); font-weight: 600;">
+            Huruf unik: Perhatikan perbedaan antara <strong>さ (sa)</strong> dan <strong>ち (chi)</strong> yang saling bercermin!
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">📚 Kosakata Hiragana Pilihan</h3>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem;">
+            <div style="display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px dashed var(--border-hairline);">
+              <span style="font-weight: 700;">ありがとう</span>
+              <span style="color: var(--text-muted);">Terima kasih</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px dashed var(--border-hairline);">
+              <span style="font-weight: 700;">さくら</span>
+              <span style="color: var(--text-muted);">Bunga Sakura</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="font-weight: 700;">ともだち</span>
+              <span style="color: var(--text-muted);">Sahabat</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link active">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>

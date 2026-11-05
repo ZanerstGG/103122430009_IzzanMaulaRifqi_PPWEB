@@ -1,0 +1,3 @@
+AJAX tidak mengharuskan halaman dimuat ulang.
+Teks ini dibaca dari file ajax_info.txt memakai XMLHttpRequest.
+Ubah file ini, simpan, lalu tekan tombol Muat teks lagi.

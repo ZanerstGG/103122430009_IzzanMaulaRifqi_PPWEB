@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Peta materi | Praktikum AJAX</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body><a class="skip" href="#utama">Lewati navigasi</a>
+  <aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">{ }</span>
+      Praktikum AJAX</a>
+    <div class="scope">Modul 07 / Pemrograman Web</div>
+    <nav aria-label="Daftar materi"><a href="index.html" aria-current="page">Peta materi</a><a
+        href="01-apa-itu-ajax/index.html">01 Apa itu AJAX?</a><a href="02-cara-kerja-ajax/index.html">02 Cara kerja
+        AJAX</a><a href="03-event-xhr/index.html">03 Event dan XMLHttpRequest</a><a href="04-fetch-get/index.html">04
+        GET dengan Fetch</a><a href="05-axios-get/index.html">05 GET dengan Axios</a><a
+        href="06-axios-post/index.html">06 POST dengan Axios</a><a href="07-loading-error/index.html">07 Loading dan
+        error handling</a><a href="08-react-state/index.html">08 Loading dan error di React</a><a
+        href="09-api-eksternal/index.html">09 API lokal dan API eksternal</a></nav>
+    <p class="sidebar-footer">Belajar dari request pertama sampai state di React.<br>Data latihan: pengguna fiktif.</p>
+  </aside>
+  <header class="topbar"><span>Modul 07 <span class="context">/ AJAX dan konsumsi API</span></span><a
+      href="Modul_07_AJAX_Sederhana.pdf">Baca modul PDF</a></header>
+  <div class="mobile-nav"><label class="skip" for="pindah-materi">Pilih materi</label><select id="pindah-materi"
+      aria-label="Pindah materi">
+      <option value="index.html" selected>Peta materi</option>
+      <option value="01-apa-itu-ajax/index.html">01 Apa itu AJAX?</option>
+      <option value="02-cara-kerja-ajax/index.html">02 Cara kerja AJAX</option>
+      <option value="03-event-xhr/index.html">03 Event dan XMLHttpRequest</option>
+      <option value="04-fetch-get/index.html">04 GET dengan Fetch</option>
+      <option value="05-axios-get/index.html">05 GET dengan Axios</option>
+      <option value="06-axios-post/index.html">06 POST dengan Axios</option>
+      <option value="07-loading-error/index.html">07 Loading dan error handling</option>
+      <option value="08-react-state/index.html">08 Loading dan error di React</option>
+      <option value="09-api-eksternal/index.html">09 API lokal dan API eksternal</option>
+    </select></div>
+  <main id="utama" class="sheet">
+    <div class="file-warning" data-file-warning hidden><strong>Jalankan server terlebih dahulu.</strong><br>Ekstrak
+      seluruh ZIP, lalu klik dua kali <code>JALANKAN.bat</code>. Buka <a
+        href="http://127.0.0.1:3007">http://127.0.0.1:3007</a>. Contoh AJAX perlu alamat HTTP, bukan file://. Node.js
+      18+ diperlukan; Node.js LTS disarankan.</div>
+    <div class="page-meta">Modul 07 / Panduan praktikum sederhana</div>
+    <h1>AJAX dan konsumsi API</h1>
+    <p class="intro">Mulai dari mengubah teks tanpa reload, lalu ambil dan kirim data. Setiap contoh punya program,
+      penjelasan, kode, dan latihan kecil.</p><a href="01-apa-itu-ajax/index.html">Mulai contoh 01 &rarr;</a>
+    <div class="start-steps">
+      <p><b>1. Ekstrak seluruh ZIP</b><span class="meta">Jangan menjalankan dari dalam arsip.</span></p>
+      <p><b>2. Buka JALANKAN.bat</b><span class="meta">Perlu Node.js 18+. Tanpa npm install.</span></p>
+      <p><b>3. Pilih contoh</b><span class="meta">Biarkan terminal server tetap terbuka.</span></p>
+    </div>
+    <div class="downloads"><a href="Modul_07_AJAX_Sederhana.pdf">Modul PDF</a><a href="Modul_07_AJAX_Sederhana.md">Modul
+        versi teks</a><a href="README.md">Petunjuk menjalankan</a></div>
+    <h2>Urutan belajar</h2>
+    <div class="course-list"><a class="course-row" href="01-apa-itu-ajax/index.html"><span class="number">01</span>
+        <div><strong>Apa itu AJAX?</strong><span class="meta">Submateri 7.1</span></div><span class="topic">Mengubah
+          sebagian halaman tanpa memuat ulang seluruh halaman.</span><span class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="02-cara-kerja-ajax/index.html"><span class="number">02</span>
+        <div><strong>Cara kerja AJAX</strong><span class="meta">Submateri 7.2</span></div><span class="topic">Mengamati
+          urutan event, request, response, dan perubahan DOM.</span><span class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="03-event-xhr/index.html"><span class="number">03</span>
+        <div><strong>Event dan XMLHttpRequest</strong><span class="meta">Submateri 7.3</span></div><span
+          class="topic">Menghubungkan klik tombol dengan request memakai XMLHttpRequest (XHR).</span><span
+          class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="04-fetch-get/index.html"><span class="number">04</span>
+        <div><strong>GET dengan Fetch</strong><span class="meta">Submateri 7.4.1</span></div><span
+          class="topic">Mengambil JSON dan menampilkannya sebagai daftar pengguna.</span><span class="open">Buka
+          &rarr;</span>
+      </a><a class="course-row" href="05-axios-get/index.html"><span class="number">05</span>
+        <div><strong>GET dengan Axios</strong><span class="meta">Submateri 7.4.2</span></div><span
+          class="topic">Mengambil data yang sama dengan library Axios.</span><span class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="06-axios-post/index.html"><span class="number">06</span>
+        <div><strong>POST dengan Axios</strong><span class="meta">Submateri 7.4.3</span></div><span
+          class="topic">Mengirim nama dan email sebagai JSON ke API mock.</span><span class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="07-loading-error/index.html"><span class="number">07</span>
+        <div><strong>Loading dan error handling</strong><span class="meta">Submateri 7.5.1</span></div><span
+          class="topic">Menampilkan kondisi memuat, berhasil, kosong, gagal, dan timeout.</span><span class="open">Buka
+          &rarr;</span>
+      </a><a class="course-row" href="08-react-state/index.html"><span class="number">08</span>
+        <div><strong>Loading dan error di React</strong><span class="meta">Submateri 7.5.2</span></div><span
+          class="topic">Menggunakan useState dan useEffect untuk mengambil dan menampilkan data.</span><span
+          class="open">Buka &rarr;</span>
+      </a><a class="course-row" href="09-api-eksternal/index.html"><span class="number">09</span>
+        <div><strong>API lokal dan API eksternal</strong><span class="meta">Submateri Latihan API eksternal/mock</span>
+        </div><span class="topic">Membandingkan request ke API mock dengan API publik JSONPlaceholder.</span><span
+          class="open">Buka &rarr;</span>
+      </a></div>
+    <p class="note">Contoh 01-08 memakai server dan data mock lokal. Contoh 09 menyediakan pilihan API eksternal yang
+      membutuhkan internet. POST hanya simulasi dan tidak menyimpan data.</p>
+  </main>
+  <script src="assets/ui.js"></script>
+</body>
+
+</html>

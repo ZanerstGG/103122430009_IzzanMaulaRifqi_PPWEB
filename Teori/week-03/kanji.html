@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanji Dasar (漢字) N5 - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 16px; background-color: var(--matcha-600);">漢</span>
+        <span>Kanji Dasar N5</span>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill xp"><span class="stat-icon">⚡</span> 1,420</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Beranda Michi">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Jalan Bahasa Jepang</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Utama">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item active">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html" class="nav-item">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background: linear-gradient(135deg, var(--gold-500), var(--gold-600));">字</div>
+            <div class="profile-info">
+              <span class="profile-name">Izzan (あなた)</span>
+              <span class="profile-rank" style="color: var(--gold-600);">Penguasaan: 24 / 100 Kanji</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Koleksi Kartu 3D Flip Kanji -->
+      <main class="main-path-column">
+        <section class="subpage-hero">
+          <div class="subpage-hero-text">
+            <h1>Koleksi Kanji Dasar (漢字)</h1>
+            <p>Sentuh atau arahkan kursor ke kartu Kanji untuk membalik dan melihat On'yomi, Kun'yomi, jumlah goresan, serta contoh kata.</p>
+          </div>
+          <div class="hero-kanji-stamp">漢</div>
+        </section>
+
+        <!-- Pure CSS Tabs Kategori Kanji -->
+        <div class="css-tabs-wrapper">
+          <input type="radio" name="kanji-tab" id="tab1" class="tab-radio" checked />
+          <input type="radio" name="kanji-tab" id="tab2" class="tab-radio" />
+          <input type="radio" name="kanji-tab" id="tab3" class="tab-radio" />
+
+          <div class="tab-nav-bar">
+            <label for="tab1" class="tab-label">Alam & 7 Hari (自然)</label>
+            <label for="tab2" class="tab-label">Angka & Satuan (数字)</label>
+            <label for="tab3" class="tab-label">Manusia & Hati (人間)</label>
+          </div>
+
+          <div class="tab-panels-content">
+            <!-- PANEL 1: ALAM & ELEMEN -->
+            <div id="panel1" class="tab-panel">
+              <div class="kanji-grid">
+                <!-- KANJI: 日 (Hi / Nichi) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">日</div>
+                      <div class="flip-kanji-meaning">Matahari / Hari</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">NICHI, JITSU (ニチ)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">hi, -ka (ひ, か)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">4 Goresan (Radikal: 日)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">日本 (Nihon - Jepang)<br />日曜日 (Nichiyoubi - Minggu)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 月 (Tsuki / Getsu) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">月</div>
+                      <div class="flip-kanji-meaning">Bulan</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">GETSU, GATSU (ゲツ)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">tsuki (つき)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">4 Goresan (Radikal: 月)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">今月 (Kongetsu - Bulan ini)<br />月曜日 (Getsuyoubi - Senin)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 火 (Hi / Ka) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big" style="color: var(--vermilion-600);">火</div>
+                      <div class="flip-kanji-meaning">Api</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">KA (カ)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">hi (ひ)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">4 Goresan (Radikal: 火)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">花火 (Hanabi - Kembang api)<br />火曜日 (Kayoubi - Selasa)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 水 (Mizu / Sui) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big" style="color: #2D6086;">水</div>
+                      <div class="flip-kanji-meaning">Air</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">SUI (スイ)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">mizu (みず)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">4 Goresan (Radikal: 水)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">水着 (Mizugi - Baju renang)<br />水曜日 (Suiyoubi - Rabu)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 木 (Ki / Moku) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big" style="color: var(--matcha-600);">木</div>
+                      <div class="flip-kanji-meaning">Pohon / Kayu</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">MOKU, BOKU (モク)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">ki, ko- (き)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">4 Goresan (Radikal: 木)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">木漏れ日 (Komorebi)<br />木曜日 (Mokuyoubi - Kamis)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 金 (Kane / Kin) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big" style="color: var(--gold-600);">金</div>
+                      <div class="flip-kanji-meaning">Emas / Uang</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">KIN, KON (キン)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">kane (かね)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">8 Goresan (Radikal: 金)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">お金 (Okane - Uang)<br />金曜日 (Kinyoubi - Jumat)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 土 (Tsuchi / Do) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">土</div>
+                      <div class="flip-kanji-meaning">Tanah / Bumi</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">DO, TO (ド)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">tsuchi (つち)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">3 Goresan (Radikal: 土)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">土地 (Tochi - Lahan tanah)<br />土曜日 (Doyoubi - Sabtu)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANJI: 山 (Yama / San) -->
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">山</div>
+                      <div class="flip-kanji-meaning">Gunung</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row">
+                        <span class="reading-title">On'yomi:</span>
+                        <span class="reading-val">SAN (サン)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Kun'yomi:</span>
+                        <span class="reading-val">yama (やま)</span>
+                      </div>
+                      <div class="reading-row">
+                        <span class="reading-title">Goresan:</span>
+                        <span class="reading-val">3 Goresan (Radikal: 山)</span>
+                      </div>
+                      <div class="reading-row" style="margin-top: 4px;">
+                        <span class="reading-title">Contoh:</span>
+                        <span class="reading-val">富士山 (Fujisan - G. Fuji)<br />山登り (Yamanobori)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 2: ANGKA & SATUAN -->
+            <div id="panel2" class="tab-panel">
+              <div class="kanji-grid">
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">一</div>
+                      <div class="flip-kanji-meaning">Satu (1)</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">ICHI, ITSU</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">hito-tsu (ひとつ)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">一日 (Tsuitachi - Tgl 1)<br />一人 (Hitori - Sendiri)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">二</div>
+                      <div class="flip-kanji-meaning">Dua (2)</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">NI</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">futa-tsu (ふたつ)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">二月 (Nigatsu - Februari)<br />二人 (Futari - Berdua)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">三</div>
+                      <div class="flip-kanji-meaning">Tiga (3)</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">SAN</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">mit-tsu (みっつ)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">三日月 (Mikazuki - Sabit)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">十</div>
+                      <div class="flip-kanji-meaning">Sepuluh (10)</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">JUU</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">tou (とお)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">十分 (Jubbun - 10 menit)</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: MANUSIA & HATI -->
+            <div id="panel3" class="tab-panel">
+              <div class="kanji-grid">
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">人</div>
+                      <div class="flip-kanji-meaning">Orang / Manusia</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">JIN, NIN</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">hito (ひと)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">日本人 (Nihonjin - Org Jepang)<br />大人 (Otona - Dewasa)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big" style="color: var(--vermilion-600);">心</div>
+                      <div class="flip-kanji-meaning">Hati / Pikiran</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">SHIN</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">kokoro (こころ)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">安心 (Anshin - Tenang)<br />熱心 (Nesshin - Semangat)</span></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flip-card-wrapper" tabindex="0">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div class="flip-kanji-big">道</div>
+                      <div class="flip-kanji-meaning">Jalan / Jalan Hidup</div>
+                      <div class="flip-hint">Ketuk untuk membalik ↻</div>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="reading-row"><span class="reading-title">On'yomi:</span><span class="reading-val">DOU, TOU</span></div>
+                      <div class="reading-row"><span class="reading-title">Kun'yomi:</span><span class="reading-val">michi (みち)</span></div>
+                      <div class="reading-row"><span class="reading-title">Contoh:</span><span class="reading-val">書道 (Shodou - Kaligrafi)<br />柔道 (Juudou - Judo)</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background-color: var(--bg-surface); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow-card);">
+          <div>
+            <h3 style="font-size: 1.1rem; color: var(--text-main);">Kuis Kanji N5</h3>
+            <p style="font-size: 0.84rem; color: var(--text-body);">Tebak arti dan cara baca karakter Kanji dalam kalimat percakapan.</p>
+          </div>
+          <a href="belajar.html#soal-3" class="btn-primary-action">Latihan Kuis Kanji 🎯</a>
+        </div>
+      </main>
+
+      <!-- Kolom Kanan: Panduan Radikal & Filosofi -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🖌️ Filosofi Radikal (部首)</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Kanji bukan sekadar goresan acak, melainkan gabungan blok bangunan bermakna (radikal). Misalnya, radikal <strong>氵 (air)</strong> terdapat pada kata laut (海) dan sungai (河).
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">⛩️ Hari dalam Seminggu</h3>
+          </div>
+          <div style="font-size: 0.82rem; display: flex; flex-direction: column; gap: 6px;">
+            <div><strong>日 (Nichi)</strong> = Minggu (Matahari)</div>
+            <div><strong>月 (Getsu)</strong> = Senin (Bulan)</div>
+            <div><strong>火 (Ka)</strong> = Selasa (Api)</div>
+            <div><strong>水 (Sui)</strong> = Rabu (Air)</div>
+            <div><strong>木 (Moku)</strong> = Kamis (Kayu)</div>
+            <div><strong>金 (Kin)</strong> = Jumat (Emas)</div>
+            <div><strong>土 (Do)</strong> = Sabtu (Bumi)</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link active">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>

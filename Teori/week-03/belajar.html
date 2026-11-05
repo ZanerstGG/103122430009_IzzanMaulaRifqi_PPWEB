@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sesi Latihan Kuis (練習) - Michi 日本語</title>
+    <script>
+      (function() {
+        try {
+          var _f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _f; },
+            set: function(val) { _f = val; },
+            configurable: true,
+            enumerable: true
+          });
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', {
+              get: function() { return _f; },
+              set: function(val) { _f = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-top-header">
+      <div class="mobile-brand">
+        <a href="index.html" style="font-weight: 700; color: var(--text-muted);">✕ Keluar</a>
+      </div>
+      <div class="mobile-stats-row">
+        <span class="stat-pill streak"><span class="stat-icon">🔥</span> 14</span>
+        <span class="stat-pill hearts"><span class="stat-icon">❤️</span> 4</span>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- Kolom Kiri: Navigasi & Info Sesi -->
+      <aside class="sidebar-left">
+        <div>
+          <div class="brand-section">
+            <a href="index.html" class="brand-link" title="Kembali ke Beranda">
+              <div class="hanko-stamp">
+                <img src="./assets/images/hanko_seal_emblem.jpg" alt="Stempel Hanko" />
+              </div>
+              <div class="brand-text">
+                <span class="brand-title"><span class="brand-kanji">道</span> Michi</span>
+                <span class="brand-tagline">Sesi Latihan Aktif</span>
+              </div>
+            </a>
+          </div>
+
+          <nav class="sidebar-nav" aria-label="Navigasi Latihan">
+            <a href="index.html" class="nav-item">
+              <span class="nav-icon">🗺️</span>
+              <span>Peta Level</span>
+            </a>
+            <a href="hiragana.html" class="nav-item">
+              <span class="nav-icon">あ</span>
+              <span>Hiragana</span>
+            </a>
+            <a href="katakana.html" class="nav-item">
+              <span class="nav-icon">ア</span>
+              <span>Katakana</span>
+            </a>
+            <a href="kanji.html" class="nav-item">
+              <span class="nav-icon">漢</span>
+              <span>Kanji Dasar</span>
+            </a>
+            <a href="kosakata.html" class="nav-item">
+              <span class="nav-icon">語</span>
+              <span>Kosakata</span>
+            </a>
+            <a href="lencana.html" class="nav-item">
+              <span class="nav-icon">🏆</span>
+              <span>Lencana</span>
+            </a>
+            <a href="belajar.html#soal-1" class="nav-item active">
+              <span class="nav-icon">⚔️</span>
+              <span>Latihan Kuis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="user-profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar" style="background: linear-gradient(135deg, var(--matcha-500), var(--matcha-600));">練</div>
+            <div class="profile-info">
+              <span class="profile-name">Mode Tantangan</span>
+              <span class="profile-rank">Target: 4 Soal Selesai</span>
+            </div>
+          </div>
+          <div class="profile-stats-row">
+            <span class="stat-streak">🔥 14 Hari</span>
+            <span class="stat-hearts">❤️❤️❤️❤️🤍</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom Tengah: Mesin Kuis Interaktif Pure CSS -->
+      <main class="main-path-column">
+        
+        <!-- ================= SOAL 1 ================= -->
+        <section id="soal-1" class="quiz-step">
+          <!-- Header Bar Sesi Kuis -->
+          <div class="quiz-top-bar">
+            <a href="index.html" class="quiz-exit-btn" title="Keluar dari sesi latihan">✕</a>
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill-val" style="width: 25%;"></div>
+            </div>
+            <div class="quiz-hearts-left">
+              <span>❤️</span> <span>4</span>
+            </div>
+          </div>
+
+          <!-- Kartu Pertanyaan 1 -->
+          <div class="question-card">
+            <span class="question-kicker">Soal 1 dari 4 • Hiragana Dasar</span>
+            <h2 class="question-prompt">Manakah karakter Hiragana untuk vokal bunyi "A"?</h2>
+            <div class="question-prompt-jp">"A"</div>
+
+            <!-- Pilihan Jawaban (Radio Button tactile cards) -->
+            <form class="options-grid" action="#" onsubmit="return false;">
+              <div>
+                <input type="radio" name="q1" id="q1-a" class="quiz-radio correct" />
+                <label for="q1-a" class="option-button-label">
+                  <span class="option-jp-text">あ</span>
+                  <span class="option-sub-text">Pilihan A</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q1" id="q1-b" class="quiz-radio wrong" />
+                <label for="q1-b" class="option-button-label">
+                  <span class="option-jp-text">い</span>
+                  <span class="option-sub-text">Pilihan B</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q1" id="q1-c" class="quiz-radio wrong" />
+                <label for="q1-c" class="option-button-label">
+                  <span class="option-jp-text">う</span>
+                  <span class="option-sub-text">Pilihan C</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q1" id="q1-d" class="quiz-radio wrong" />
+                <label for="q1-d" class="option-button-label">
+                  <span class="option-jp-text">お</span>
+                  <span class="option-sub-text">Pilihan D</span>
+                </label>
+              </div>
+            </form>
+
+            <!-- Feedback Bubble Instan (Pure CSS :checked) -->
+            <div class="feedback-bubble-correct">
+              <span>✓</span>
+              <span><strong>Tepat sekali!</strong> Karakter <strong>あ</strong> dibaca "a" (seperti pada kata 朝 - asa / pagi).</span>
+            </div>
+            <div class="feedback-bubble-wrong">
+              <span>✕</span>
+              <span>Kurang tepat. Huruf <strong>あ</strong> adalah pilihan yang benar untuk bunyi vokal "a".</span>
+            </div>
+
+            <!-- Tombol Lanjut ke Soal 2 -->
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <a href="#soal-2" class="btn-primary-action question-next-btn">
+                Lanjut ke Soal 2 →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SOAL 2 ================= -->
+        <section id="soal-2" class="quiz-step">
+          <div class="quiz-top-bar">
+            <a href="index.html" class="quiz-exit-btn" title="Keluar">✕</a>
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill-val" style="width: 50%;"></div>
+            </div>
+            <div class="quiz-hearts-left">
+              <span>❤️</span> <span>4</span>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <span class="question-kicker">Soal 2 dari 4 • Katakana Modern</span>
+            <h2 class="question-prompt">Bagaimana cara membaca huruf Katakana berikut?</h2>
+            <div class="question-prompt-jp">コ</div>
+
+            <form class="options-grid" action="#" onsubmit="return false;">
+              <div>
+                <input type="radio" name="q2" id="q2-a" class="quiz-radio wrong" />
+                <label for="q2-a" class="option-button-label">
+                  <span class="option-jp-text">ro</span>
+                  <span class="option-sub-text">Huruf ロ</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q2" id="q2-b" class="quiz-radio correct" />
+                <label for="q2-b" class="option-button-label">
+                  <span class="option-jp-text">ko</span>
+                  <span class="option-sub-text">Huruf コ</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q2" id="q2-c" class="quiz-radio wrong" />
+                <label for="q2-c" class="option-button-label">
+                  <span class="option-jp-text">yu</span>
+                  <span class="option-sub-text">Huruf ユ</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q2" id="q2-d" class="quiz-radio wrong" />
+                <label for="q2-d" class="option-button-label">
+                  <span class="option-jp-text">ke</span>
+                  <span class="option-sub-text">Huruf ケ</span>
+                </label>
+              </div>
+            </form>
+
+            <div class="feedback-bubble-correct">
+              <span>✓</span>
+              <span><strong>Luar biasa!</strong> Karakter <strong>コ</strong> dibaca "ko", contoh: コーヒー (kōhī - kopi).</span>
+            </div>
+            <div class="feedback-bubble-wrong">
+              <span>✕</span>
+              <span>Kurang tepat. Karakter <strong>コ</strong> berbunyi "ko". Huruf ロ adalah kotak penuh untuk "ro".</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <a href="#soal-3" class="btn-primary-action question-next-btn">
+                Lanjut ke Soal 3 →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SOAL 3 ================= -->
+        <section id="soal-3" class="quiz-step">
+          <div class="quiz-top-bar">
+            <a href="index.html" class="quiz-exit-btn" title="Keluar">✕</a>
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill-val" style="width: 75%;"></div>
+            </div>
+            <div class="quiz-hearts-left">
+              <span>❤️</span> <span>4</span>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <span class="question-kicker">Soal 3 dari 4 • Kanji Dasar N5</span>
+            <h2 class="question-prompt">Pilihlah karakter Kanji yang melambangkan "Pohon / Kayu"!</h2>
+            <div class="question-prompt-jp">木</div>
+
+            <form class="options-grid" action="#" onsubmit="return false;">
+              <div>
+                <input type="radio" name="q3" id="q3-a" class="quiz-radio correct" />
+                <label for="q3-a" class="option-button-label">
+                  <span class="option-jp-text">木</span>
+                  <span class="option-sub-text">Ki / Moku</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q3" id="q3-b" class="quiz-radio wrong" />
+                <label for="q3-b" class="option-button-label">
+                  <span class="option-jp-text">本</span>
+                  <span class="option-sub-text">Hon (Buku/Asal)</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q3" id="q3-c" class="quiz-radio wrong" />
+                <label for="q3-c" class="option-button-label">
+                  <span class="option-jp-text">休</span>
+                  <span class="option-sub-text">Yasu-mu (Istirahat)</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q3" id="q3-d" class="quiz-radio wrong" />
+                <label for="q3-d" class="option-button-label">
+                  <span class="option-jp-text">水</span>
+                  <span class="option-sub-text">Mizu (Air)</span>
+                </label>
+              </div>
+            </form>
+
+            <div class="feedback-bubble-correct">
+              <span>✓</span>
+              <span><strong>Tepat!</strong> Kanji <strong>木 (ki)</strong> merepresentasikan pohon dengan batang dan rantingnya.</span>
+            </div>
+            <div class="feedback-bubble-wrong">
+              <span>✕</span>
+              <span>Kurang tepat. Kanji untuk pohon adalah <strong>木</strong>. Sedangkan 本 berarti buku/akar dasar.</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <a href="#soal-4" class="btn-primary-action question-next-btn">
+                Lanjut ke Soal 4 →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SOAL 4 ================= -->
+        <section id="soal-4" class="quiz-step">
+          <div class="quiz-top-bar">
+            <a href="index.html" class="quiz-exit-btn" title="Keluar">✕</a>
+            <div class="quiz-progress-track">
+              <div class="quiz-progress-fill-val" style="width: 90%;"></div>
+            </div>
+            <div class="quiz-hearts-left">
+              <span>❤️</span> <span>4</span>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <span class="question-kicker">Soal 4 dari 4 • Ungkapan & Tata Krama</span>
+            <h2 class="question-prompt">Apa arti dari ungkapan "いただきます (Itadakimasu)" sebelum makan?</h2>
+            <div class="question-prompt-jp" style="font-size: 2.2rem;">いただきます</div>
+
+            <form class="options-grid" action="#" onsubmit="return false;">
+              <div>
+                <input type="radio" name="q4" id="q4-a" class="quiz-radio correct" />
+                <label for="q4-a" class="option-button-label">
+                  <span style="font-size: 0.95rem; font-weight: 700;">Selamat makan</span>
+                  <span class="option-sub-text">Saya menerima hidangan ini</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q4" id="q4-b" class="quiz-radio wrong" />
+                <label for="q4-b" class="option-button-label">
+                  <span style="font-size: 0.95rem; font-weight: 700;">Selamat malam</span>
+                  <span class="option-sub-text">Konbanwa</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q4" id="q4-c" class="quiz-radio wrong" />
+                <label for="q4-c" class="option-button-label">
+                  <span style="font-size: 0.95rem; font-weight: 700;">Terima kasih</span>
+                  <span class="option-sub-text">Arigatou</span>
+                </label>
+              </div>
+
+              <div>
+                <input type="radio" name="q4" id="q4-d" class="quiz-radio wrong" />
+                <label for="q4-d" class="option-button-label">
+                  <span style="font-size: 0.95rem; font-weight: 700;">Permisi</span>
+                  <span class="option-sub-text">Sumimasen</span>
+                </label>
+              </div>
+            </form>
+
+            <div class="feedback-bubble-correct">
+              <span>✓</span>
+              <span><strong>Sempurna!</strong> Ungkapan terima kasih yang tulus kepada semua berkah yang tersaji di meja makan.</span>
+            </div>
+            <div class="feedback-bubble-wrong">
+              <span>✕</span>
+              <span>Kurang tepat. "Itadakimasu" adalah ucapan rasa syukur sebelum menikmati santapan.</span>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <a href="#selesai" class="btn-primary-action question-next-btn">
+                Selesaikan Latihan 🏆
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= LAYAR SELESAI & HADIAH ================= -->
+        <section id="selesai" class="quiz-step">
+          <div class="question-card" style="text-align: center; align-items: center; padding: 36px 24px;">
+            <div style="font-size: 4rem; margin-bottom: -10px;">🌸</div>
+            <span class="question-kicker" style="color: var(--gold-600);">Latihan Selesai!</span>
+            <h1 style="font-size: 1.8rem;">Selamat, Izzan!</h1>
+            <p style="font-size: 0.9rem; color: var(--text-body); max-width: 400px;">
+              Anda telah menuntaskan seluruh latihan dengan fokus penuh. Jalan ketekunan Anda membawa hasil nyata!
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; margin: 16px 0;">
+              <div style="background-color: var(--gold-surface); border: 1px solid var(--gold-border); padding: 14px 10px; border-radius: var(--radius-md);">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--gold-600);">+35 XP</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">PENGALAMAN</div>
+              </div>
+              <div style="background-color: var(--vermilion-surface); border: 1px solid var(--vermilion-border); padding: 14px 10px; border-radius: var(--radius-md);">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--vermilion-600);">14 Hari</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">STREAK AMAN 🔥</div>
+              </div>
+              <div style="background-color: var(--matcha-surface); border: 1px solid var(--matcha-border); padding: 14px 10px; border-radius: var(--radius-md);">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--matcha-600);">100%</div>
+                <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">AKURASI TINGGI</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; width: 100%; justify-content: center; flex-wrap: wrap;">
+              <a href="index.html" class="btn-primary-action" style="flex: 1; min-width: 180px;">
+                Kembali ke Peta Level 🗺️
+              </a>
+              <a href="belajar.html#soal-1" class="btn-primary-action" style="background-color: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border-strong); box-shadow: 0 4px 0 rgba(0,0,0,0.06); flex: 1; min-width: 180px;">
+                Latih Ulang ↻
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Kolom Kanan: Panduan Kuis & Motivasi -->
+      <aside class="sidebar-right">
+        <div class="stats-bar-card">
+          <div class="stat-pill streak">🔥 14 Hari</div>
+          <div class="stat-pill xp">⚡ 1,420 XP</div>
+          <div class="stat-pill hearts">🪙 85 Mon</div>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">🥋 Falsafah Kaizen (改善)</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            "Kaizen" berarti perubahan menuju kebaikan secara bertahap dan konsisten setiap hari. Sedikit latihan setiap hari mengalahkan belajar maraton dalam semalam.
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card-header">
+            <h3 class="panel-title">❤️ Sistem Nyawa Hati</h3>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-body); line-height: 1.5;">
+            Jangan takut membuat kesalahan! Kesalahan adalah guru terbaik. Nyawa Anda akan pulih kembali seiring waktu istirahat atau meninjau pelajaran terdahulu.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-bottom-nav" aria-label="Navigasi Ponsel">
+      <a href="index.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🗺️</span>
+        <span>Peta</span>
+      </a>
+      <a href="hiragana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">あ</span>
+        <span>Hiragana</span>
+      </a>
+      <a href="katakana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">ア</span>
+        <span>Katakana</span>
+      </a>
+      <a href="kanji.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">漢</span>
+        <span>Kanji</span>
+      </a>
+      <a href="lencana.html" class="mobile-nav-link">
+        <span class="mobile-nav-icon">🏆</span>
+        <span>Lencana</span>
+      </a>
+    </nav>
+  </body>
+</html>
